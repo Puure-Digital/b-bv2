@@ -179,22 +179,6 @@
 
 
 /* --------------------------------------------
-   2c. HOMEPAGE — DAY / EVENING TOGGLE
-   -------------------------------------------- */
-(function () {
-  var toggle = document.getElementById('heroMoodToggle');
-  var hero = document.querySelector('.hero');
-  if (!toggle || !hero) return;
-
-  toggle.addEventListener('click', function () {
-    var isEvening = hero.classList.toggle('hero--evening');
-    toggle.setAttribute('aria-pressed', isEvening ? 'true' : 'false');
-    toggle.querySelector('.mood-toggle__label').textContent = isEvening ? 'Evening' : 'Daytime';
-  });
-}());
-
-
-/* --------------------------------------------
    3. SCROLL REVEAL (IntersectionObserver)
    -------------------------------------------- */
 (function () {

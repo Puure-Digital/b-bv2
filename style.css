@@ -563,6 +563,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero {
   position: relative;
   overflow: hidden;
+  background: var(--color-ink);
 }
 
 .hero__bg {
@@ -574,9 +575,6 @@ h1, h2, h3, h4, h5, h6 {
   object-position: center 30%;
   background-color: var(--color-dark);
 }
-
-/* Parallax via JS class */
-.hero__bg--parallax { transform: scale(1.1); }
 
 .hero__overlay {
   position: absolute;
@@ -642,61 +640,6 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   color: var(--color-surface-2);
 }
-
-/* Day / Evening mood toggle */
-.mood-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-2);
-  margin-top: var(--sp-6);
-  padding: 8px 16px 8px 10px;
-  border-radius: 100px;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(6px);
-  color: rgba(240,237,232,0.85);
-  font-family: var(--font-ui);
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: background 200ms, border-color 200ms;
-}
-.mood-toggle:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.35); }
-
-.mood-toggle__icon {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  flex: none;
-  border-radius: 50%;
-  background: var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-ink);
-}
-.mood-toggle__icon svg { width: 13px; height: 13px; position: absolute; transition: opacity 250ms, transform 250ms; }
-.mood-toggle__moon { opacity: 0; transform: scale(0.6) rotate(-30deg); }
-.mood-toggle__sun  { opacity: 1; transform: scale(1) rotate(0deg); }
-.hero--evening .mood-toggle__sun  { opacity: 0; transform: scale(0.6) rotate(30deg); }
-.hero--evening .mood-toggle__moon { opacity: 1; transform: scale(1) rotate(0deg); }
-
-/* Evening mood state: warm colour-grade over the same real photo, not a different image */
-.hero__bg {
-  transition: filter 900ms ease;
-}
-.hero--evening .hero__bg {
-  filter: brightness(0.62) saturate(1.18) sepia(0.22) hue-rotate(-6deg);
-}
-.hero--evening .hero__overlay {
-  background:
-    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(184,149,106,0.28) 0%, transparent 65%),
-    linear-gradient(to right, rgba(20,18,16,0.95) 0%, rgba(20,18,16,0.8) 50%, rgba(20,18,16,0.68) 100%),
-    linear-gradient(to top,   rgba(20,18,16,0.7) 0%, transparent 60%);
-  transition: background 900ms ease;
-}
-.hero__overlay { transition: background 900ms ease; }
 
 .hero__h1 {
   font-family: var(--font-display);
