@@ -36,15 +36,13 @@
    -------------------------------------------- */
 .svc-hero {
   position: relative;
-  min-height: 60vh;
+  min-height: 68vh;
   display: flex;
   align-items: flex-start;
-  padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
   overflow: hidden;
   background-color: var(--color-ink);
-  background-image:
-    radial-gradient(ellipse 80% 60% at 90% 10%, rgba(184,149,106,0.13) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 10% 90%, rgba(184,149,106,0.06) 0%, transparent 60%);
+  isolation: isolate;
 }
 
 .svc-hero::before {
@@ -56,21 +54,59 @@
   width: 3px;
   background: linear-gradient(to bottom, transparent 0%, var(--color-accent) 30%, var(--color-accent) 70%, transparent 100%);
   opacity: 0.6;
+  z-index: 3;
 }
 
 .svc-hero__bg {
-  display: none;
+  position: absolute;
+  inset: -6%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  animation: svcHeroDrift 26s ease-in-out infinite alternate;
+  translate: 0px 0px;
+  transition: translate 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes svcHeroDrift {
+  from { transform: scale(1.05) translate3d(0, 0, 0); }
+  to   { transform: scale(1.12) translate3d(-1.4%, -1%, 0); }
 }
 
 .svc-hero__overlay {
-  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 60% at 92% 6%, rgba(184,149,106,0.16) 0%, transparent 68%),
+    linear-gradient(100deg, rgba(20,18,16,0.94) 0%, rgba(20,18,16,0.8) 40%, rgba(20,18,16,0.46) 74%, rgba(20,18,16,0.66) 100%),
+    linear-gradient(to top, rgba(20,18,16,0.62) 0%, transparent 48%);
 }
+
+/* Signature curved edge, echoes the arc of a Beams & Braces curved deck */
+.svc-hero__curve {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: clamp(30px, 5.5vw, 58px);
+  z-index: 2;
+  display: block;
+  color: var(--color-surface);
+}
+
+.svc-hero__curve--surface-2 { color: var(--color-surface-2); }
 
 .svc-hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 680px;
   padding-top: calc(var(--nav-height) + clamp(2.5rem, 5vw, 4rem));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-hero__bg { animation: none; }
 }
 
 .svc-hero__h1 {
