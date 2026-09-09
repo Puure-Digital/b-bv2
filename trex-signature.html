@@ -158,11 +158,21 @@
         <h2 class="svc-swatches__h2" id="swatches-h2">Two refined colours.</h2>
         <p class="svc-swatches__body">Each Signature colour is designed to complement contemporary architecture. Order a free sample to see your chosen colour in context.</p>
       </div>
-      <div class="svc-swatches__row reveal">
-        <div class="swatch swatch--active" data-preview="images/boards/Signature/whidbey.png"><div class="swatch__color" style="background:#9FA5A8"></div><span class="swatch__name">Whidbey</span></div>
-        <div class="swatch" data-preview="images/boards/Signature/ocracoke.png"><div class="swatch__color" style="background:#B8743A"></div><span class="swatch__name">Ocracoke</span></div>
+      <div class="colour-picker__grid reveal">
+        <button type="button" class="colour-swatch colour-swatch--active" data-preview="images/boards/Signature/whidbey.png" data-name="Whidbey">
+          <span class="colour-swatch__photo" style="background-image:url('images/boards/Signature/whidbey.png')"></span>
+          <span class="colour-swatch__name">Whidbey</span>
+        </button>
+        <button type="button" class="colour-swatch" data-preview="images/boards/Signature/ocracoke.png" data-name="Ocracoke">
+          <span class="colour-swatch__photo" style="background-image:url('images/boards/Signature/ocracoke.png')"></span>
+          <span class="colour-swatch__name">Ocracoke</span>
+        </button>
       </div>
-      <div class="svc-swatches__preview reveal" id="swatchPreview" style="background-image:url('images/boards/Signature/whidbey.png')" role="img" aria-label="Selected colour preview"></div>
+      <div class="svc-swatches__preview reveal" id="swatchPreview" role="img" aria-label="Selected colour preview">
+        <div class="svc-swatches__preview-img is-visible" style="background-image:url('images/boards/Signature/whidbey.png')"></div>
+        <div class="svc-swatches__preview-img"></div>
+        <span class="svc-swatches__preview-label" id="swatchPreviewLabel">Whidbey</span>
+      </div>
       <div class="svc-swatches__sample-cta reveal">
         <p class="svc-swatches__sample-text">Not sure which colour is right? Order a free sample and see it in your garden.</p>
         <a href="contact.html" class="btn btn--primary">Request Free Samples</a>
@@ -236,9 +246,23 @@
   <script src="script.js" defer></script>
   <script>
     document.querySelectorAll('.svc-gallery__strip').forEach(function(strip){var isDown=false,startX,scrollLeft;strip.addEventListener('mousedown',function(e){isDown=true;strip.classList.add('is-dragging');startX=e.pageX-strip.offsetLeft;scrollLeft=strip.scrollLeft;});strip.addEventListener('mouseleave',function(){isDown=false;strip.classList.remove('is-dragging');});strip.addEventListener('mouseup',function(){isDown=false;strip.classList.remove('is-dragging');});strip.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-strip.offsetLeft;strip.scrollLeft=scrollLeft-(x-startX)*1.5;});});
-    var preview=document.getElementById('swatchPreview');
-    document.querySelectorAll('.swatch').forEach(function(s){s.addEventListener('click',function(){document.querySelectorAll('.swatch').forEach(function(x){x.classList.remove('swatch--active');});s.classList.add('swatch--active');if(preview&&s.dataset.preview)preview.style.backgroundImage="url('"+s.dataset.preview+"')";});});
-    var first=document.querySelector('.swatch');if(first)first.classList.add('swatch--active');
+    (function(){
+      var preview=document.getElementById('swatchPreview');
+      var label=document.getElementById('swatchPreviewLabel');
+      var layers=preview?preview.querySelectorAll('.svc-swatches__preview-img'):[];
+      document.querySelectorAll('.colour-swatch').forEach(function(s){
+        s.addEventListener('click',function(){
+          document.querySelectorAll('.colour-swatch').forEach(function(x){x.classList.remove('colour-swatch--active');});
+          s.classList.add('colour-swatch--active');
+          if(!s.dataset.preview||!layers.length)return;
+          var visible=preview.querySelector('.svc-swatches__preview-img.is-visible');
+          var back=Array.prototype.filter.call(layers,function(l){return l!==visible;})[0]||layers[0];
+          back.style.backgroundImage="url('"+s.dataset.preview+"')";
+          requestAnimationFrame(function(){layers.forEach(function(l){l.classList.remove('is-visible');});back.classList.add('is-visible');});
+          if(label)label.textContent=s.dataset.name||'';
+        });
+      });
+    })();
   </script>
 
   <!-- FLOATING ACTION BUTTONS -->
