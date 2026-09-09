@@ -64,8 +64,6 @@
   background-position: center;
   z-index: 0;
   animation: svcHeroDrift 26s ease-in-out infinite alternate;
-  translate: 0px 0px;
-  transition: translate 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 @keyframes svcHeroDrift {
@@ -506,7 +504,7 @@ section.svc-features {
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 300;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   letter-spacing: -0.01em;
   flex-shrink: 0;
   transition: background 250ms, border-color 250ms;
@@ -589,7 +587,7 @@ section.svc-features {
   transition: color 150ms;
 }
 
-.svc-faq__trigger:hover { color: var(--color-accent); }
+.svc-faq__trigger:hover { color: var(--color-accent-dark); }
 
 .svc-faq__icon {
   width: 20px; height: 20px;
@@ -957,7 +955,7 @@ section.svc-features {
 
 .colour-swatch__name {
   font-size: var(--text-label);
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-muted);
@@ -965,7 +963,7 @@ section.svc-features {
   transition: color 200ms;
 }
 
-.colour-swatch--active .colour-swatch__name { color: var(--color-ink); font-weight: 600; }
+.colour-swatch--active .colour-swatch__name { color: var(--color-ink); }
 
 .svc-swatches__preview {
   position: relative;
@@ -1101,7 +1099,7 @@ section.svc-features {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 
 .compare-card__name {
@@ -1447,7 +1445,7 @@ section.svc-features {
 }
 
 .testimonial-card__stars {
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   font-size: 1rem;
   letter-spacing: 2px;
 }
@@ -1534,7 +1532,7 @@ section.svc-features {
   transition: color 150ms;
 }
 
-.faq-question:hover { color: var(--color-accent); }
+.faq-question:hover { color: var(--color-accent-dark); }
 
 .faq-icon {
   width: 20px;
@@ -1723,7 +1721,7 @@ section.svc-features {
   margin-top: var(--sp-4);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 
 .room-type-card__link svg {
@@ -1762,7 +1760,7 @@ section.svc-features {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   margin-bottom: var(--sp-4);
 }
 

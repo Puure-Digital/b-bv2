@@ -145,40 +145,6 @@
 
 
 /* --------------------------------------------
-   2b. SERVICE HERO — CURSOR DRIFT (desktop only)
-   -------------------------------------------- */
-(function () {
-  var hero = document.querySelector('.svc-hero');
-  var bg = hero ? hero.querySelector('.svc-hero__bg') : null;
-  if (!hero || !bg) return;
-
-  var mq = window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)');
-  if (!mq.matches) return;
-
-  var raf = null, tx = 0, ty = 0;
-
-  function onMove(e) {
-    var rect = hero.getBoundingClientRect();
-    var nx = (e.clientX - rect.left) / rect.width - 0.5;
-    var ny = (e.clientY - rect.top) / rect.height - 0.5;
-    tx = nx * -14;
-    ty = ny * -10;
-    if (!raf) raf = requestAnimationFrame(apply);
-  }
-
-  function apply() {
-    raf = null;
-    bg.style.translate = tx.toFixed(1) + 'px ' + ty.toFixed(1) + 'px';
-  }
-
-  hero.addEventListener('mousemove', onMove);
-  hero.addEventListener('mouseleave', function () {
-    bg.style.translate = '0px 0px';
-  });
-}());
-
-
-/* --------------------------------------------
    3. SCROLL REVEAL (IntersectionObserver)
    -------------------------------------------- */
 (function () {

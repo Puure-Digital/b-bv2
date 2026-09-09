@@ -109,7 +109,7 @@ ul { list-style: none; }
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   background: rgba(184,149,106,0.10);
   border: 1px solid rgba(184,149,106,0.20);
   border-radius: 100px;
@@ -221,8 +221,8 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-border);
 }
 .btn--ghost:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
   transform: translateY(-1px);
 }
 
@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-ui);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   letter-spacing: 0.02em;
   transition: gap 200ms var(--ease-std), color 200ms;
 }
@@ -1111,7 +1111,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   margin-bottom: var(--sp-2);
 }
 
@@ -1253,8 +1253,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .testimonials__nav-btn:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
   background: var(--color-surface-2);
 }
 
@@ -1325,7 +1325,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   background: rgba(184,149,106,0.1);
   border-radius: 100px;
   padding: 3px 10px;
@@ -1495,7 +1495,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
   background: rgba(184,149,106,0.1);
   border-radius: 100px;
   padding: 3px 10px;
