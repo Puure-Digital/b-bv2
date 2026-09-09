@@ -1,0 +1,21 @@
+cluster,keyword,intent,role,search_volume,ai_search_volume,competition,cpc
+near-me,composite decking installer near me,transactional,primary,170,missing,HIGH,5.80
+location-core,composite decking norwich,transactional,secondary,70,missing,HIGH,2.94
+product-generic,trex decking installer,transactional,secondary,20,missing,HIGH,1.98
+location-secondary,composite decking norfolk,commercial,support,10,missing,HIGH,3.71
+location-secondary,composite decking suffolk,commercial,support,10,missing,HIGH,0.93
+location-secondary,garden decking norfolk,informational,support,10,missing,no data,no data
+location-town,composite decking cromer,transactional,skip,no data,missing,no data,no data
+location-town,composite decking wroxham,transactional,skip,no data,missing,no data,no data
+location-town,composite decking southwold,transactional,skip,no data,missing,no data,no data
+location-town,decking norfolk broads,transactional,skip,no data,missing,no data,no data
+product-generic,trex decking norwich,transactional,skip,no data,missing,no data,no data
+product-generic,trex decking norfolk,transactional,skip,no data,missing,no data,no data
+product-generic,trex decking suffolk,transactional,skip,no data,missing,no data,no data
+product-generic,decking installer norwich,transactional,skip,no data,missing,no data,no data
+product-generic,decking installer norfolk,transactional,skip,no data,missing,no data,no data
+product-generic,decking company norwich,transactional,skip,no data,missing,no data,no data
+product-generic,trexpro platinum installer,navigational,skip,no data,missing,no data,no data
+product-generic,premium decking norfolk,commercial,skip,no data,missing,no data,no data
+product-generic,composite decking company norfolk,commercial,skip,no data,missing,no data,no data
+product-generic,garden decking company norfolk,commercial,skip,no data,missing,no data,no data

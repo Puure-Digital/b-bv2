@@ -4,14 +4,6 @@
 
 'use strict';
 
-/* Fix hero H1 layout — Hostinger alters inline HTML during deploy */
-document.addEventListener('DOMContentLoaded', function () {
-  var h1 = document.querySelector('.hero__h1') || document.querySelector('h1');
-  if (h1) {
-    h1.innerHTML = 'Decking &amp; Garden Rooms<br><span style="display:block;color:#B8956A;font-style:italic;">Norwich, Norfolk.</span>';
-  }
-});
-
 /* --------------------------------------------
    1. NAV: SCROLL STATE + BURGER + DROPDOWNS
    -------------------------------------------- */
