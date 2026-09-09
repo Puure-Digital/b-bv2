@@ -166,6 +166,21 @@ h1, h2, h3, h4, h5, h6 {
 .section--dark       { background: var(--color-dark); }
 
 /* --------------------------------------------
+   IMAGE PLACEHOLDER
+   Real photography stripped pending a reshoot —
+   deliberate empty state, not a broken image.
+   -------------------------------------------- */
+.img-placeholder {
+  background-image: none !important;
+  background-color: var(--color-surface-2);
+}
+.svc-hero .img-placeholder,
+.hero .img-placeholder,
+.img-placeholder.img-placeholder--dark {
+  background-color: var(--color-dark);
+}
+
+/* --------------------------------------------
    5. BUTTONS
    -------------------------------------------- */
 .btn {
