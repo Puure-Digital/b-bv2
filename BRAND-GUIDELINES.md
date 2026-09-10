@@ -1,8 +1,101 @@
-# Beams & Braces — Website Brand Guidelines
+# Beams & Braces — Brand & Facts Reference
 
-Internal reference for keeping every page visually consistent. All tokens below are defined once in `style.css` (`:root`) and reused by `services.css`. When building a new page or component, pull from this list rather than inventing a new value — that's exactly the inconsistency this doc exists to prevent.
+The single source of truth for building this site: who the company actually is, the real numbers/credentials/colours to use, and the visual system to build with. Pulled directly from the live site (`style.css`, `services.css`, and the pages themselves) plus facts confirmed by Darren during the rebuild. If anything here conflicts with a live page, treat the live page as possibly wrong and flag it — this doc should describe what's *true*, not just what's currently written somewhere.
 
-## Colour
+**Golden rule**: never invent a number, colour, credential, or quote for this site. Every fact below traces back to something real (Companies House, Trex's own UK site/installer profile, Darren directly, or the real Google review page). If you need a fact that isn't here, ask rather than approximate.
+
+---
+
+## Company facts
+
+| Fact | Value |
+|---|---|
+| Trading name | Beams & Braces |
+| Legal entity | D Gooch Limited |
+| Company number | 04835734 |
+| Owner / face of the business | Darren Gooch |
+| Address | 191a Plumstead Road East, Norwich, NR7 9LW |
+| Phone | 07983 531860 (`+447983531860` in schema/tel/wa.me links) |
+| Email | darren@beamsandbraces.co.uk |
+| Domain | beamsandbraces.co.uk |
+| Areas served | Norfolk and Suffolk, with recurring emphasis on the Norfolk Broads, heritage properties, holiday homes, and waterside gardens — this is the positioning, not generic "local decking installer" |
+| Price positioning | `£££` (premium) — schema `priceRange`, not `££` |
+
+Standard footer/legal line (use verbatim, don't reword): *"Beams & Braces is a trading name of D Gooch Limited (Company No. 04835734)."*
+
+## Credentials & real numbers (never round up, never invent a new stat)
+
+- **TrexPRO Platinum installer since 2017** (verified against Trex's own official "Find a Builder" profile)
+- **Trex Pro Advisory Council member since 2024** — one of the few UK installers Trex consults directly on what's working on the ground
+- **500+ composite decks installed since 2016** (the year Darren started doing decking specifically, distinct from the family's timber/joinery business, which goes back to 2002 when Darren was three years old)
+- **UK's leading curved-deck builder** — some of the largest curved Trex decks installed anywhere in the UK
+- **5.0 rating, 10 Google reviews** (current live count on the homepage — verify this number before quoting it elsewhere, it will climb over time)
+- Darren personally uses **UC4-rated joists, joist protection tape, and plastic subframes on every job** — a real build-quality detail worth repeating, not marketing fluff
+
+Real timeline (from `about.html`, Darren's own story): 2002 family joinery beginnings → 2016 Beams & Braces / Trex decking begins → 2017 TrexPRO Platinum → 2024 Trex Pro Advisory Council.
+
+## Real reviews — use only these, never fabricate one
+
+Curated from the real Beams & Braces Google Business profile (D Gooch Sheds & Fencing reviews are a different business/service line and are excluded):
+
+Jeannette Astley-Jones · Dr S J Miller-Smith · Nana · Jason A · Julie · Mark Burgess · Kim Frost · Cherry Brooks
+
+These 8 are reused across pages (homepage, product pages, testimonials page) since only 8 are curated — that's normal practice, not padding. Do not invent a 9th, and do not attach a real name to an invented quote.
+
+## Trex product facts
+
+Darren sells Trex Signature, Trex Transcend, and Trex Enhance (which has two collections within it — Naturals and Basics, not two separate product lines).
+
+| Range | Colours Darren sells | Warranty |
+|---|---|---|
+| **Signature** | Ocracoke, Whidbey | 50 years |
+| **Transcend** | Jasper, Biscayne, Rainier, Carmel (Lineage collection), Island Mist (Tropicals collection) | 50 years |
+| **Enhance Naturals** | Foggy Wharf, Rocky Harbor, Toasted Sand, Calm Water | 25 years |
+| **Enhance Basics** | Clam Shell, Tide Pool | 25 years |
+
+Notes:
+- Trex's full UK Enhance Basics range also includes **Saddle** — Darren does not offer it, so it should never appear on this site.
+- Transcend's full Tropicals collection also includes Tiki Torch, and there was once a colour called Spiced Rum on an older version of the site — neither is real/current. Island Mist is the only Tropicals colour Darren sells.
+- **Boards are single-face embossed with a grooved edge for hidden fasteners.** They are not "dual-sided" or flippable — this exact wrong claim has been found and removed from the site multiple times, so double-check before writing anything implying two usable faces.
+- Board size referenced on product pages: 25 × 140mm.
+- Real board photos live in `images/boards/<Range>/<colour>.png|jpg` (Enhance further splits into `Naturals/` and `basics/` subfolders) — always use the real photo as the swatch/preview image, never an approximated hex colour (see Visual identity → Known-good patterns below for why).
+
+## Content & voice rules
+
+- **No location-specific landing pages** (e.g. "composite decking Norwich") and no dedicated "areas we cover" page. This mirrors Darren's own preference and how his own site is structured — geography lives as natural mentions in body copy instead.
+- **CTA language is "Let's Chat," never "Get a Free Quote."** Darren has explicitly objected to quote-framing language.
+- **"Request Free Samples" links go to `/contact`**, never to Trex's own paid sample checkout (`uk.trex.com/shop`) — Darren arranges samples personally.
+- **Never fabricate a testimonial, review, or statistic**, and never attach an invented quote to a real named reviewer, even loosely worded. This site previously had real, serious fabrication problems (invented names, invented UK towns, non-existent product colours in testimonials, and fabricated review schema) that were all removed — don't reintroduce anything in that direction.
+- Fencing and garden rooms are real services but deprioritized (low enquiry volume through this site) — don't remove them, but don't over-invest in them either without being asked.
+
+## Lead capture (current real setup — verify before calling this "unsolved")
+
+`contact.html` currently has **two live paths**, not zero:
+
+1. **WhatsApp**: a direct link to `https://wa.me/447983531860`, styled as the primary CTA ("Message Me on WhatsApp").
+2. **A multi-step form** (`.quote-form-embed`) that collects service type, name, phone, email, and postcode, then POSTs as JSON to a LeadConnector/GoHighLevel webhook (`https://services.leadconnectorhq.com/hooks/Axt4G21iCMs3IB0wkLjD/webhook-trigger/...`) before redirecting to `/thank-you`.
+
+Both exist in the live code today. What's still unconfirmed: whether that webhook is actively monitored/connected to a working CRM pipeline on Darren's end, and which of the two paths he actually wants to lead with. Don't assume this is a from-scratch backend decision — it's a "verify and possibly simplify" task, not a "build" task.
+
+## Current site map
+
+Flat structure at the project root (no subfolders per section):
+
+`index.html` · `about.html` · `contact.html` · `work.html` · `railing-lighting.html` · `trex.html` (hub) · `trex-signature.html` · `trex-transcend.html` · `trex-enhance-naturals.html` · `privacy-policy.html` · `terms.html` · `thank-you.html`
+
+Nav labels: **Trex Decking** (dropdown to the hub + 3 range pages) · **Our Work** · **Railing & Lighting** · **About** · **Let's Chat** (primary CTA, always visible).
+
+## Brand assets
+
+- Logo: `images/shared/logo-dark.png` — **this is currently the only logo file**, even though the nav markup has separate `nav-logo-img--white` and `nav-logo-img--dark` classes implying two variants should exist. Worth producing a true light/white-mark variant if the nav is ever placed over a light, non-overlaid background.
+- Favicon: `images/shared/favicon.png`
+- Trex partner logo: `images/shared/trex-logo.png` — an official Trex asset, keep unmodified, don't recolour or crop it.
+
+---
+
+## Visual identity
+
+### Colour
 
 | Token | Hex | Use for |
 |---|---|---|
@@ -17,7 +110,7 @@ Internal reference for keeping every page visually consistent. All tokens below 
 | `--color-dark-text` | `#F0EDE8` | Primary text on dark backgrounds |
 | `--color-dark-muted` | `#7A7168` | Secondary text on dark backgrounds |
 
-### The contrast rule (read this before using accent as text colour)
+#### The contrast rule (read this before using accent as text colour)
 
 `--color-accent` (#B8956A) has a contrast ratio of only **~2.8:1** against `--color-surface`/`--color-surface-2` — well under the WCAG AA minimum of 4.5:1 for text. That's why headings, tags, and labels using it directly on a white/cream background go faint and hard to read.
 
@@ -27,7 +120,7 @@ Internal reference for keeping every page visually consistent. All tokens below 
 
 If you're ever unsure which to reach for, check the background it's sitting on first, then pick the colour from the row above.
 
-## Typography
+### Typography
 
 - **Display face**: `Fraunces` (serif) — headings only, plus the odd emphasized inline word (`<em>`).
 - **UI face**: `Plus Jakarta Sans` — everything else: body copy, labels, nav, buttons, captions.
@@ -36,26 +129,32 @@ If you're ever unsure which to reach for, check the background it's sitting on f
 Type scale (all fluid via `clamp()`, don't hardcode pixel sizes for headings):
 `--text-display` → `--text-h1` → `--text-h2` → `--text-h3` → `--text-body-lg` → `--text-body` → `--text-sm` → `--text-label`
 
-## Spacing & Layout
+### Spacing & Layout
 
 Use the `--sp-*` scale (4px base unit: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128) for all margin/padding/gap — never a raw pixel value that isn't on this scale. `--container` (1240px) and `--container-pad` govern page width; `--section-pad` governs vertical rhythm between sections.
 
-## Radius
+### Radius
 
 `--radius-sm` (6px) small chips/buttons · `--radius-md` (10px) cards, swatches · `--radius-lg` (14px) larger panels, preview images · `--radius-xl` (20px) hero-scale elements.
 
-## Motion
+### Motion
 
 - Easing curves are named and specific — never plain `ease` or `linear`: `--ease-out-expo` (cinematic deceleration), `--ease-spring` (slight overshoot, buttons), `--ease-std` (default transitions).
 - Respect `prefers-reduced-motion` on every animated component — check the existing pattern in `script.js`'s scroll-reveal system before adding new motion.
 - **No hover-triggered position jitter.** A past cursor-parallax effect on hero images (moving the background image a few px on every mouse move) was removed because it read as unintentional shakiness rather than a deliberate effect — if a hero should feel alive, prefer a slow ambient animation (like the existing `svcHeroDrift` keyframe) over anything driven by cursor position.
 - **Don't change font-weight on hover/active state for anything sized to fit its container** (swatch labels, tags, pills). A weight change shifts text width and can force a wrap that wasn't there a moment ago. Vary colour or background instead, and keep weight constant.
 
-## Known-good patterns
+### Known-good patterns
 
 - **Product colour swatches** (`trex-signature.html`, `trex-transcend.html`, `trex-enhance-naturals.html`): real photo thumbnails via `.colour-swatch`, not flat hex colour blocks — a flat colour never matches the real board. Preview panel is a true 1:1 square to match the source photos' native aspect ratio; never stretch a square photo into a wide rectangle.
 - **Dark vs light sections**: the site alternates `--color-surface`/`--color-surface-2` light sections with `--color-dark`/`--color-ink` dark sections (hero, featured stats, CTA banners, footer). When adding a new section, decide light-or-dark first, then pick every colour token from the matching column above — don't mix a dark-section token into a light section or vice versa.
 
-## Open item
+## Open items
 
-This doc was written to fix a concrete bug (accent-coloured headings unreadable on white) and capture the fix as a rule going forward. It is **not** yet a full page-by-page audit for overall design continuity — that's a separate, larger pass still to be done (see the project memory / punch list from 2026-09-09).
+This doc fixes a concrete visual bug (accent-coloured headings unreadable on white) and consolidates the real company/product facts scattered across past conversations into one place. Still outstanding, not covered by this doc:
+
+1. A full page-by-page design-continuity audit (see the project memory / punch list from 2026-09-09).
+2. Deeper railing & lighting content.
+3. Weaving the credentials/numbers above into more pages, not just the homepage/about.
+4. Deciding whether WhatsApp or the webhook form (or both) should lead, and confirming the webhook is actually being monitored.
+5. Sourcing and organizing better real project photography into folders in this working directory.
