@@ -243,6 +243,8 @@ em { font-style: italic; }
   position: relative; isolation: isolate;
   min-height: clamp(640px, 100svh, 1080px);
   display: grid; grid-template-rows: 1fr auto;
+  /* one column that never grows past the screen, whatever its content would like */
+  grid-template-columns: minmax(0, 1fr);
   color: var(--color-dark-text);
   background: var(--color-ink);
   overflow: hidden;
@@ -681,7 +683,7 @@ em { font-style: italic; }
 .outcome__panel .outcome__detail {
   margin-top: var(--sp-8); padding-top: var(--sp-6);
   border-top: 1px solid var(--color-border-dark);
-  font-size: var(--text-sm);
+  font-size: var(--text-sm); font-style: italic;
 }
 
 /* ---------- Section head ---------- */
@@ -1191,7 +1193,7 @@ em { font-style: italic; }
 .page-hero {
   position: relative; isolation: isolate;
   min-height: clamp(520px, 78svh, 860px);
-  display: grid;
+  display: grid; grid-template-columns: minmax(0, 1fr);
   color: var(--color-dark-text);
   background: var(--color-ink);
   overflow: hidden;
@@ -1826,7 +1828,15 @@ em { font-style: italic; }
     display: inline-flex; align-items: center; min-height: 44px;
   }
   .footer ul li + li { margin-top: 0; }
-  .footer a, .crumbs a { min-width: 44px; }
+  .footer a { min-width: 44px; }
+  /* a short crumb ("Home") gets a wider tap area from an invisible pad, not extra width,
+     so the slashes stay evenly spaced */
+  .crumbs a { position: relative; }
+  .crumbs a::after { content: ""; position: absolute; inset: 0 -8px; }
+  /* the links grow to 44px tall for a thumb, so every crumb (the current page and the
+     slashes too) shares that row and centres in it, keeping the trail on one line */
+  .crumbs { align-items: center; }
+  .crumbs li { display: inline-flex; align-items: center; min-height: 44px; }
   .footer__links { gap: 0 var(--sp-6); }
 }
 
@@ -1891,3 +1901,34 @@ em { font-style: italic; }
 }
 /* on the narrowest phones the arrows go so the labels keep a readable size */
 @media (max-width: 380px) { .work__cats .link::after { display: none; } }
+/* small swatches: the Standard tag becomes a band across the foot of the photo, with
+   tighter tracking, so it always sits inside the 72px board */
+@media (max-width: 600px) {
+  .swatch .swatch__frame > .swatch__tag { right: 0; text-align: center; padding: 3px 2px; letter-spacing: 0.06em; }
+}
+
+/* ---------- Credentials ticker (homepage hero, phones) ----------
+   site.js turns the four credentials into one line that drifts slowly sideways; the
+   line is held twice so the loop never shows a seam. Wider screens, reduced motion and
+   no script keep the plain list above. */
+.credentials--ticker {
+  /* the unwrapped line must never set the width of anything around it */
+  contain: inline-size; min-width: 0;
+  display: block; overflow: hidden; white-space: nowrap;
+  padding-bottom: var(--sp-1);
+  font-size: var(--text-xs); letter-spacing: 0.1em;
+  color: color-mix(in srgb, var(--color-dark-text) 86%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 7%, #000 93%, transparent 100%);
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.ticker__track { display: inline-flex; will-change: transform; }
+.ticker__run { display: inline-flex; align-items: center; flex: none; }
+.ticker__run > * { display: inline-flex; align-items: center; gap: var(--sp-2); min-height: 44px; }
+/* a small brass dot between credentials */
+.ticker__run > *::after {
+  content: ""; flex: none; width: 4px; height: 4px; margin-inline: var(--sp-6);
+  border-radius: 50%; background: var(--color-accent);
+}
+.ticker__star { flex: none; width: 12px; height: 12px; color: var(--color-accent); }
+.credentials--ticker a { color: var(--color-dark-text); }

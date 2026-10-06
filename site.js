@@ -455,8 +455,8 @@
   /* ---------- Contact sheet drift (homepage work) ----------
      Each column scrolls by a few pixels a second, alternate columns opposite ways,
      wrapping at the height of one run so the loop is seamless. Constant speed, so it
-     is driven per frame rather than by an easing curve. Pauses while the pointer or
-     focus is in the sheet, while it is off screen or the tab is hidden; reduced
+     is driven per frame rather than by an easing curve. Pauses under a mouse or
+     keyboard focus, while it is off screen or the tab is hidden; reduced
      motion: no drift, the photos sit as a still grid. */
   (function () {
     var sheet = document.querySelector('.sheet');
@@ -491,10 +491,15 @@
     /* start the downward columns part-way so the sheet opens full */
     state.forEach(function (s, i) { s.y = (i * 97) % 300; s.col.style.transform = 'translate3d(0,' + (-s.y) + 'px,0)'; });
     new IntersectionObserver(function (e) { visible = e[0].isIntersecting; run(); }).observe(sheet);
-    sheet.addEventListener('pointerenter', function () { held = true; run(); });
-    sheet.addEventListener('pointerleave', function () { held = false; run(); });
-    sheet.addEventListener('focusin', function () { held = true; run(); });
-    sheet.addEventListener('focusout', function (e) { if (!sheet.contains(e.relatedTarget)) { held = false; run(); } });
+    /* only a mouse pauses it on hover: a thumb on a phone scrolls past, and iOS can
+       leave a touch "hovering" long after the finger has gone */
+    sheet.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { held = true; run(); } });
+    sheet.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { held = false; run(); } });
+    /* keyboard focus pauses it (a moving target is hard to follow with a focus ring); the
+       focus a tap leaves behind, or the photo viewer returns, does not */
+    function keyboardFocus(el) { try { return el.matches(':focus-visible'); } catch (x) { return false; } }
+    sheet.addEventListener('focusin', function (e) { if (keyboardFocus(e.target)) { held = true; run(); } });
+    sheet.addEventListener('focusout', function (e) { if (!sheet.contains(e.relatedTarget) || !keyboardFocus(e.relatedTarget)) { held = false; run(); } });
     document.addEventListener('visibilitychange', run);
   })();
 
@@ -557,6 +562,88 @@
     }, { threshold: 0.4 });
     io.observe(bp);
   });
+
+  /* ---------- Credentials ticker (homepage hero, phones) ----------
+     On a phone the credentials run as one line drifting slowly sideways at a constant
+     speed (driven per frame, not by an easing curve), looping seamlessly: the line is
+     held twice, the copy hidden from assistive tech and the tab order. Holding a finger
+     on it pauses it, a tap stops or restarts it, and it rests off screen, in a
+     background tab and under keyboard focus. Wider screens, reduced motion or no
+     script: the plain list. */
+  (function () {
+    var line = document.querySelector('.hero__foot .credentials');
+    if (!line) return;
+    var phone = window.matchMedia('(max-width: 600px)');
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var items = Array.prototype.slice.call(line.children);
+    var STAR = '<svg class="ticker__star" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M6 .8l1.53 3.3 3.6.42-2.67 2.46.71 3.56L6 8.77 2.83 10.54l.71-3.56L.87 4.52l3.6-.42z" fill="currentColor"/></svg>';
+    var SPEED = 28;                                     /* px per second */
+    var track = null, runA = null, x = 0, last = 0, raf = 0;
+    var visible = !('IntersectionObserver' in window), held = false, stopped = false;
+
+    function frame(t) {
+      var dt = last ? Math.min(64, t - last) / 1000 : 0; last = t;
+      var w = runA.offsetWidth;
+      if (w) { x = (x + SPEED * dt) % w; track.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)'; }
+      raf = requestAnimationFrame(frame);
+    }
+    function run() {
+      var go = !!track && visible && !held && !stopped && !document.hidden;
+      if (go && !raf) { last = 0; raf = requestAnimationFrame(frame); }
+      if (!go && raf) { cancelAnimationFrame(raf); raf = 0; }
+    }
+    function build() {
+      if (track) return;
+      track = document.createElement('span'); track.className = 'ticker__track';
+      runA = document.createElement('span'); runA.className = 'ticker__run';
+      items.forEach(function (el) { runA.appendChild(el); });
+      var link = runA.querySelector('a'); if (link) link.insertAdjacentHTML('afterbegin', STAR);
+      var runB = runA.cloneNode(true);
+      runB.setAttribute('aria-hidden', 'true');
+      runB.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+      track.appendChild(runA); track.appendChild(runB);
+      line.appendChild(track); line.classList.add('credentials--ticker');
+      x = 0; run();
+    }
+    function unbuild() {
+      if (!track) return;
+      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      runA.querySelectorAll('.ticker__star').forEach(function (s) { s.remove(); });
+      items.forEach(function (el) { line.appendChild(el); });
+      track.remove(); track = runA = null;
+      line.classList.remove('credentials--ticker');
+    }
+    function sync() { if (phone.matches && !still.matches) build(); else unbuild(); }
+
+    /* hold to pause; a quick tap (not on the reviews link) stops it until tapped again */
+    var downAt = 0, sx = 0, sy = 0, moved = false;
+    line.addEventListener('pointerdown', function (e) {
+      if (!track) return;
+      held = true; moved = false; downAt = Date.now(); sx = e.clientX; sy = e.clientY; run();
+    });
+    line.addEventListener('pointermove', function (e) {
+      if (held && (Math.abs(e.clientX - sx) > 8 || Math.abs(e.clientY - sy) > 8)) moved = true;
+    });
+    function release(e) {
+      if (!held) return;
+      held = false;
+      if (e.type === 'pointerup' && !moved && Date.now() - downAt < 350 && !(e.target.closest && e.target.closest('a'))) stopped = !stopped;
+      run();
+    }
+    line.addEventListener('pointerup', release);
+    line.addEventListener('pointercancel', release);
+    line.addEventListener('pointerleave', release);
+    line.addEventListener('focusin', function (e) {
+      var kb = false; try { kb = e.target.matches(':focus-visible'); } catch (err) {}
+      if (kb) { held = true; run(); }
+    });
+    line.addEventListener('focusout', function () { held = false; run(); });
+
+    if (!visible) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; run(); }).observe(line);
+    document.addEventListener('visibilitychange', run);
+    [phone, still].forEach(function (mq) { if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync); });
+    sync();
+  })();
 
   /* ---------- Photo lightbox ----------
      Any .shot__open button opens the full-size photo in a modal dialog. Arrow keys
