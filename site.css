@@ -1867,3 +1867,27 @@ em { font-style: italic; }
   .lens__tabs { gap: var(--sp-4); }
   .lens__tab { font-size: var(--text-body-lg); }
 }
+
+/* ---------- Homepage timeline on phones ----------
+   The About page's rolling year counter rides above the chapters as a slim bar. On
+   wider screens the homepage keeps its flip board, so the counter is hidden there. */
+.js .chronicle--home { display: block; }
+.chronicle--home .chronicle__aside { display: none; }
+@media (max-width: 960px) {
+  .js .chronicle--home .chronicle__aside {
+    display: flex; position: sticky; top: var(--nav-height); z-index: 2;
+    margin-top: var(--sp-8); background: var(--color-surface-2);
+  }
+  .js .chronicle--home .years__chapters { margin-top: 0; border-top: 0; }
+  .js .chronicle--home .years__chapter { padding-block: var(--sp-6); }
+  .js .chronicle--home .years__chapter-year { color: var(--color-muted); transition: color 400ms var(--ease-std); }
+  .js .chronicle--home .years__chapter.is-active .years__chapter-year { color: var(--color-accent-deep); }
+}
+/* the three category links share one line on a phone */
+@media (max-width: 720px) {
+  .work__cats { flex-wrap: nowrap; justify-content: space-between; gap: var(--sp-3); }
+  .work__cats .link { font-size: clamp(0.75rem, 3.3vw, 0.875rem); gap: var(--sp-1); white-space: nowrap; }
+  .work__cats .link::after { width: 14px; }
+}
+/* on the narrowest phones the arrows go so the labels keep a readable size */
+@media (max-width: 380px) { .work__cats .link::after { display: none; } }

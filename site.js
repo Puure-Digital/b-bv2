@@ -340,12 +340,12 @@
   (function () {
     var box = document.querySelector('.chronicle');
     if (!box) return;
-    var items = Array.prototype.slice.call(box.querySelectorAll('.timeline--chronicle > li'));
+    var items = Array.prototype.slice.call(box.querySelectorAll('.timeline--chronicle > li, .years__chapters > li'));
     var strips = Array.prototype.slice.call(box.querySelectorAll('.odo__strip'));
     var now = box.querySelector('.chronicle__now');
     var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var years = items.map(function (li) {
-      var t = li.querySelector('.timeline__year').textContent.trim();
+      var t = li.querySelector('.timeline__year, .years__chapter-year').textContent.trim();
       return /^\d{4}$/.test(t) ? +t : new Date().getFullYear();
     });
     var titles = items.map(function (li) { return li.querySelector('h3').textContent.trim(); });
