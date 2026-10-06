@@ -1,0 +1,51 @@
+{
+  "title": "Choose the visual world for Beams & Braces",
+  "question": "Safer round, keeping the old site's warmth. Pick one, steer it, or re-roll.",
+  "options": [
+    {
+      "id": "ledger",
+      "label": "The Timber Yard Ledger",
+      "kicker": "CLOSEST TO THE OLD FEEL",
+      "lineage": "The 1987 family wood yard: stock ledgers, timber tickets, oiled brass fittings",
+      "thesis": "The old dark-and-brass world, grown up: warm bog-oak sections, oiled brass, a light serif carrying dates and numbers like ledger entries.",
+      "palette": ["#1E1B17", "#F3F0EB", "#B8956A", "#8C6E48", "#FAFAF7"],
+      "materials": ["full-bleed real project photography", "light serif display with italic brass accents", "hairline rules, brass numerals"],
+      "viewport": "A full-bleed curved-deck photo under a deep bog-oak wash. 'Not everyone needs a premium deck.' in a large light serif, brass italic on one word, with Let's Chat and WhatsApp beneath. The credentials run as a ledger line along the bottom edge.",
+      "risk": "Closest to the category's premium default. It wins on warmth and continuity, not on surprise."
+    },
+    {
+      "id": "boatyard",
+      "label": "The Broads Boatyard",
+      "kicker": "WARMER, MORE CHARACTER",
+      "lineage": "Norfolk Broads boatyards: varnished mahogany hulls, gold-leaf sign-writing, brass cleats",
+      "thesis": "Craft you'd find in a Wroxham boatyard: dark varnished timber, gold-leaf serif lettering and brass hardware, framing real waterside decks.",
+      "palette": ["#15191C", "#6B3A22", "#C8A15A", "#EFE8DA"],
+      "materials": ["gold-leaf serif lettering", "varnished dark timber fields", "brass rule and pin details"],
+      "viewport": "A deep varnished-dark hero holding a waterside deck photo. The headline is set like sign-written gold lettering, the credentials sit like a brass builder's plate, and Let's Chat is a solid gold button.",
+      "risk": "Can slip into nautical theme-park if the lettering or brass details are overdone."
+    },
+    {
+      "id": "showroom",
+      "label": "The Board Showroom",
+      "kicker": "PRODUCT-LED",
+      "lineage": "A timber merchant's showroom wall: real board lengths, sample chains, specification cards",
+      "thesis": "The real boards lead: large photographs of all 13 colours and finished decks in a calm, warm-neutral showroom, with a serif voice and brass details.",
+      "palette": ["#2A2622", "#EDEBE6", "#8F6A4A", "#A7A9A0", "#B8956A"],
+      "materials": ["oversized real board photography", "serif display", "a sample-chain colour rail"],
+      "viewport": "The hero splits between a finished deck photo and a tall rail of real board samples. Picking a sample recolours the caption. The headline and Let's Chat sit beside it.",
+      "risk": "Leans towards selling the material, where the brief says to sell Darren. Needs his voice up front."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "Premium decking as Trex UK, Millboard and top garden designers ship it: darkened hero photo, serif headline, gold CTA, badge strip, range cards, review carousel.",
+    "palette": ["#1E1B17", "#FAFAF7", "#B8956A"],
+    "materials": ["full-bleed hero photo", "serif display", "cards"],
+    "viewport": "A darkened hero photo with a centred serif headline and two buttons.",
+    "risk": "Polished but indistinguishable from competitors, and close to the current site."
+  },
+  "steer": true
+}

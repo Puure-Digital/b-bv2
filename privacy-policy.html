@@ -1,113 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
+
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="images/shared/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#B8956A">
+  <meta name="theme-color" content="#141210">
   <title>Privacy Policy | Beams &amp; Braces</title>
   <meta name="description" content="Privacy policy for Beams &amp; Braces. How we collect, use and protect your personal data.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://beamsandbraces.co.uk/privacy-policy" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnxct" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .policy-page { padding: calc(var(--nav-height) + 4rem) 0 6rem; }
-    .policy-page h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 300; margin-bottom: 2rem; }
-    .policy-page h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; margin: 2.5rem 0 0.75rem; }
-    .policy-page p, .policy-page li { color: var(--color-muted); line-height: 1.75; margin-bottom: 1rem; font-size: var(--text-body); }
-    .policy-page ul { padding-left: 1.5rem; }
-    .policy-page a { color: var(--color-accent); }
-    .policy-meta { font-size: var(--text-sm); color: var(--color-muted); margin-bottom: 3rem; border-bottom: 1px solid var(--color-border); padding-bottom: 1.5rem; }
-  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="site.css?v=124" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="page--solid">
 
-  <!-- NAVIGATION -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Beams &amp; Braces, Home"><img src="images/shared/logo-dark.png" alt="Beams &amp; Braces" class="nav-logo-img nav-logo-img--white"><img src="images/shared/logo-dark.png" alt="Beams &amp; Braces" class="nav-logo-img nav-logo-img--dark"></a>
-      <div class="nav__links" role="menubar">
-        <div class="nav__dropdown" role="none"><button class="nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">Trex Decking <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><div class="nav__dropdown-menu" role="menu"><a href="trex.html" role="menuitem">Overview</a><a href="trex-signature.html" role="menuitem">Signature</a><a href="trex-transcend.html" role="menuitem">Transcend</a><a href="trex-enhance-naturals.html" role="menuitem">Enhance Naturals</a></div></div>
-        <a href="work.html" class="nav__link">Our Work</a>
-        <a href="railing-lighting.html" class="nav__link">Railing &amp; Lighting</a>
-        <a href="about.html" class="nav__link">About</a>
-      </div>
-      <a href="contact.html" class="btn btn--primary nav__cta">Let's Chat</a>
-      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner wrap">
+      <a href="index.html" class="nav__brand" aria-label="Beams &amp; Braces, home">
+        <img src="images/opt/logo-wordmark-light-340.webp" alt="Beams &amp; Braces" width="340" height="116">
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Main navigation">
+        <ul class="menu__list">
+          <li class="menu__item menu__item--group">
+            <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-trex">
+              Trex Decking
+              <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </button>
+            <ul class="menu__sub" id="menu-trex">
+              <li><a href="trex.html">All three ranges</a></li>
+              <li><a href="trex-signature.html">Signature</a></li>
+              <li><a href="trex-transcend.html">Transcend</a></li>
+              <li><a href="trex-enhance-naturals.html">Enhance</a></li>
+            </ul>
+          </li>
+          <li class="menu__item menu__item--group">
+            <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-work">
+              Our Work
+              <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </button>
+            <ul class="menu__sub" id="menu-work">
+              <li><a href="work.html">Gallery</a></li>
+              <li><a href="see-us-in-action.html">See us in action</a></li>
+            </ul>
+          </li>
+          <li class="menu__item"><a class="menu__link" href="railing-lighting.html">Railing &amp; Lighting</a></li>
+          <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+          <li class="menu__item menu__item--cta"><a class="button button--brass" href="contact.html">Let's Chat</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-button__label">Menu</span>
+        <svg viewBox="0 0 22 10" width="22" height="10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
     </div>
-    <div class="nav__mobile" id="navMobile" aria-hidden="true" role="dialog" aria-label="Navigation menu">
-      <button class="nav__close" id="navClose" aria-label="Close menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-      <span class="nav__mobile-label">Trex Decking</span>
-      <a href="trex.html">Overview</a>
-      <a href="trex-signature.html">Signature</a>
-      <a href="trex-transcend.html">Transcend</a>
-      <a href="trex-enhance-naturals.html">Enhance Naturals</a>
-      <span class="nav__mobile-label">Company</span>
-      <a href="work.html">Our Work</a>
-      <a href="railing-lighting.html">Railing &amp; Lighting</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="btn btn--primary nav__mobile-cta">Let's Chat</a>
-    </div>
-  </nav>
+  </header>
 
-  <section class="policy-page">
-    <div class="container" style="max-width: 760px;">
+  <main id="main-content">
 
-      <h1>Privacy Policy</h1>
-      <p class="policy-meta">Last updated: April 2026 &nbsp;·&nbsp; Beams and Braces, 191a Plumstead Road East, Norwich, NR7 9LW</p>
-
-      <p>This privacy policy explains how Beams and Braces ("we", "us", "our") collects, uses, and protects your personal data when you use our website at beamsandbraces.co.uk or contact us about our services.</p>
-
-      <h2>1. What data we collect</h2>
-      <p>When you submit an enquiry via our contact form, we collect:</p>
-      <ul>
-        <li>Your name</li>
-        <li>Your email address</li>
-        <li>Your phone number (if provided)</li>
-        <li>Details of your project or enquiry</li>
-      </ul>
-      <p>We do not collect payment information through this website.</p>
-
-      <h2>2. How we use your data</h2>
-      <p>We use the information you provide solely to respond to your enquiry, arrange a site visit, and provide you with a quote. We do not use your data for marketing purposes without your explicit consent.</p>
-
-      <h2>3. Data sharing</h2>
-      <p>We do not sell, rent, or share your personal data with third parties, except where required by law or to provide the services you've requested (for example, passing on your contact details to a subcontractor who will carry out work at your property, with your knowledge).</p>
-
-      <h2>4. Data retention</h2>
-      <p>We retain enquiry data for up to 2 years after last contact, or for as long as is necessary to fulfil any contractual obligations.</p>
-
-      <h2>5. Cookies</h2>
-      <p>This website uses only essential cookies necessary for the site to function. We do not use tracking, analytics, or advertising cookies at this time.</p>
-
-      <h2>6. Your rights</h2>
-      <p>Under UK GDPR, you have the right to access, correct, or request deletion of any personal data we hold about you. To exercise any of these rights, please contact us at:</p>
-      <ul>
-        <li>Email: <a href="mailto:darren@beamsandbraces.co.uk">darren@beamsandbraces.co.uk</a></li>
-        <li>Phone: <a href="tel:07983531860">07983 531860</a></li>
-        <li>Post: 191a Plumstead Road East, Norwich, NR7 9LW</li>
-      </ul>
-      <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.</p>
-
-      <h2>7. Changes to this policy</h2>
-      <p>We may update this privacy policy from time to time. The date at the top of this page indicates when it was last revised.</p>
-
-    </div>
-  </section>
+    <section class="page-top wrap" aria-labelledby="page-heading">
+      <article class="prose">  
+  
+        <h1 class="page-title" id="page-heading">Privacy Policy</h1>
+        <p class="prose__meta">Last updated: April 2026 &nbsp;·&nbsp; Beams and Braces, 191a Plumstead Road East, Norwich, NR7 9LW</p>
+  
+        <p>This privacy policy explains how Beams and Braces ("we", "us", "our") collects, uses, and protects your personal data when you use our website at beamsandbraces.co.uk or contact us about our services.</p>
+  
+        <h2>1. What data we collect</h2>
+        <p>When you submit an enquiry via our contact form, we collect:</p>
+        <ul>
+          <li>Your name</li>
+          <li>Your email address</li>
+          <li>Your phone number (if provided)</li>
+          <li>Details of your project or enquiry</li>
+        </ul>
+        <p>We do not collect payment information through this website.</p>
+  
+        <h2>2. How we use your data</h2>
+        <p>We use the information you provide solely to respond to your enquiry, arrange a site visit, and provide you with a quote. We do not use your data for marketing purposes without your explicit consent.</p>
+  
+        <h2>3. Data sharing</h2>
+        <p>We do not sell, rent, or share your personal data with third parties, except where required by law or to provide the services you've requested (for example, passing on your contact details to a subcontractor who will carry out work at your property, with your knowledge).</p>
+  
+        <h2>4. Data retention</h2>
+        <p>We retain enquiry data for up to 2 years after last contact, or for as long as is necessary to fulfil any contractual obligations.</p>
+  
+        <h2>5. Cookies</h2>
+        <p>This website uses only essential cookies necessary for the site to function. We do not use tracking, analytics, or advertising cookies at this time.</p>
+  
+        <h2>6. Your rights</h2>
+        <p>Under UK GDPR, you have the right to access, correct, or request deletion of any personal data we hold about you. To exercise any of these rights, please contact us at:</p>
+        <ul>
+          <li>Email: <a href="mailto:darren@beamsandbraces.co.uk">darren@beamsandbraces.co.uk</a></li>
+          <li>Phone: <a href="tel:07983531860">07983 531860</a></li>
+          <li>Post: 191a Plumstead Road East, Norwich, NR7 9LW</li>
+        </ul>
+        <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
+  
+        <h2>7. Changes to this policy</h2>
+        <p>We may update this privacy policy from time to time. The date at the top of this page indicates when it was last revised.</p>
+  
+      
+      </article>
+    </section>
+  </main>
 
   <footer class="footer" role="contentinfo">
-    <div class="footer__bottom">
-      <p class="footer__copyright">&copy; 2026 Beams and Braces. All rights reserved.</p>
-      <div class="footer__bottom-links">
+    <div class="footer__grid wrap">
+      <div class="footer__brand">
+        <img src="images/opt/logo-wordmark-light-340.webp" alt="Beams &amp; Braces" width="340" height="116" loading="lazy">
+        <p>Premium Trex composite decking across Norfolk and Suffolk, by Darren Gooch.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Visit</p>
+        <p>191a Plumstead Road East<br>Norwich, NR7 9LW</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Talk</p>
+        <p><a href="tel:+447983531860">07983 531860</a><br><a href="mailto:darren@beamsandbraces.co.uk">darren@beamsandbraces.co.uk</a><br><a href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+      <nav class="footer__col" aria-label="Footer">
+        <p class="footer__label">Explore</p>
+        <ul>
+          <li><a href="trex.html">Trex Decking</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="see-us-in-action.html">See us in action</a></li>
+          <li><a href="railing-lighting.html">Railing &amp; Lighting</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer__trex">
+        <img src="images/shared/trex-logo.png" alt="Trex" width="136" height="70" loading="lazy">
+        <p>TrexPRO Platinum installer since 2017</p>
+      </div>
+    </div>
+    <div class="footer__base wrap">
+      <p class="footer__copyright">© 2026 Beams &amp; Braces. Beams &amp; Braces is a trading name of D Gooch Limited (Company No. 04835734).</p>
+      <p class="footer__links">
+        <a href="https://www.instagram.com/beams_and_braces/" target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/beamsandbracesnorwich/" target="_blank" rel="noopener noreferrer">Facebook<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
-      </div>
+      </p>
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="site.js?v=68" defer></script>
 </body>
 </html>

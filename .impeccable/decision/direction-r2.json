@@ -1,0 +1,21 @@
+{
+  "title": "Your steer: same feel, higher end",
+  "question": "This keeps the old site's world and lifts every detail to luxury level. Confirm, or steer again.",
+  "options": [
+    {
+      "id": "elevated",
+      "label": "The Old Feel, Elevated",
+      "kicker": "YOUR STEER",
+      "lineage": "The current Beams & Braces world: bog oak, oiled brass, Fraunces and Plus Jakarta Sans",
+      "thesis": "Same dark-and-brass warmth and the same serif voice, executed like a luxury house: more space, bigger photography, fewer UI gadgets, brass used like jewellery.",
+      "palette": ["#141210", "#1E1B17", "#FAFAF7", "#F3F0EB", "#B8956A", "#8C6E48"],
+      "materials": ["full-bleed real project photography", "light Fraunces display with brass italic accents", "brass hairlines, square-cut buttons, no pills or badges"],
+      "viewport": "A full-screen real deck photograph under a slow, deep bog-oak fade. The headline sits large and light in Fraunces with one brass italic word, next to Let's Chat and WhatsApp. The credentials run as one quiet brass-ruled line at the foot of the image.",
+      "risk": "Luxury restraint can read as thin if the photography isn't strong. The real photos have to carry it."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": false,
+  "steer": true
+}

@@ -1,0 +1,12 @@
+# Raw video masters: the site only serves the compressed copies in videos/web/
+videos/*.mp4
+videos/*.mov
+
+# Impeccable working files (review screenshots, live-session state)
+.impeccable/review/
+.impeccable/live/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.tmp.*

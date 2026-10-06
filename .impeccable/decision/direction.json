@@ -1,0 +1,132 @@
+{
+  "title": "Choose the visual world for Beams & Braces",
+  "question": "The roll assigned The Construction Poster. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The Construction Poster",
+      "kicker": "THE ROLL",
+      "lineage": "Swiss International Typographic Style, 1950s–60s construction and exhibition posters",
+      "thesis": "The site as an objective Swiss poster: real photographs, a strict grid, and facts set as typographic events.",
+      "palette": ["#E9E7E2", "#1B1A17", "#B0552C", "#6F6B64", "#FFFFFF"],
+      "materials": ["unretouched project photography", "one grotesk family across widths", "a grid built on the 140mm board"],
+      "viewport": "The aerial plan shot fills seven columns and bleeds off the edge. The headline hangs flush-left, the credentials stack below it, and a solid Ocracoke-rust Let's Chat bar sits on the baseline.",
+      "risk": "Swiss rigour can tip into cold or corporate if the photography and Darren's voice aren't given the room.",
+      "raised": [
+        { "from": "challenger-vu-meter", "raise": "All 13 colours stand as one continuous bench of identical board specimens at the same scale, read by sweeping the row, never one card at a time." },
+        { "from": "challenger-zoot-handbill", "raise": "Two-ink discipline: charcoal and one rust signal only. Credentials are stacked by rank, like a bill's line-up." },
+        { "from": "challenger-menhera", "raise": "The layout only ever repeats in whole modules: the grid unit is one board width plus its gap, never a fraction." },
+        { "from": "challenger-cracktro", "raise": "No cards and no boxes: content rides baselines on one unit, and rules exist only where a board edge would." },
+        { "from": "challenger-multiplane", "raise": "Text always sits on the nearest plane. Photographs are never tinted or overlaid with type." },
+        { "from": "challenger-silk", "raise": "Swatch states read beyond colour: selected shows name, range and warranty in type, not just a ring." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "The Setting-Out Drawing",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "joiners' and architects' shop drawings",
+      "thesis": "Every page as Darren's setting-out drawing: plan views, radii and dimension strings drawn over real work.",
+      "palette": ["#F1F0EC", "#22313A", "#9C7A4C", "#8A9296"],
+      "materials": ["pencil linework", "dimension strings", "aerial plan photography"],
+      "viewport": "The aerial deck plan with its curve radius, board run and joist spacing called out in fine linework.",
+      "risk": "Blueprint styling is a familiar move, and linework can read as decoration if the numbers aren't real."
+    },
+    {
+      "id": "challenger-vu-meter",
+      "label": "VU Meter Bridge",
+      "verdict": "declined",
+      "lineage": "recording-desk meter bridges",
+      "thesis": "Identical instruments shoulder to shoulder, read by sweeping the row.",
+      "palette": ["#F1E9D2", "#111111", "#6B4A2E", "#C0392B"],
+      "materials": ["glass-fronted meter faces", "walnut and steel"],
+      "viewport": "A row of board meters leaning together.",
+      "case": "Homeowners don't identify with studio gear, and needles don't clarify decking.",
+      "risk": "Pure metaphor with no product truth to measure.",
+      "kept": "The 13 colours as one sweepable bench of identical specimens.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp"
+    },
+    {
+      "id": "challenger-zoot-handbill",
+      "label": "Zoot Dance-Hall Handbill",
+      "verdict": "declined",
+      "lineage": "1940s letterpress dance bills",
+      "thesis": "Billing order is the hierarchy, printed in two heavy inks.",
+      "palette": ["#5B2A45", "#C9922E", "#F1E6CF"],
+      "materials": ["two-ink letterpress", "scalloped border"],
+      "viewport": "Credentials stacked as a bill line-up.",
+      "case": "Nostalgic costume that fights the premium, waterside audience.",
+      "risk": "Reads as retro pastiche.",
+      "kept": "Two-ink discipline and credentials stacked by rank.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-pachuco-zoot-handbill-hero.webp"
+    },
+    {
+      "id": "challenger-menhera",
+      "label": "Pastel Character Sheet",
+      "verdict": "declined",
+      "lineage": "menhera-kei stationery",
+      "thesis": "A sweet mascot sheet with a repeating motif border.",
+      "palette": ["#F7A8C8", "#9FE3C9", "#111111"],
+      "materials": ["heavy outline", "repeating motif"],
+      "viewport": "A mascot on candy pink.",
+      "case": "No identification for the audience and no clarity about decking.",
+      "risk": "Wrong subject entirely.",
+      "kept": "Repetition in whole units only: the board module.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-menhera-pastel-grimness-hero.webp"
+    },
+    {
+      "id": "challenger-cracktro",
+      "label": "Cracktro Scroller",
+      "verdict": "declined",
+      "lineage": "demoscene title screens",
+      "thesis": "One bitmap face on a black void, where rank is depth.",
+      "palette": ["#050505", "#EDE6D6", "#E0A030"],
+      "materials": ["bitmap type", "drifting dust fields"],
+      "viewport": "A single ivory line over drifting grey dust.",
+      "case": "Night-time hacker culture is the opposite of a Broads garden.",
+      "risk": "Alienates the audience outright.",
+      "kept": "No boxes or dividers; everything rides baselines.",
+      "hero": "https://impeccable.style/worlds/cards/operate-c-cracktro-scroller-queue-hero.webp"
+    },
+    {
+      "id": "challenger-multiplane",
+      "label": "Multiplane Cel Dawn",
+      "verdict": "declined",
+      "lineage": "hand-painted animation plates",
+      "thesis": "Painted planes sliding at different speeds toward a lit cottage.",
+      "palette": ["#3E5B3A", "#9FB0B8", "#3A2A1C", "#E7A93B"],
+      "materials": ["gouache planes", "scroll parallax"],
+      "viewport": "A misty forest pan.",
+      "case": "Painting replaces the real photographs this site must show.",
+      "risk": "Fantasy over proof.",
+      "kept": "Text on the nearest plane; photos never tinted.",
+      "hero": "https://impeccable.style/worlds/cards/cinema-cinematography-editing-multiplane-cel-dawn-hero.webp"
+    },
+    {
+      "id": "challenger-silk",
+      "label": "Silk Canopy Chords",
+      "verdict": "declined",
+      "lineage": "generative colour counterpoint",
+      "thesis": "Translucent silk bands overlapping into colour chords.",
+      "palette": ["#2E3A87", "#9E2B25", "#E8A317", "#FAFAF5"],
+      "materials": ["translucent silk", "computed overlaps"],
+      "viewport": "Crossing bands over sunlit paving.",
+      "case": "Abstract colour play obscures real board colours, where accuracy is the point.",
+      "risk": "Misrepresents the product's colours.",
+      "kept": "States labelled beyond colour.",
+      "hero": "https://impeccable.style/worlds/cards/generative-art-computational-color-chord-counterpoint-hero.webp"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "The premium decking site everyone ships: dark photo hero, serif headline, gold CTA, badge strip, range cards, review carousel.",
+    "palette": ["#1E1B17", "#FAFAF7", "#B8956A"],
+    "materials": ["full-bleed hero photo", "serif display", "cards"],
+    "viewport": "A darkened hero photo with a centred serif headline and two buttons.",
+    "risk": "Indistinguishable from the competition, and close to the current site."
+  },
+  "steer": true
+}

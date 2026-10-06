@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/shared/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#B8956A">
+  <meta name="theme-color" content="#141210">
   <title>Darren Gooch, TrexPRO Platinum Decking | Beams &amp; Braces, Norwich</title>
   <meta name="description" content="Darren Gooch is Norwich's TrexPRO Platinum installer and a member of Trex's own Pro Advisory Council. Premium Trex composite decking across Norfolk and Suffolk, built for heritage properties, holiday homes and the Norfolk Broads." />
   <meta name="robots" content="index, follow" />
@@ -63,765 +63,596 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high" />
-
-  <link rel="stylesheet" href="style.css?v=3" />
-
-  <style>
-    .story-teaser{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:var(--space-14); align-items:center; }
-    .story-teaser__image{ aspect-ratio:4/5; border-radius:var(--radius-xl); background-size:cover; background-position:center; }
-    .story-teaser__stats{ display:flex; gap:var(--space-8); margin:var(--space-8) 0; }
-    .story-teaser__stat-value{ display:block; font-family:var(--font-display); font-size:2rem; color:var(--color-accent); }
-    .story-teaser__stat-label{ font-size:var(--text-xs); color:var(--color-muted); }
-    @media (max-width:900px){ .story-teaser{ grid-template-columns:1fr; } .story-teaser__image{ aspect-ratio:16/9; } }
-  </style>
+    <link rel="preload" as="image" href="images/opt/gallery-deck-2-1280.webp" imagesrcset="images/opt/gallery-deck-2-640.webp 640w, images/opt/gallery-deck-2-1280.webp 1280w, images/opt/gallery-deck-2-2048.webp 2048w" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="site.css?v=124" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NAVIGATION -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Beams &amp; Braces, Home"><img src="images/shared/logo-dark.png" alt="Beams &amp; Braces" class="nav-logo-img nav-logo-img--white"><img src="images/shared/logo-dark.png" alt="Beams &amp; Braces" class="nav-logo-img nav-logo-img--dark"></a>
-      <div class="nav__links" role="menubar">
-        <div class="nav__dropdown" role="none"><button class="nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">Trex Decking <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><div class="nav__dropdown-menu" role="menu"><a href="trex.html" role="menuitem">Overview</a><a href="trex-signature.html" role="menuitem">Signature</a><a href="trex-transcend.html" role="menuitem">Transcend</a><a href="trex-enhance-naturals.html" role="menuitem">Enhance Naturals</a></div></div>
-        <a href="work.html" class="nav__link">Our Work</a>
-        <a href="railing-lighting.html" class="nav__link">Railing &amp; Lighting</a>
-        <a href="about.html" class="nav__link">About</a>
-      </div>
-      <a href="contact.html" class="btn btn--primary nav__cta">Let's Chat</a>
-      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
+  <header class="nav" id="nav">
+    <div class="nav__inner wrap">
+      <a href="index.html" class="nav__brand" aria-label="Beams &amp; Braces, home">
+        <img src="images/opt/logo-wordmark-light-340.webp" alt="Beams &amp; Braces" width="340" height="116">
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Main navigation">
+        <ul class="menu__list">
+          <li class="menu__item menu__item--group">
+            <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-trex">
+              Trex Decking
+              <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </button>
+            <ul class="menu__sub" id="menu-trex">
+              <li><a href="trex.html">All three ranges</a></li>
+              <li><a href="trex-signature.html">Signature</a></li>
+              <li><a href="trex-transcend.html">Transcend</a></li>
+              <li><a href="trex-enhance-naturals.html">Enhance</a></li>
+            </ul>
+          </li>
+          <li class="menu__item menu__item--group">
+            <button class="menu__link menu__toggle" type="button" aria-expanded="false" aria-controls="menu-work">
+              Our Work
+              <svg viewBox="0 0 12 8" width="10" height="7" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>
+            </button>
+            <ul class="menu__sub" id="menu-work">
+              <li><a href="work.html">Gallery</a></li>
+              <li><a href="see-us-in-action.html">See us in action</a></li>
+            </ul>
+          </li>
+          <li class="menu__item"><a class="menu__link" href="railing-lighting.html">Railing &amp; Lighting</a></li>
+          <li class="menu__item"><a class="menu__link" href="about.html">About</a></li>
+          <li class="menu__item menu__item--cta"><a class="button button--brass" href="contact.html">Let's Chat</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="menu-button__label">Menu</span>
+        <svg viewBox="0 0 22 10" width="22" height="10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
     </div>
-    <div class="nav__mobile" id="navMobile" aria-hidden="true" role="dialog" aria-label="Navigation menu">
-      <button class="nav__close" id="navClose" aria-label="Close menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-      <span class="nav__mobile-label">Trex Decking</span>
-      <a href="trex.html">Overview</a>
-      <a href="trex-signature.html">Signature</a>
-      <a href="trex-transcend.html">Transcend</a>
-      <a href="trex-enhance-naturals.html">Enhance Naturals</a>
-      <span class="nav__mobile-label">Company</span>
-      <a href="work.html">Our Work</a>
-      <a href="railing-lighting.html">Railing &amp; Lighting</a>
-      <a href="about.html">About</a>
-      <a href="contact.html" class="btn btn--primary nav__mobile-cta">Let's Chat</a>
-    </div>
-  </nav>
+  </header>
 
   <main id="main-content">
 
-  <!-- HERO -->
-  <section class="hero" aria-label="Hero">
-    <img src="images/hero.jpg" alt="" id="heroBg" class="hero__bg" fetchpriority="high" loading="eager" aria-hidden="true" width="2048" height="1365">
-    <div class="hero__overlay" aria-hidden="true"></div>
-
-    <div class="container hero__content">
-      <div class="hero__text">
-        <a href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer" class="hero__google-trust reveal" aria-label="5.0 out of 5 on Google Reviews">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <span class="hero__google-trust-stars" aria-hidden="true">
-          <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-          <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-          <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-          <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-          <svg width="12" height="12" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-        </span>
-        <span class="hero__google-trust-score">5.0</span>
-        <span class="hero__google-trust-sep" aria-hidden="true">·</span>
-        <span class="hero__google-trust-label">10 Google Reviews</span>
-      </a>
-
-      <h1 class="hero__h1 reveal reveal--delay-1">Not Everyone Needs<br>a Premium Deck.</h1>
-
-      <p class="hero__lead reveal reveal--delay-2">
-        I'm Darren Gooch. I'm Norwich's TrexPRO Platinum installer, one of the few
-        contractors on Trex's own Pro Advisory Council, and I build the kind of
-        outdoor space you stop noticing you're standing on and start living in.
-      </p>
-
-      <div class="hero__actions reveal reveal--delay-3">
-        <a href="contact.html" class="btn btn--primary">Let's Chat</a>
-        <a href="work.html" class="btn btn--ghost-light">See the Work →</a>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__media">
+        <img src="images/opt/gallery-deck-2-1280.webp" srcset="images/opt/gallery-deck-2-640.webp 640w, images/opt/gallery-deck-2-1280.webp 1280w, images/opt/gallery-deck-2-2048.webp 2048w" sizes="100vw" alt="A hot tub set into a grey Trex deck, low sun casting long shadows across the boards" width="2048" height="1152" fetchpriority="high">
       </div>
-      </div><!-- /.hero__text -->
-    </div>
-
-    <div class="hero__scroll" aria-hidden="true">
-      <div class="hero__scroll-line"></div>
-      <span>Scroll</span>
-    </div>
-
-    <svg class="hero__curve" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0,64 C480,-4 960,-4 1440,64 L1440,64 L0,64 Z"/></svg>
-  </section>
-
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar" role="list" aria-label="Key credentials" id="trustBar">
-    <div class="trust-bar__inner">
-
-      <div class="trust-bar__item reveal" role="listitem">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-        <span class="trust-bar__text">TrexPRO Platinum, Since 2017</span>
+      <div class="hero__content wrap">
+        <h1 class="hero__title" id="hero-heading">Not everyone needs a <em data-shimmer="premium">premium</em> deck.</h1>
+        <p class="hero__lead">I'm Darren Gooch, Norwich's TrexPRO Platinum installer and one of the few contractors on Trex's own Pro Advisory Council. I build the kind of outdoor space you stop noticing you're standing on and start living in.</p>
+        <div class="hero__actions">
+          <a class="button button--brass" href="contact.html">Let's Chat</a>
+          <a class="link link--light" href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">Message me on WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
       </div>
-
-      <div class="trust-bar__item reveal reveal--delay-1" role="listitem">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-        </svg>
-        <span class="trust-bar__text">Trex Pro Advisory Council, 2024</span>
+      <div class="hero__foot wrap">
+        <p class="credentials">
+          <span>TrexPRO Platinum since 2017</span>
+          <span>Trex Pro Advisory Council, 2024</span>
+          <span>500+ decks since 2016</span>
+          <a href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer">5.0 from 10 Google reviews<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </p>
       </div>
+    </section>
 
-      <div class="trust-bar__item reveal reveal--delay-2" role="listitem">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-        </svg>
-        <span class="trust-bar__text">500+ Decks Since 2016</span>
+    <!-- Belief -->
+    <section class="belief wrap" aria-label="Darren's approach">
+      <blockquote class="belief__quote" data-words>
+        <p>“I don't think people buy Trex. I think people buy the outdoor space they've been picturing, and Trex happens to be the best material I've found to build it properly.”</p>
+      </blockquote>
+      <p class="belief__by">Darren Gooch, founder</p>
+    </section>
+
+    <!-- Story -->
+    <section class="story wrap" aria-labelledby="story-heading">
+      <figure class="story__media story__media--collage reveal-media">
+        <img class="collage__a" src="images/opt/dg12-640.webp" srcset="images/opt/dg12-640.webp 640w, images/opt/dg12-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren in a Trex cap cutting a board on a mitre saw" width="1153" height="2048" loading="lazy" decoding="async">
+        <img class="collage__b" src="images/opt/dg14-640.webp" srcset="images/opt/dg14-640.webp 640w, images/opt/dg14-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren on site beside a timber workbench" width="2048" height="1152" loading="lazy" decoding="async">
+        <img class="collage__c" src="images/opt/dg11-640.webp" srcset="images/opt/dg11-640.webp 640w, images/opt/dg11-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren lining up a cut on a mitre saw" width="2048" height="1153" loading="lazy" decoding="async">
+        <img class="collage__d" src="images/opt/dg13-640.webp" srcset="images/opt/dg13-640.webp 640w, images/opt/dg13-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren standing on site in a work hoodie" width="1365" height="2048" loading="lazy" decoding="async">
+      </figure>
+      <div class="story__body">
+        <h2 class="heading" id="story-heading">I've been doing this since I was three.</h2>
+        <p class="story__text">My parents ran a timber yard, and I grew up in it. I've spent every year since building things properly, and since 2016 that's meant one thing: Trex composite decking, done to a standard most installers never bother reaching for.</p>
+        <ul class="story__facts">
+          <li><strong>500+</strong> composite decks since 2016, including some of the largest curved Trex decks in the UK.</li>
+          <li><strong>Fewer than 5%</strong> of UK Trex contractors hold TrexPRO Platinum. I've held it since 2017.</li>
+          <li><strong>One person</strong> you actually speak to, from the first chat to the handover.</li>
+        </ul>
+        <a class="link" href="about.html">Read the full story</a>
       </div>
+    </section>
 
-      <div class="trust-bar__item reveal reveal--delay-3" role="listitem">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-        </svg>
-        <span class="trust-bar__text">Fully Insured &amp; Qualified</span>
-      </div>
-
-      <div class="trust-bar__item reveal reveal--delay-4" role="listitem">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        <span class="trust-bar__text">UK's Leading Curved-Deck Builder</span>
-      </div>
-
-      <!-- Duplicate set for seamless mobile marquee loop (hidden on desktop) -->
-      <div class="trust-bar__item trust-bar__item--clone" aria-hidden="true">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <span class="trust-bar__text">TrexPRO Platinum, Since 2017</span>
-      </div>
-      <div class="trust-bar__item trust-bar__item--clone" aria-hidden="true">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span class="trust-bar__text">Trex Pro Advisory Council, 2024</span>
-      </div>
-      <div class="trust-bar__item trust-bar__item--clone" aria-hidden="true">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <span class="trust-bar__text">500+ Decks Since 2016</span>
-      </div>
-      <div class="trust-bar__item trust-bar__item--clone" aria-hidden="true">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-        <span class="trust-bar__text">Fully Insured &amp; Qualified</span>
-      </div>
-      <div class="trust-bar__item trust-bar__item--clone" aria-hidden="true">
-        <svg class="trust-bar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span class="trust-bar__text">UK's Leading Curved-Deck Builder</span>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- THE PERSON BEHIND THE DECK -->
-  <section class="section" aria-labelledby="story-heading">
-    <div class="container">
-      <div class="story-teaser">
-
-        <div class="story-teaser__image reveal" style="background-image: url('images/gallery/curved-trex-deck-overview.jpg')" role="img" aria-label="Darren Gooch's curved Trex deck project"></div>
-
-        <div class="story-teaser__content reveal reveal--delay-1">
-          <span class="eyebrow">The Person Behind the Deck</span>
-          <h2 class="featured__h2" id="story-heading" style="margin:var(--space-4) 0 var(--space-6);">
-            I've been doing this since I was three.
-          </h2>
-          <p style="color:var(--color-muted); line-height:1.75; font-size:var(--text-lg); margin-bottom:0;">
-            My parents ran a timber yard, and I grew up in it. I've spent every year since building things properly, and since 2016 that's meant one thing: Trex composite decking, done to a standard most installers never bother reaching for.
-          </p>
-
-          <div class="story-teaser__stats">
-            <div>
-              <span class="story-teaser__stat-value">10+</span>
-              <span class="story-teaser__stat-label">Years With Trex</span>
-            </div>
-            <div>
-              <span class="story-teaser__stat-value">500+</span>
-              <span class="story-teaser__stat-label">Decks Built</span>
-            </div>
-            <div>
-              <span class="story-teaser__stat-value">1</span>
-              <span class="story-teaser__stat-label">Person You Actually Speak To</span>
-            </div>
+    <!-- Timeline: a split-flap year board that rolls through the years -->
+    <section class="years" aria-labelledby="years-heading">
+      <div class="years__stage wrap">
+        <figure class="years__board" aria-hidden="true">
+          <div class="flipboard">
+            <span class="flip" data-digit="1"><span class="flip__half flip__half--top"><span>1</span></span><span class="flip__half flip__half--bottom"><span>1</span></span><span class="flip__flap flip__flap--top"><span>1</span></span><span class="flip__flap flip__flap--bottom"><span>1</span></span></span>
+            <span class="flip" data-digit="9"><span class="flip__half flip__half--top"><span>9</span></span><span class="flip__half flip__half--bottom"><span>9</span></span><span class="flip__flap flip__flap--top"><span>9</span></span><span class="flip__flap flip__flap--bottom"><span>9</span></span></span>
+            <span class="flip" data-digit="8"><span class="flip__half flip__half--top"><span>8</span></span><span class="flip__half flip__half--bottom"><span>8</span></span><span class="flip__flap flip__flap--top"><span>8</span></span><span class="flip__flap flip__flap--bottom"><span>8</span></span></span>
+            <span class="flip" data-digit="7"><span class="flip__half flip__half--top"><span>7</span></span><span class="flip__half flip__half--bottom"><span>7</span></span><span class="flip__flap flip__flap--top"><span>7</span></span><span class="flip__flap flip__flap--bottom"><span>7</span></span></span>
           </div>
-
-          <a href="about.html" class="text-link">Read the full story →</a>
+          <p class="years__caption"><span class="years__caption-text">The wood yard</span></p>
+        </figure>
+        <div class="years__copy">
+          <h2 class="heading" id="years-heading">Since <em>1987.</em></h2>
+          <p class="years__lead">From the family wood yard to Trex's own advisory council.</p>
+          <ol class="years__chapters">
+            <li class="years__chapter is-current" data-index="0">
+              <p class="years__chapter-year">1987</p>
+              <h3>The wood yard</h3>
+              <p>My parents opened their first premises. I was three years old, running round the yard with my own little hammer.</p>
+            </li>
+            <li class="years__chapter" data-index="1">
+              <p class="years__chapter-year">2002</p>
+              <h3>Joining properly</h3>
+              <p>I joined the family business the day I finished school. By then, if you needed a shed or a fence in Norfolk, you already knew to come and see us.</p>
+            </li>
+            <li class="years__chapter" data-index="2">
+              <p class="years__chapter-year">2016</p>
+              <h3>Beams &amp; Braces</h3>
+              <p>I set out on my own to specialise: bespoke joinery, timber frames and composite decking. That's where the Trex partnership started.</p>
+            </li>
+            <li class="years__chapter" data-index="3">
+              <p class="years__chapter-year">2017</p>
+              <h3>TrexPRO Platinum</h3>
+              <p>Trex's highest certification, held by fewer than 5% of their UK contractors.</p>
+            </li>
+            <li class="years__chapter" data-index="4">
+              <p class="years__chapter-year">2024</p>
+              <h3>Trex Pro Advisory Council</h3>
+              <p>Invited onto Trex's own advisory council. I've built over 500 composite decks since 2016, including some of the largest curved decks installed anywhere in the UK, and Trex now asks me directly what's actually working on the ground.</p>
+            </li>
+            <li class="years__chapter" data-index="5">
+              <p class="years__chapter-year">Today</p>
+              <h3>What I actually believe</h3>
+              <p>I don't think people buy Trex. I think people buy the outdoor space they've been picturing, and Trex happens to be the best material I've found to build it properly. I use UC4-rated joists, joist protection tape, and plastic subframes on every job because I've seen what happens to decks built without them. I don't build cheap decks. I build the ones that are still exactly right in twenty years.</p>
+            </li>
+          </ol>
+          <div class="years__nav" role="group" aria-label="Jump to a year" hidden>
+            <button type="button" data-go="0" aria-current="step">1987</button>
+            <button type="button" data-go="1">2002</button>
+            <button type="button" data-go="2">2016</button>
+            <button type="button" data-go="3">2017</button>
+            <button type="button" data-go="4">2024</button>
+            <button type="button" data-go="5">Today</button>
+          </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- Outcome -->
+    <section class="outcome" aria-labelledby="outcome-heading">
+      <div class="outcome__media reveal-media">
+        <img src="images/opt/hero-1280.webp" srcset="images/opt/hero-640.webp 640w, images/opt/hero-1280.webp 1280w, images/opt/hero-2048.webp 2048w" sizes="(min-width: 961px) 50vw, 100vw" alt="Aerial view of a finished grey Trex deck beside a lawn, boards running in two directions around a planted border" width="2048" height="1365" loading="lazy">
+      </div>
+      <div class="outcome__panel">
+        <h2 class="heading heading--light" id="outcome-heading">The last deck you'll ever need to <em>build.</em></h2>
+        <p>Real wood asks something of you every year: sanding, staining, replacing boards that have started to split. Trex asks nothing. It's what I fit on every job, from a quiet corner of a garden to some of the largest curved decks built anywhere in the UK.</p>
+        <p class="outcome__detail">Underneath every deck: UC4-rated joists, joist protection tape and a plastic subframe. Boards are single-face embossed with a grooved edge, so the fixings stay hidden.</p>
+      </div>
+    </section>
 
-  <!-- FEATURED PROJECT -->
-  <section class="featured section" aria-labelledby="featured-heading">
-    <div class="container">
-      <div class="featured__inner">
+    <!-- Ranges -->
+    <section class="ranges wrap" aria-labelledby="ranges-heading">
+      <div class="section-head">
+        <h2 class="heading" id="ranges-heading">Three ranges. One platinum-standard installer.</h2>
+        <p class="section-head__text">Real board photography, never flat colour blocks. Not sure which is right for your space? I'll bring real samples out to you.</p>
+      </div>
 
-        <div class="featured__image" style="background-image: url('/images/pages/overview-composite-decking.jpg')" role="img" aria-label="Multi-level composite decking with raised planters in Norwich">
+      <div class="ranges__list">
+        <article class="range">
+          <h3 class="range__name"><a href="trex-signature.html">Signature</a></h3>
+          <p class="range__text">Sleek, minimal and precise. Built for contemporary architecture and clients who notice the details most people miss.</p>
+          <p class="range__meta">50-year fade and stain warranty</p>
+          <a class="link range__link" href="trex-signature.html">Explore Signature</a>
+        </article>
+        <article class="range">
+          <h3 class="range__name"><a href="trex-transcend.html">Transcend</a></h3>
+          <p class="range__text">The richest colours and deepest woodgrain in the Trex lineup. The one I recommend most, built for a lifetime of outdoor living.</p>
+          <p class="range__meta">50-year fade and stain warranty</p>
+          <a class="link range__link" href="trex-transcend.html">Explore Transcend</a>
+        </article>
+        <article class="range">
+          <h3 class="range__name"><a href="trex-enhance-naturals.html">Enhance</a></h3>
+          <p class="range__text">All the warmth of natural wood, none of the maintenance. Two collections: Naturals and Basics.</p>
+          <p class="range__meta">25-year fade and stain warranty</p>
+          <a class="link range__link" href="trex-enhance-naturals.html">Explore Enhance</a>
+        </article>
+      </div>
+
+      <div class="colours">
+        <div class="colours__preview">
+          <div class="colours__plate">
+            <img src="images/opt/jasper-333.webp" alt="Trex Transcend board in Jasper" width="333" height="333">
+          </div>
+          <p class="colours__name" aria-live="polite">Jasper</p>
+          <p class="colours__range">Transcend Lineage</p>
         </div>
 
-        <div class="featured__content">
+        <div class="colours__groups">
+          <div class="colours__group">
+            <h3 class="colours__label">Signature</h3>
+            <ul class="swatches">
+              <li><button class="swatch" type="button" data-name="Ocracoke" data-range="Signature" data-src="images/opt/ocracoke-333.webp"><img src="images/opt/ocracoke-176.webp" alt="" width="176" height="176" loading="lazy"><span>Ocracoke</span></button></li>
+              <li><button class="swatch" type="button" data-name="Whidbey" data-range="Signature" data-src="images/opt/whidbey-333.webp"><img src="images/opt/whidbey-176.webp" alt="" width="176" height="176" loading="lazy"><span>Whidbey</span></button></li>
+            </ul>
+          </div>
+          <div class="colours__group">
+            <h3 class="colours__label colours__label--info">Transcend Lineage <button class="info-btn" type="button" popovertarget="lineage-info" aria-label="About Transcend Lineage and standard Transcend"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><circle cx="10" cy="10" r="8.4" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="10" cy="6.2" r="1" fill="currentColor"/><path d="M10 9v5.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button></h3>
+          <div class="info-pop" id="lineage-info" popover role="dialog" aria-labelledby="lineage-info-title">
+            <h4 class="info-pop__title" id="lineage-info-title">Transcend Lineage and standard Transcend</h4>
+            <p>Jasper, Biscayne, Rainier and Carmel are Trex Transcend Lineage.</p>
+            <p>Island Mist, tagged <span class="swatch__tag swatch__tag--inline">Standard</span>, is standard Transcend.</p>
+            <p>All five carry the same 50-year fade and stain warranty.</p>
+            <button class="info-pop__close" type="button" popovertarget="lineage-info" popovertargetaction="hide">Close</button>
+          </div>
+            <ul class="swatches">
+              <li><button class="swatch" type="button" aria-pressed="true" data-name="Jasper" data-range="Transcend Lineage" data-src="images/opt/jasper-333.webp"><img src="images/opt/jasper-176.webp" alt="" width="176" height="176" loading="lazy"><span>Jasper</span></button></li>
+              <li><button class="swatch" type="button" data-name="Biscayne" data-range="Transcend Lineage" data-src="images/opt/biscayne-333.webp"><img src="images/opt/biscayne-176.webp" alt="" width="176" height="176" loading="lazy"><span>Biscayne</span></button></li>
+              <li><button class="swatch" type="button" data-name="Rainier" data-range="Transcend Lineage" data-src="images/opt/rainier-333.webp"><img src="images/opt/rainier-176.webp" alt="" width="176" height="176" loading="lazy"><span>Rainier</span></button></li>
+              <li><button class="swatch" type="button" data-name="Carmel" data-range="Transcend Lineage" data-src="images/opt/carmel-600.webp"><img src="images/opt/carmel-176.webp" alt="" width="176" height="176" loading="lazy"><span>Carmel</span></button></li>
+              <li><button class="swatch" type="button" data-name="Island Mist" data-range="Transcend" data-src="images/opt/island-mist-333.webp"><span class="swatch__frame"><img src="images/opt/island-mist-176.webp" alt="" width="176" height="176" loading="lazy"><span class="swatch__tag" aria-hidden="true">Standard</span></span><span>Island Mist<span class="visually-hidden">, standard Transcend</span></span></button></li>
+            </ul>
+          </div>
+          <div class="colours__group">
+            <h3 class="colours__label">Enhance Naturals</h3>
+            <ul class="swatches">
+              <li><button class="swatch" type="button" data-name="Foggy Wharf" data-range="Enhance Naturals" data-src="images/opt/foggy-wharf-333.webp"><img src="images/opt/foggy-wharf-176.webp" alt="" width="176" height="176" loading="lazy"><span>Foggy Wharf</span></button></li>
+              <li><button class="swatch" type="button" data-name="Rocky Harbor" data-range="Enhance Naturals" data-src="images/opt/rocky-harbor-333.webp"><img src="images/opt/rocky-harbor-176.webp" alt="" width="176" height="176" loading="lazy"><span>Rocky Harbor</span></button></li>
+              <li><button class="swatch" type="button" data-name="Toasted Sand" data-range="Enhance Naturals" data-src="images/opt/toasted-sand-333.webp"><img src="images/opt/toasted-sand-176.webp" alt="" width="176" height="176" loading="lazy"><span>Toasted Sand</span></button></li>
+              <li><button class="swatch" type="button" data-name="Calm Water" data-range="Enhance Naturals" data-src="images/opt/calm-water-333.webp"><img src="images/opt/calm-water-176.webp" alt="" width="176" height="176" loading="lazy"><span>Calm Water</span></button></li>
+            </ul>
+          </div>
+          <div class="colours__group">
+            <h3 class="colours__label">Enhance Basics</h3>
+            <ul class="swatches">
+              <li><button class="swatch" type="button" data-name="Clam Shell" data-range="Enhance Basics" data-src="images/opt/clam-shell-450.webp"><img src="images/opt/clam-shell-176.webp" alt="" width="176" height="176" loading="lazy"><span>Clam Shell</span></button></li>
+              <li><button class="swatch" type="button" data-name="Tide Pool" data-range="Enhance Basics" data-src="images/opt/tide-pool-600.webp"><img src="images/opt/tide-pool-176.webp" alt="" width="176" height="176" loading="lazy"><span>Tide Pool</span></button></li>
+            </ul>
+          </div>
+          <a class="button button--ink" href="contact.html">Request Free Samples</a>
+        </div>
+      </div>
+      <div class="lens" role="group" aria-labelledby="lens-heading">
+        <div class="lens__head">
+          <h3 class="lens__title" id="lens-heading">On real <em>builds.</em></h3>
+          <div class="lens__tabs" role="tablist" aria-label="Trex ranges">
+            <button class="lens__tab" type="button" role="tab" id="lens-tab-signature" aria-controls="lens-signature" aria-selected="true">Signature</button>
+            <button class="lens__tab" type="button" role="tab" id="lens-tab-transcend" aria-controls="lens-transcend" aria-selected="false" tabindex="-1">Transcend</button>
+            <button class="lens__tab" type="button" role="tab" id="lens-tab-enhance" aria-controls="lens-enhance" aria-selected="false" tabindex="-1">Enhance</button>
+            <span class="lens__ink" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="lens__panel" role="tabpanel" id="lens-signature" aria-labelledby="lens-tab-signature" data-layout="a">
+          <div class="lens__mosaic">
+            <figure class="lens__tile"><img src="images/opt/wa-03-640.webp" srcset="images/opt/wa-03-640.webp 640w, images/opt/wa-03-1440.webp 1440w" sizes="(max-width: 720px) 55vw, 40vw" alt="A built-in water feature spilling into a pool beside a warm brown Trex Signature deck" width="1440" height="960" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-28-640.webp" srcset="images/opt/wa-28-640.webp 640w, images/opt/wa-28-1600.webp 1600w" sizes="(max-width: 720px) 55vw, 40vw" alt="A raised Trex Signature terrace with black railing and garden chairs" width="1600" height="1200" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-18-640.webp" srcset="images/opt/wa-18-640.webp 640w, images/opt/wa-18-1200.webp 1200w" sizes="(max-width: 720px) 55vw, 40vw" alt="A lounge chair on a round rug on a warm brown Trex Signature deck" width="1200" height="1600" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-12-640.webp" srcset="images/opt/wa-12-640.webp 640w, images/opt/wa-12-1440.webp 1440w" sizes="(max-width: 720px) 55vw, 40vw" alt="A side table on a warm brown Trex Signature deck by a black railing" width="1440" height="960" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="lens__cap">
+            <p class="lens__name">Trex <em>Signature</em></p>
+            <p class="lens__meta">50-year fade and stain warranty</p>
+            
+            <a class="link lens__link" href="trex-signature.html#project-heading">See the Signature build</a>
+          </div>
+        </div>
+        <div class="lens__panel" role="tabpanel" id="lens-transcend" aria-labelledby="lens-tab-transcend" data-layout="b" hidden>
+          <div class="lens__mosaic">
+            <figure class="lens__tile"><img src="images/opt/wa-04-640.webp" srcset="images/opt/wa-04-640.webp 640w, images/opt/wa-04-1440.webp 1440w" sizes="(max-width: 720px) 55vw, 40vw" alt="A covered dining area on a grey Trex Transcend deck, outdoor kitchen behind" width="1440" height="960" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-19-640.webp" srcset="images/opt/wa-19-640.webp 640w, images/opt/wa-19-1440.webp 1440w" sizes="(max-width: 720px) 55vw, 40vw" alt="Lunch laid out on a long table on a grey Trex Transcend deck beside the lawn" width="1440" height="960" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-16-640.webp" srcset="images/opt/wa-16-640.webp 640w, images/opt/wa-16-1440.webp 1440w" sizes="(max-width: 720px) 55vw, 40vw" alt="A covered lounge on a grey Trex Transcend deck, sofas and a low table under the roof" width="1440" height="960" loading="lazy" decoding="async"></figure>
+            <figure class="lens__tile"><img src="images/opt/wa-02-640.webp" srcset="images/opt/wa-02-640.webp 640w, images/opt/wa-02-960.webp 960w" sizes="(max-width: 720px) 55vw, 40vw" alt="A long dining table and benches on a grey Trex Transcend deck, outdoor kitchen behind" width="960" height="1440" loading="lazy" decoding="async"></figure>
+          </div>
+          <div class="lens__cap">
+            <p class="lens__name">Trex <em>Transcend</em></p>
+            <p class="lens__meta">50-year fade and stain warranty</p>
+            
+            <a class="link lens__link" href="trex-transcend.html#project-heading">See the Transcend build</a>
+          </div>
+        </div>
+        <div class="lens__panel" role="tabpanel" id="lens-enhance" aria-labelledby="lens-tab-enhance" data-layout="c" hidden>
+          <div class="lens__mosaic">
+            <figure class="lens__tile"><span class="ph" role="img" aria-label="Photo coming soon: A Trex Enhance deck, wide view"></span></figure>
+            <figure class="lens__tile"><span class="ph" role="img" aria-label="Photo coming soon: A Trex Enhance deck, detail"></span></figure>
+            <figure class="lens__tile"><span class="ph" role="img" aria-label="Photo coming soon: A Trex Enhance deck, seating area"></span></figure>
+            <figure class="lens__tile"><span class="ph" role="img" aria-label="Photo coming soon: A Trex Enhance deck, boards close up"></span></figure>
+          </div>
+          <div class="lens__cap">
+            <p class="lens__name">Trex <em>Enhance</em></p>
+            <p class="lens__meta">25-year fade and stain warranty</p>
+            <p class="lens__note">Build photos coming soon.</p>
+            <a class="link lens__link" href="trex-enhance-naturals.html">Explore Enhance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="work" aria-labelledby="work-heading">
+      <div class="wrap">
+        <div class="section-head section-head--light">
           <div>
-            <span class="eyebrow eyebrow--light">The Outcome</span>
-            <h2 class="featured__h2" id="featured-heading">
-              The last deck you'll ever need to build.
-            </h2>
+            <h2 class="heading heading--light" id="work-heading">Not renders. Not stock photos.</h2>
+            <p class="reel__sub">Every photo here is a job I've built. Select any one to see it larger.</p>
           </div>
-
-          <p class="featured__body">
-            Real wood asks something of you every year, sanding, staining, replacing
-            boards that have started to split. Trex asks nothing. It's what I fit on
-            every job, from a quiet corner of a garden to some of the largest curved
-            decks built anywhere in the UK.
-          </p>
-
-          <div class="featured__stats">
-            <div>
-              <span class="featured__stat-value">0</span>
-              <span class="featured__stat-label">Maintenance Required</span>
-            </div>
-            <div>
-              <span class="featured__stat-value">50yr</span>
-              <span class="featured__stat-label">Warranty, Signature &amp; Transcend</span>
-            </div>
-            <div>
-              <span class="featured__stat-value">3</span>
-              <span class="featured__stat-label">Trex Ranges</span>
-            </div>
-          </div>
-
-          <a href="trex.html" class="text-link text-link--light">
-            Explore the Trex range →
-          </a>
+          <a class="link link--light" href="work.html">See all the work</a>
         </div>
-
+        <div class="sheet" role="group" aria-label="Real job photos, select any to see it larger">
+          <div class="sheet__col" data-dir="up">
+            <ul class="sheet__run">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02963-2048.webp" data-w="2048" data-h="1153"><img src="images/opt/dsc02963-400.webp" alt="Looking over a hot tub across the deck to the lawn, with a dog crossing the grass" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03019-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc03019-400.webp" alt="Bar stools at a fire-table bar on the deck, flames lit" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-steps-1200.webp" data-w="1200" data-h="1600"><img src="images/opt/curved-trex-deck-steps-400.webp" alt="Curved steps built into a Trex deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-11-960.webp" data-w="960" data-h="1440"><img src="images/opt/wa-11-400.webp" alt="A long table on a grey Trex Transcend deck running out towards the lawn" width="400" height="600" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-06-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-06-400.webp" alt="Three people at lunch on a grey Trex Transcend deck under a covered roof" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/gallery-gym-1-1200.webp" data-w="1200" data-h="900"><img src="images/opt/gallery-gym-1-400.webp" alt="A garden room with glazed doors open onto a sunny deck" width="400" height="300" loading="lazy" decoding="async"></button></li>
+            </ul>
+            <ul class="sheet__run" aria-hidden="true">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02963-2048.webp" data-w="2048" data-h="1153" data-dup="0" tabindex="-1"><img src="images/opt/dsc02963-400.webp" alt="Looking over a hot tub across the deck to the lawn, with a dog crossing the grass" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03019-2048.webp" data-w="2048" data-h="1152" data-dup="5" tabindex="-1"><img src="images/opt/dsc03019-400.webp" alt="Bar stools at a fire-table bar on the deck, flames lit" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-steps-1200.webp" data-w="1200" data-h="1600" data-dup="10" tabindex="-1"><img src="images/opt/curved-trex-deck-steps-400.webp" alt="Curved steps built into a Trex deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-11-960.webp" data-w="960" data-h="1440" data-dup="15" tabindex="-1"><img src="images/opt/wa-11-400.webp" alt="A long table on a grey Trex Transcend deck running out towards the lawn" width="400" height="600" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-06-1440.webp" data-w="1440" data-h="960" data-dup="20" tabindex="-1"><img src="images/opt/wa-06-400.webp" alt="Three people at lunch on a grey Trex Transcend deck under a covered roof" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/gallery-gym-1-1200.webp" data-w="1200" data-h="900" data-dup="25" tabindex="-1"><img src="images/opt/gallery-gym-1-400.webp" alt="A garden room with glazed doors open onto a sunny deck" width="400" height="300" loading="lazy" decoding="async"></button></li>
+            </ul>
+          </div>
+          <div class="sheet__col" data-dir="down">
+            <ul class="sheet__run">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-04-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-04-400.webp" alt="A covered dining area on a grey Trex Transcend deck, outdoor kitchen behind" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-02-960.webp" data-w="960" data-h="1440"><img src="images/opt/wa-02-400.webp" alt="A long dining table and benches on a grey Trex Transcend deck, outdoor kitchen behind" width="400" height="600" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-16-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-16-400.webp" alt="A covered lounge on a grey Trex Transcend deck, sofas and a low table under the roof" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/bar-gallery-2-1200.webp" data-w="1200" data-h="675"><img src="images/opt/bar-gallery-2-400.webp" alt="An aerial view of a large deck wrapping around a house" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01830-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01830-400.webp" alt="Darren walking across a building site with tools in hand" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03016-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc03016-400.webp" alt="A bottle and two glasses beside the flames of a fire table" width="400" height="225" loading="lazy" decoding="async"></button></li>
+            </ul>
+            <ul class="sheet__run" aria-hidden="true">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-04-1440.webp" data-w="1440" data-h="960" data-dup="1" tabindex="-1"><img src="images/opt/wa-04-400.webp" alt="A covered dining area on a grey Trex Transcend deck, outdoor kitchen behind" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-02-960.webp" data-w="960" data-h="1440" data-dup="6" tabindex="-1"><img src="images/opt/wa-02-400.webp" alt="A long dining table and benches on a grey Trex Transcend deck, outdoor kitchen behind" width="400" height="600" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-16-1440.webp" data-w="1440" data-h="960" data-dup="11" tabindex="-1"><img src="images/opt/wa-16-400.webp" alt="A covered lounge on a grey Trex Transcend deck, sofas and a low table under the roof" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/bar-gallery-2-1200.webp" data-w="1200" data-h="675" data-dup="16" tabindex="-1"><img src="images/opt/bar-gallery-2-400.webp" alt="An aerial view of a large deck wrapping around a house" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01830-2048.webp" data-w="2048" data-h="1152" data-dup="21" tabindex="-1"><img src="images/opt/dsc01830-400.webp" alt="Darren walking across a building site with tools in hand" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03016-2048.webp" data-w="2048" data-h="1152" data-dup="26" tabindex="-1"><img src="images/opt/dsc03016-400.webp" alt="A bottle and two glasses beside the flames of a fire table" width="400" height="225" loading="lazy" decoding="async"></button></li>
+            </ul>
+          </div>
+          <div class="sheet__col" data-dir="up">
+            <ul class="sheet__run">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-overview-1200.webp" data-w="1200" data-h="1600"><img src="images/opt/curved-trex-deck-overview-400.webp" alt="A curved Trex deck with a curved fascia board and black railing" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/gym-gallery-3-1200.webp" data-w="1200" data-h="900"><img src="images/opt/gym-gallery-3-400.webp" alt="A raised deck with black railings looking out over a river" width="400" height="300" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01861-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01861-400.webp" alt="Darren marking a cut with a pencil" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03014-2048.webp" data-w="2048" data-h="1365"><img src="images/opt/dsc03014-400.webp" alt="A table with a bottle and glasses, looking down a stepped deck to the lawn" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02989-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc02989-400.webp" alt="Deck steps and a raised planter, with tree shadows across the boards" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-steps-wide-1200.webp" data-w="1200" data-h="1600"><img src="images/opt/curved-trex-deck-steps-wide-400.webp" alt="A wide view of curved Trex deck steps" width="400" height="533" loading="lazy" decoding="async"></button></li>
+            </ul>
+            <ul class="sheet__run" aria-hidden="true">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-overview-1200.webp" data-w="1200" data-h="1600" data-dup="2" tabindex="-1"><img src="images/opt/curved-trex-deck-overview-400.webp" alt="A curved Trex deck with a curved fascia board and black railing" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/gym-gallery-3-1200.webp" data-w="1200" data-h="900" data-dup="7" tabindex="-1"><img src="images/opt/gym-gallery-3-400.webp" alt="A raised deck with black railings looking out over a river" width="400" height="300" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01861-2048.webp" data-w="2048" data-h="1152" data-dup="12" tabindex="-1"><img src="images/opt/dsc01861-400.webp" alt="Darren marking a cut with a pencil" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03014-2048.webp" data-w="2048" data-h="1365" data-dup="17" tabindex="-1"><img src="images/opt/dsc03014-400.webp" alt="A table with a bottle and glasses, looking down a stepped deck to the lawn" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02989-2048.webp" data-w="2048" data-h="1152" data-dup="22" tabindex="-1"><img src="images/opt/dsc02989-400.webp" alt="Deck steps and a raised planter, with tree shadows across the boards" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-steps-wide-1200.webp" data-w="1200" data-h="1600" data-dup="27" tabindex="-1"><img src="images/opt/curved-trex-deck-steps-wide-400.webp" alt="A wide view of curved Trex deck steps" width="400" height="533" loading="lazy" decoding="async"></button></li>
+            </ul>
+          </div>
+          <div class="sheet__col" data-dir="down">
+            <ul class="sheet__run">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-03-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-03-400.webp" alt="A built-in water feature spilling into a pool beside a warm brown Trex Signature deck" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-28-1600.webp" data-w="1600" data-h="1200"><img src="images/opt/wa-28-400.webp" alt="A raised Trex Signature terrace with black railing and garden chairs" width="400" height="300" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-18-1200.webp" data-w="1200" data-h="1600"><img src="images/opt/wa-18-400.webp" alt="A lounge chair on a round rug on a warm brown Trex Signature deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-12-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-12-400.webp" alt="A side table on a warm brown Trex Signature deck by a black railing" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-21-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-21-400.webp" alt="A lounge chair and footstool on a warm brown Trex Signature deck" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-19-1440.webp" data-w="1440" data-h="960"><img src="images/opt/wa-19-400.webp" alt="Lunch laid out on a long table on a grey Trex Transcend deck beside the lawn" width="400" height="267" loading="lazy" decoding="async"></button></li>
+            </ul>
+            <ul class="sheet__run" aria-hidden="true">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-03-1440.webp" data-w="1440" data-h="960" data-dup="3" tabindex="-1"><img src="images/opt/wa-03-400.webp" alt="A built-in water feature spilling into a pool beside a warm brown Trex Signature deck" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-28-1600.webp" data-w="1600" data-h="1200" data-dup="8" tabindex="-1"><img src="images/opt/wa-28-400.webp" alt="A raised Trex Signature terrace with black railing and garden chairs" width="400" height="300" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-18-1200.webp" data-w="1200" data-h="1600" data-dup="13" tabindex="-1"><img src="images/opt/wa-18-400.webp" alt="A lounge chair on a round rug on a warm brown Trex Signature deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-12-1440.webp" data-w="1440" data-h="960" data-dup="18" tabindex="-1"><img src="images/opt/wa-12-400.webp" alt="A side table on a warm brown Trex Signature deck by a black railing" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-21-1440.webp" data-w="1440" data-h="960" data-dup="23" tabindex="-1"><img src="images/opt/wa-21-400.webp" alt="A lounge chair and footstool on a warm brown Trex Signature deck" width="400" height="267" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-19-1440.webp" data-w="1440" data-h="960" data-dup="28" tabindex="-1"><img src="images/opt/wa-19-400.webp" alt="Lunch laid out on a long table on a grey Trex Transcend deck beside the lawn" width="400" height="267" loading="lazy" decoding="async"></button></li>
+            </ul>
+          </div>
+          <div class="sheet__col" data-dir="up">
+            <ul class="sheet__run">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01897-1152.webp" data-w="1153" data-h="2048"><img src="images/opt/dsc01897-400.webp" alt="Darren in a Trex cap cutting a board on a mitre saw" width="400" height="710" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02970-2048.webp" data-w="2048" data-h="1153"><img src="images/opt/dsc02970-400.webp" alt="A garden room with its doors open, the deck running up to it beside a raised planter" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02938-2048.webp" data-w="2048" data-h="1153"><img src="images/opt/dsc02938-400.webp" alt="A fire table glowing in the evening outside a lit garden room" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-corner-detail-1200.webp" data-w="1200" data-h="1600"><img src="images/opt/curved-trex-deck-corner-detail-400.webp" alt="Close-up of the corner of a curved composite deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-01-1600.webp" data-w="1600" data-h="900"><img src="images/opt/wa-01-400.webp" alt="An aerial view of a house and its grey Trex Transcend deck" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03022-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc03022-400.webp" alt="The corner of a hot tub over grey deck boards in strong sun" width="400" height="225" loading="lazy" decoding="async"></button></li>
+            </ul>
+            <ul class="sheet__run" aria-hidden="true">
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc01897-1152.webp" data-w="1153" data-h="2048" data-dup="4" tabindex="-1"><img src="images/opt/dsc01897-400.webp" alt="Darren in a Trex cap cutting a board on a mitre saw" width="400" height="710" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02970-2048.webp" data-w="2048" data-h="1153" data-dup="9" tabindex="-1"><img src="images/opt/dsc02970-400.webp" alt="A garden room with its doors open, the deck running up to it beside a raised planter" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc02938-2048.webp" data-w="2048" data-h="1153" data-dup="14" tabindex="-1"><img src="images/opt/dsc02938-400.webp" alt="A fire table glowing in the evening outside a lit garden room" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/curved-trex-deck-corner-detail-1200.webp" data-w="1200" data-h="1600" data-dup="19" tabindex="-1"><img src="images/opt/curved-trex-deck-corner-detail-400.webp" alt="Close-up of the corner of a curved composite deck" width="400" height="533" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/wa-01-1600.webp" data-w="1600" data-h="900" data-dup="24" tabindex="-1"><img src="images/opt/wa-01-400.webp" alt="An aerial view of a house and its grey Trex Transcend deck" width="400" height="225" loading="lazy" decoding="async"></button></li>
+              <li><button class="shot__open sheet__shot" type="button" data-full="images/opt/dsc03022-2048.webp" data-w="2048" data-h="1152" data-dup="29" tabindex="-1"><img src="images/opt/dsc03022-400.webp" alt="The corner of a hot tub over grey deck boards in strong sun" width="400" height="225" loading="lazy" decoding="async"></button></li>
+            </ul>
+          </div>
+        </div>
+        <ul class="work__cats">
+          <li><a class="link link--light" href="work.html">Curved decking</a></li>
+          <li><a class="link link--light" href="work.html">Trex decking</a></li>
+          <li><a class="link link--light" href="railing-lighting.html">Railing &amp; lighting</a></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <!-- TREX RANGE -->
-  <section class="trex section section--surface-2" aria-labelledby="trex-heading">
-    <div class="container">
-
-      <div class="trex__header">
-        <div class="reveal">
-          <span class="eyebrow">Trex Composite Decking</span>
-          <h2 class="trex__heading" id="trex-heading">Three ranges.<br>One platinum-standard installer.</h2>
-        </div>
-        <div class="trex__badge reveal">
-          <img src="images/shared/trex-logo.png" alt="Trex" class="trex__badge-logo" loading="lazy" width="136" height="70">
+    <!-- Showreel: video only -->
+    <section class="reel" aria-labelledby="reel-heading">
+      <div class="wrap">
+        <div class="section-head section-head--light">
           <div>
-            <span class="trex__badge-text">TrexPRO Platinum</span>
-            <span class="trex__badge-sub">Highest level of certification</span>
+            <h2 class="heading heading--light" id="reel-heading">Filmed on the <em>job.</em></h2>
+            <p class="reel__sub">Drone flights over finished decks, and footage from the build itself. Tap any film to watch it with sound.</p>
           </div>
+          <a class="link link--light" href="see-us-in-action.html">See us in action</a>
+        </div>
+        <ul class="reel__grid">
+          <li class="clip clip--feature">
+            <figure>
+              <div class="clip__frame">
+                <video class="clip__video" id="reel-1" data-src="videos/web/landscape1-1280.mp4?v=3" poster="videos/web/landscape1-poster.webp?v=2" width="1280" height="720" preload="none" playsinline muted loop aria-label="A deck wrapped round the pool, 0:18 video"></video>
+                <button class="clip__play" type="button" aria-controls="reel-1"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: A deck wrapped round the pool</span></button>
+                <span class="clip__progress" aria-hidden="true"></span>
+              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:18</p><h3 class="clip__title">A deck wrapped round the pool.</h3></figcaption>
+              </div>
+            </figure>
+          </li>
+          <li class="clip">
+            <figure>
+              <div class="clip__frame">
+                <video class="clip__video" id="reel-2" data-src="videos/web/portrait1-720.mp4?v=3" poster="videos/web/portrait1-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="From straight above, 0:15 video"></video>
+                <button class="clip__play" type="button" aria-controls="reel-2"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: From straight above</span></button>
+                <span class="clip__progress" aria-hidden="true"></span>
+              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:15</p><h3 class="clip__title">From straight above.</h3></figcaption>
+              </div>
+            </figure>
+          </li>
+          <li class="clip">
+            <figure>
+              <div class="clip__frame">
+                <video class="clip__video" id="reel-3" data-src="videos/web/posts-to-boards-720.mp4?v=3" poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="The build, as it happens, 0:29 video"></video>
+                <button class="clip__play" type="button" aria-controls="reel-3"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: The build, as it happens</span></button>
+                <span class="clip__progress" aria-hidden="true"></span>
+              <figcaption class="clip__cap"><p class="clip__label">Build · 0:29</p><h3 class="clip__title">The build, as it happens.</h3></figcaption>
+              </div>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews reviews--split wrap" aria-labelledby="reviews-heading">
+      <div class="reviews__side">
+        <h2 class="heading" id="reviews-heading">What my clients say.</h2>
+        <a class="link" href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer">5.0 from 10 Google reviews<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <div class="reviews__controls">
+          <button class="reviews__btn reviews__prev" type="button" aria-controls="reviews" aria-label="Previous review">
+            <svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M23 6H1M6 1L1 6l5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
+          <p class="reviews__count" aria-live="polite"><span class="reviews__index">1</span> / 8</p>
+          <button class="reviews__btn reviews__next" type="button" aria-controls="reviews" aria-label="Next review">
+            <svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M1 6h22M18 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+          </button>
         </div>
       </div>
 
-      <div class="trex__grid">
-
-        <article class="trex-card reveal">
-          <div class="trex-card__inner-wrap">
-            <div class="trex-card__image" style="background-image: url('/images/trex/trex-enhance.jpg')" role="img" aria-label="Trex Enhance Naturals decking"></div>
-            <div class="trex-card__body">
-              <span class="trex-card__tier">The Smart Upgrade</span>
-              <h3 class="trex-card__name">Enhance Naturals</h3>
-              <p class="trex-card__desc">All the warmth of natural wood, none of the maintenance. The right choice if you want a genuinely good deck without the top-tier price.</p>
-              <div class="trex-card__chips">
-                <span class="chip">25yr warranty</span>
-                <span class="chip">95% recycled</span>
-                <span class="chip">Slip resistant</span>
-              </div>
-              <a href="trex-enhance-naturals.html" class="text-link">Explore range →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="trex-card reveal reveal--delay-1">
-          <div class="trex-card__inner-wrap">
-            <div class="trex-card__image" style="background-image: url('/images/gallery/gallery-deck-5.jpg')" role="img" aria-label="Trex Transcend decking"></div>
-            <div class="trex-card__body">
-              <span class="trex-card__tier">The One I Sell Most</span>
-              <h3 class="trex-card__name">Trex Transcend</h3>
-              <p class="trex-card__desc">The richest colours and deepest woodgrain in the Trex lineup. Built for a lifetime of outdoor living, not a season of it.</p>
-              <div class="trex-card__chips">
-                <span class="chip">50yr warranty</span>
-                <span class="chip">95% recycled</span>
-                <span class="chip">Premium finish</span>
-              </div>
-              <a href="trex-transcend.html" class="text-link">Explore range →</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="trex-card reveal reveal--delay-2">
-          <div class="trex-card__inner-wrap">
-            <div class="trex-card__image" style="background-image: url('/images/gallery/gallery-deck-2.jpg')" role="img" aria-label="Trex Signature decking"></div>
-            <div class="trex-card__body">
-              <span class="trex-card__tier">The Architectural Choice</span>
-              <h3 class="trex-card__name">Trex Signature</h3>
-              <p class="trex-card__desc">Sleek, minimal, and precise. Built for contemporary architecture and clients who notice the details most people miss.</p>
-              <div class="trex-card__chips">
-                <span class="chip">50yr warranty</span>
-                <span class="chip">95% recycled</span>
-                <span class="chip">Modern profile</span>
-              </div>
-              <a href="trex-signature.html" class="text-link">Explore range →</a>
-            </div>
-          </div>
-        </article>
-
+      <div class="reviews__stage" id="reviews" aria-roledescription="carousel" aria-label="Client reviews">
+        <ol class="reviews__track">
+          <li class="review is-active" aria-roledescription="slide" aria-label="1 of 8">
+            <blockquote><p>“Darren is clearly passionate about the Trex product and loves what he does. His enthusiasm is infectious and he elevates the Installation of decking into an art form.”</p></blockquote>
+            <p class="review__by">Jeannette Astley-Jones</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="2 of 8">
+            <blockquote><p>“Delighted with the work conducted to transform our small, tired garden by Darren and his team. Great communication throughout, came in below budget, and the work has exceeded our expectations. Great Trex deck in awkward space.”</p></blockquote>
+            <p class="review__by">Dr S J Miller-Smith</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="3 of 8">
+            <blockquote><p>“Fantastic company if you want trex decking look no further. Darren was able to discuss all options, arranged a site visit, and designed a bespoke look to complement our existing and new swimspa and Garden Room area.”</p></blockquote>
+            <p class="review__by">Nana</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="4 of 8">
+            <blockquote><p>“Darren and his team did a fantastic job. Their attention to detail was excellent. I would recommend them to anyone.”</p></blockquote>
+            <p class="review__by">Jason A</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="5 of 8">
+            <blockquote><p>“Delighted with my trex decking. A big thank you to Darren &amp; his team for all their hard work and professionalism.”</p></blockquote>
+            <p class="review__by">Julie</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="6 of 8">
+            <blockquote><p>“This company have recently completed our garden. Fantastic employees, very hardworking no matter what the weather, a credit to the company. We are so very pleased with our finished garden.”</p></blockquote>
+            <p class="review__by">Kim Frost</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="7 of 8">
+            <blockquote><p>“Excellent design and service. Delighted with our Trex decking.”</p></blockquote>
+            <p class="review__by">Mark Burgess</p>
+          </li>
+          <li class="review" aria-roledescription="slide" aria-label="8 of 8">
+            <blockquote><p>“Excellent craftsmanship.”</p></blockquote>
+            <p class="review__by">Cherry Brooks</p>
+          </li>
+        </ol>
       </div>
+    </section>
 
-      <div class="trex__samples reveal">
-        <p>Not sure which colour is right for your space? I'll bring real samples out to you.</p>
-        <a href="contact.html" class="btn btn--ghost">Request Free Samples</a>
+    <!-- Close -->
+    <section class="close" aria-labelledby="close-heading">
+      <div class="close__media">
+        <img src="images/opt/curved-trex-deck-steps-wide-1200.webp" srcset="images/opt/curved-trex-deck-steps-wide-640.webp 640w, images/opt/curved-trex-deck-steps-wide-1200.webp 1200w" sizes="(min-width: 961px) 50vw, 100vw" alt="" width="1200" height="1600" loading="lazy">
       </div>
-
-    </div>
-  </section>
-
-
-  <!-- OUR WORK TEASER -->
-  <section class="section" aria-labelledby="work-heading">
-    <div class="container">
-      <div class="services__header reveal">
-        <span class="eyebrow">Real Projects</span>
-        <h2 class="services__heading" id="work-heading">Not renders. Not stock photos.</h2>
-      </div>
-
-      <div class="services__grid">
-        <article class="service-card reveal">
-          <div class="service-card__img" style="background-image: url('/images/gallery/curved-trex-deck-overview.jpg')" role="img" aria-label="Curved Trex composite deck"></div>
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__body">
-            <span class="service-card__category">Curved Decking</span>
-            <h3 class="service-card__name">Freehand Curves, Not Templates</h3>
-            <a href="work.html" class="service-card__link" aria-label="See our curved decking work">See the work →</a>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal--delay-1">
-          <div class="service-card__img" style="background-image: url('/images/gallery/gallery-deck-5.jpg')" role="img" aria-label="Trex Transcend decking with accessible ramp"></div>
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__body">
-            <span class="service-card__category">Trex Decking</span>
-            <h3 class="service-card__name">Signature, Transcend &amp; Enhance</h3>
-            <a href="work.html" class="service-card__link" aria-label="See our Trex decking work">See the work →</a>
-          </div>
-        </article>
-
-        <article class="service-card reveal reveal--delay-2">
-          <div class="service-card__img" style="background-image: url('/images/gallery/curved-trex-deck-corner-detail.jpg')" role="img" aria-label="Trex Signature railing on a Beams and Braces deck"></div>
-          <div class="service-card__overlay" aria-hidden="true"></div>
-          <div class="service-card__body">
-            <span class="service-card__category">Railing &amp; Lighting</span>
-            <h3 class="service-card__name">The Details That Finish It</h3>
-            <a href="railing-lighting.html" class="service-card__link" aria-label="Explore railing and lighting options">Explore →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- TESTIMONIALS -->
-  <section class="testimonials section" aria-labelledby="testimonials-heading">
-    <div class="container">
-
-      <div class="testimonials__header">
-        <div class="reveal">
-          <span class="eyebrow">Customer Stories</span>
-          <h2 class="testimonials__heading" id="testimonials-heading">What Norfolk homeowners say.</h2>
+      <div class="close__body wrap">
+        <h2 class="close__title" id="close-heading">Let's talk about your <em class="marked" data-mark>garden.<svg class="marked__line" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="marked__stroke" pathLength="1" d="M2 13 C 40 9.5, 100 8.5, 160 9.5 S 194 11, 198 10"/></svg></em></h2>
+        <p class="close__text">Message me directly on WhatsApp, or leave your details and I'll call to understand what you're picturing.</p>
+        <div class="close__actions">
+          <a class="button button--brass" href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">Message me on WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a>
+          <a class="link link--light" href="contact.html">Let's Chat</a>
         </div>
-        <div class="testimonials__header-right">
-          <a href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer" class="google-trust-bar reveal" aria-label="5.0 out of 5 on Google Reviews, view our reviews">
-            <svg class="google-trust-bar__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-            </svg>
-            <span class="google-trust-bar__stars" aria-hidden="true">
-              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-              <svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#FBBC05"/></svg>
-            </span>
-            <span class="google-trust-bar__score">5.0</span>
-            <span class="google-trust-bar__sep" aria-hidden="true">·</span>
-            <span class="google-trust-bar__label">10 Google Reviews</span>
-          </a>
-          <div class="testimonials__nav" aria-label="Testimonial navigation">
-            <button class="testimonials__nav-btn" id="testimonialPrev" aria-label="Previous testimonials">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="testimonials__nav-btn" id="testimonialNext" aria-label="Next testimonials">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
+        <a class="close__phone" href="tel:+447983531860">Or call 07983 531860</a>
       </div>
+    </section>
 
-      <div class="testimonials__track-wrap" aria-live="polite">
-        <div class="testimonials__track" id="testimonialsTrack">
+    <dialog class="lightbox" aria-label="Photo viewer">
+      <figure class="lightbox__figure">
+        <figcaption class="lightbox__caption"><span class="lightbox__text"></span><span class="lightbox__count" aria-hidden="true"></span></figcaption>
+      </figure>
+      <button class="lightbox__btn lightbox__btn--prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="lightbox__btn lightbox__btn--next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="lightbox__btn lightbox__btn--close" type="button" aria-label="Close photo viewer"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </dialog>
+  </main>
 
-          <article class="testimonial-card reveal">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Darren is clearly passionate about the Trex product and loves what he does. His enthusiasm is infectious and he elevates the installation of decking into an art form."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Jeannette Astley-Jones</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card reveal reveal--delay-1">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Delighted with the work conducted to transform our small, tired garden by Darren and his team. Great communication throughout, came in below budget, and the work has exceeded our expectations."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Dr S J Miller-Smith</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card reveal reveal--delay-2">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Fantastic company if you want Trex decking, look no further. Darren was able to discuss all options, arranged a site visit, and designed a bespoke look to complement our existing and new swimspa and garden room area."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Nana</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Darren and his team did a fantastic job. Their attention to detail was excellent. I would recommend them to anyone."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Jason A</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Delighted with my Trex decking. A big thank you to Darren &amp; his team for all their hard work and professionalism."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Julie</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Excellent design and service. Delighted with our Trex decking."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Mark Burgess</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "This company have recently completed our garden. Fantastic employees, very hardworking no matter what the weather, a credit to the company. We are so very pleased with our finished garden."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Kim Frost</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <blockquote class="testimonial-card__quote">
-              "Excellent craftsmanship."
-            </blockquote>
-            <footer class="testimonial-card__footer">
-              <div>
-                <p class="testimonial-card__name">Cherry Brooks</p>
-                <p class="testimonial-card__location">Google Review</p>
-              </div>
-              <span class="testimonial-card__tag">Composite Decking</span>
-            </footer>
-          </article>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- WHY COMPOSITE -->
-  <section class="why section section--surface-2" aria-labelledby="why-heading">
-    <div class="container">
-      <div class="why__inner">
-
-        <div class="reveal">
-          <div class="why__image" role="img" aria-label="Composite vs timber decking comparison">
-            <div class="why__image-badge" aria-label="25 plus year lifespan">
-              <div class="why__image-badge-value">25+</div>
-              <div class="why__image-badge-label">Year Lifespan</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="why__content reveal">
-          <div>
-            <span class="eyebrow">Why Composite?</span>
-            <h2 class="why__heading" id="why-heading">Less maintenance.<br> Longer life.<br> Better looking.</h2>
-          </div>
-
-          <p class="why__lead">
-            Timber has its charm. But for Norfolk's damp climate, coastal air, and
-            a garden you actually want to enjoy rather than maintain, composite
-            holds its colour, resists the seasons, and never needs sanding.
-          </p>
-
-          <ul class="why__list">
-            <li class="why__item">
-              <svg class="why__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <div class="why__item-content">
-                <p class="why__item-title">Built to last decades, not seasons</p>
-                <p class="why__item-text">Signature and Transcend carry a 50-year fade and stain warranty. Timber typically needs replacing after 10–15 years.</p>
-              </div>
-            </li>
-            <li class="why__item">
-              <svg class="why__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
-              </svg>
-              <div class="why__item-content">
-                <p class="why__item-title">No weekend maintenance</p>
-                <p class="why__item-text">No sanding. No staining. No sealing. A basic clean a few times a year is all it needs.</p>
-              </div>
-            </li>
-            <li class="why__item">
-              <svg class="why__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-              </svg>
-              <div class="why__item-content">
-                <p class="why__item-title">Made from 95% recycled materials</p>
-                <p class="why__item-text">Responsible manufacturing, better for your garden and better for the planet.</p>
-              </div>
-            </li>
-            <li class="why__item">
-              <svg class="why__item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-              <div class="why__item-content">
-                <p class="why__item-title">Slip-resistant in all conditions</p>
-                <p class="why__item-text">Textured surface performs in wet Norfolk winters, safe around pools, hot tubs, and high-use areas.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner" aria-labelledby="cta-heading">
-    <div class="container">
-      <h2 class="cta-banner__h2 reveal" id="cta-heading">Let's talk about your garden.</h2>
-      <p class="cta-banner__body reveal reveal--delay-1">Message me directly on WhatsApp, or leave your details and I'll call to understand what you're picturing.</p>
-      <a href="contact.html" class="btn btn--white reveal reveal--delay-2">Let's Chat</a>
-    </div>
-  </section>
-
-
-  </main><!-- /#main-content -->
-
-  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-
-        <div>
-          <img src="images/shared/logo-dark.png" alt="Beams &amp; Braces" class="footer__brand-name" loading="lazy" width="3000" height="2994">
-          <p class="footer__brand-desc">Premium Trex composite decking. Norwich's TrexPRO Platinum installer since 2017, covering Norfolk and Suffolk. Beams &amp; Braces is a trading name of D Gooch Limited (Company No. 04835734).</p>
-          <div class="footer__trex-badge">
-            <img src="images/shared/trex-logo.png" alt="Trex" class="footer__trex-logo" loading="lazy" width="136" height="70">
-            <span class="footer__trex-label">TrexPRO Platinum Installer</span>
-          </div>
-          <div class="footer__socials" aria-label="Social media links">
-            <a href="https://www.instagram.com/beams_and_braces/" class="footer__social" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/beamsandbracesnorwich/" class="footer__social" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <nav aria-label="Site links"><p class="footer__col-heading">Site</p><ul class="footer__links"><li><a href="trex.html">Trex Decking</a></li><li><a href="work.html">Our Work</a></li><li><a href="railing-lighting.html">Railing &amp; Lighting</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
-
-        <div>
-          <p class="footer__col-heading">Get in Touch</p>
-          <div class="footer__contact-item">
-            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-            </svg>
-            <span class="footer__contact-text">
-              <a href="tel:07983531860">07983 531860</a>
-            </span>
-          </div>
-          <div class="footer__contact-item">
-            <svg class="footer__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-            </svg>
-            <span class="footer__contact-text">191a Plumstead Road East,<br>Norwich, NR7 9LW</span>
-          </div>
-          <a href="contact.html" class="btn btn--primary footer__contact-cta">Let's Chat</a>
-        </div>
-
+    <div class="footer__grid wrap">
+      <div class="footer__brand">
+        <img src="images/opt/logo-wordmark-light-340.webp" alt="Beams &amp; Braces" width="340" height="116" loading="lazy">
+        <p>Premium Trex composite decking across Norfolk and Suffolk, by Darren Gooch.</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Visit</p>
+        <p>191a Plumstead Road East<br>Norwich, NR7 9LW</p>
+      </div>
+      <div class="footer__col">
+        <p class="footer__label">Talk</p>
+        <p><a href="tel:+447983531860">07983 531860</a><br><a href="mailto:darren@beamsandbraces.co.uk">darren@beamsandbraces.co.uk</a><br><a href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a></p>
+      </div>
+      <nav class="footer__col" aria-label="Footer">
+        <p class="footer__label">Explore</p>
+        <ul>
+          <li><a href="trex.html">Trex Decking</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="see-us-in-action.html">See us in action</a></li>
+          <li><a href="railing-lighting.html">Railing &amp; Lighting</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer__trex">
+        <img src="images/shared/trex-logo.png" alt="Trex" width="136" height="70" loading="lazy">
+        <p>TrexPRO Platinum installer since 2017</p>
       </div>
     </div>
-
-    <div class="footer__bottom">
-      <p class="footer__copyright">© 2026 Beams and Braces. All rights reserved.</p>
-      <div class="footer__bottom-links">
+    <div class="footer__base wrap">
+      <p class="footer__copyright">© 2026 Beams &amp; Braces. Beams &amp; Braces is a trading name of D Gooch Limited (Company No. 04835734).</p>
+      <p class="footer__links">
+        <a href="https://www.instagram.com/beams_and_braces/" target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (opens in a new tab)</span></a>
+        <a href="https://www.facebook.com/beamsandbracesnorwich/" target="_blank" rel="noopener noreferrer">Facebook<span class="visually-hidden"> (opens in a new tab)</span></a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="terms.html">Terms</a>
-      </div>
+      </p>
     </div>
   </footer>
 
-
-  <script src="script.js" defer></script>
-  <script>
-    (function () {
-      var bar = document.getElementById('trustBar');
-      if (!bar) return;
-      var inner = bar.querySelector('.trust-bar__inner');
-      function isMobile() { return window.innerWidth <= 640; }
-      function pause() { if (isMobile()) inner.classList.add('is-paused'); }
-      function resume() { if (isMobile()) inner.classList.remove('is-paused'); }
-      bar.addEventListener('touchstart', pause, { passive: true });
-      bar.addEventListener('touchend', resume, { passive: true });
-    })();
-  </script>
-
-  <!-- FLOATING ACTION BUTTONS -->
-  <div class="float-backdrop" id="floatBackdrop"></div>
-  <div class="float-actions" id="floatActions" aria-label="Quick links">
-    <a href="tel:07983531860" class="float-action float-action--social float-action--call" aria-label="Call us on 07983 531860">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/beams_and_braces/" class="float-action float-action--social float-action--instagram" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
-    <a href="https://www.facebook.com/beamsandbracesnorwich/" class="float-action float-action--social float-action--facebook" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
-      <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-    </a>
-    <button class="float-action float-action--trigger" id="floatTrigger" aria-expanded="false" aria-label="Show quick links">
-      <svg class="float-trigger__phone" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" aria-hidden="true"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      <svg class="float-trigger__close" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-
+  <script src="site.js?v=68" defer></script>
 </body>
 </html>

@@ -2,6 +2,8 @@
 
 The single source of truth for building this site: who the company actually is, the real numbers/credentials/colours to use, and the visual system to build with. Pulled directly from the live site (`style.css`, `services.css`, and the pages themselves) plus facts confirmed by Darren during the rebuild. If anything here conflicts with a live page, treat the live page as possibly wrong and flag it — this doc should describe what's *true*, not just what's currently written somewhere.
 
+**Client-approved references** (newer than this doc, win on any conflict): `reference/Beams & Braces Brief.pdf` (story, voice, facts brief for Darren's sign-off) and `reference/Beams and Braces website updates (Trex UK).pdf` (partner update to Trex UK). Exception: the colour lineup is locked as it currently is on the site (see Trex product facts), whatever either PDF says.
+
 **Golden rule**: never invent a number, colour, credential, or quote for this site. Every fact below traces back to something real (Companies House, Trex's own UK site/installer profile, Darren directly, or the real Google review page). If you need a fact that isn't here, ask rather than approximate.
 
 ---
@@ -25,14 +27,15 @@ Standard footer/legal line (use verbatim, don't reword): *"Beams & Braces is a t
 
 ## Credentials & real numbers (never round up, never invent a new stat)
 
-- **TrexPRO Platinum installer since 2017** (verified against Trex's own official "Find a Builder" profile)
+- **TrexPRO Platinum installer since 2017** (verified against Trex's own official "Find a Builder" profile) — Trex's highest certification, held by **fewer than 5% of UK Trex contractors** (per the client brief)
 - **Trex Pro Advisory Council member since 2024** — one of the few UK installers Trex consults directly on what's working on the ground
-- **500+ composite decks installed since 2016** (the year Darren started doing decking specifically, distinct from the family's timber/joinery business, which goes back to 2002 when Darren was three years old)
+- **500+ composite decks installed since 2016** (the year Darren started doing decking specifically, distinct from the family's timber/joinery business, which goes back to 1987 when Darren was three years old)
+- **95% recycled content, every Trex range** (per the client brief)
 - **UK's leading curved-deck builder** — some of the largest curved Trex decks installed anywhere in the UK
 - **5.0 rating, 10 Google reviews** (current live count on the homepage — verify this number before quoting it elsewhere, it will climb over time)
 - Darren personally uses **UC4-rated joists, joist protection tape, and plastic subframes on every job** — a real build-quality detail worth repeating, not marketing fluff
 
-Real timeline (from `about.html`, Darren's own story): 2002 family joinery beginnings → 2016 Beams & Braces / Trex decking begins → 2017 TrexPRO Platinum → 2024 Trex Pro Advisory Council.
+Real timeline (from `about.html` and the client brief, Darren's own story): 1987 parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2016 Beams & Braces / Trex decking begins → 2017 TrexPRO Platinum → 2024 Trex Pro Advisory Council.
 
 ## Real reviews — use only these, never fabricate one
 
@@ -49,16 +52,37 @@ Darren sells Trex Signature, Trex Transcend, and Trex Enhance (which has two col
 | Range | Colours Darren sells | Warranty |
 |---|---|---|
 | **Signature** | Ocracoke, Whidbey | 50 years |
-| **Transcend** | Jasper, Biscayne, Rainier, Carmel (Lineage collection), Island Mist (Tropicals collection) | 50 years |
+| **Transcend** | Transcend Lineage: Jasper, Biscayne, Rainier, Carmel. Standard Transcend: Island Mist (Tropicals collection) | 50 years |
 | **Enhance Naturals** | Foggy Wharf, Rocky Harbor, Toasted Sand, Calm Water | 25 years |
 | **Enhance Basics** | Clam Shell, Tide Pool | 25 years |
 
 Notes:
+- **This lineup (13 colours, Basics included) is locked as it currently is on the site.** Don't add, remove, rename, or reassign a colour, even where a PDF says "11 colours" or "three ranges".
 - Trex's full UK Enhance Basics range also includes **Saddle** — Darren does not offer it, so it should never appear on this site.
+- **Naming (confirmed 2 Oct 2026):** call the Transcend colours "Transcend Lineage". Island Mist is the exception: it is standard Transcend, and the colour pickers tag its swatch "Standard" and explain this in the (i) note.
 - Transcend's full Tropicals collection also includes Tiki Torch, and there was once a colour called Spiced Rum on an older version of the site — neither is real/current. Island Mist is the only Tropicals colour Darren sells.
 - **Boards are single-face embossed with a grooved edge for hidden fasteners.** They are not "dual-sided" or flippable — this exact wrong claim has been found and removed from the site multiple times, so double-check before writing anything implying two usable faces.
 - Board size referenced on product pages: 25 × 140mm.
 - Real board photos live in `images/boards/<Range>/<colour>.png|jpg` (Enhance further splits into `Naturals/` and `basics/` subfolders) — always use the real photo as the swatch/preview image, never an approximated hex colour (see Visual identity → Known-good patterns below for why).
+
+## Railing & lighting facts
+
+Sources supplied by Cassian on 5 Oct 2026: Trex UK's Signature railing page (uk.trex.com/products/railing/signature) and Birkdale's Ellumière collection (birkdalesales.com/collections/all-ellumiere). Use only what is below; anything else needs checking first.
+
+**Trex Signature railing**
+- Powder-coated aluminium rails that resist fading and corrosion; described by Trex as low-maintenance.
+- Three matte finishes: Charcoal Black, Bronze, Classic White. Glass railing is Charcoal Black only.
+- Infill: square or round aluminium balusters, or glass panels. (A "rail and rod kit" is listed as a component, but horizontal rod infill isn't described, so don't claim it.)
+- Available as curvable hand railing, in the same three finishes.
+- Aluminium gates are listed by Trex as a matching product.
+- Backed by Trex's 50-year Limited Warranty.
+- Trex lists imperial post and rail sizes; don't quote them on this metric UK site.
+
+**Ellumière lighting (supplied through Birkdale)**
+- Small and large spotlights, deck lights (set into the boards) and bollard lights, in black or stainless steel.
+- One 100W outdoor transformer, 240V AC to 12V DC; starter kits pair four lights with it.
+- Replacement bulbs are 12V warm white.
+- Not stated by the source, so never claim: IP rating, warranty length, lights per transformer, or that no electrician is needed.
 
 ## Content & voice rules
 
@@ -123,8 +147,8 @@ If you're ever unsure which to reach for, check the background it's sitting on f
 ### Typography
 
 - **Display face**: `Fraunces` (serif) — headings only, plus the odd emphasized inline word (`<em>`).
-- **UI face**: `Plus Jakarta Sans` — everything else: body copy, labels, nav, buttons, captions.
-- Never introduce a third typeface. Never set body copy in Fraunces or a heading in Plus Jakarta Sans.
+- **UI face**: `Cormorant Garamond` (self-hosted in `fonts/`) — everything else: body copy, labels, nav, buttons, captions.
+- Never introduce a third typeface. Never set body copy in Fraunces or a heading in Cormorant Garamond.
 
 Type scale (all fluid via `clamp()`, don't hardcode pixel sizes for headings):
 `--text-display` → `--text-h1` → `--text-h2` → `--text-h3` → `--text-body-lg` → `--text-body` → `--text-sm` → `--text-label`
@@ -154,7 +178,7 @@ Use the `--sp-*` scale (4px base unit: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80,
 This doc fixes a concrete visual bug (accent-coloured headings unreadable on white) and consolidates the real company/product facts scattered across past conversations into one place. Still outstanding, not covered by this doc:
 
 1. A full page-by-page design-continuity audit (see the project memory / punch list from 2026-09-09).
-2. Deeper railing & lighting content.
+2. Deeper railing & lighting content. Note: the client brief's seven-page map doesn't list `railing-lighting.html`, but the Trex UK update commits to expanding it "this week", so the page stays.
 3. Weaving the credentials/numbers above into more pages, not just the homepage/about.
 4. Deciding whether WhatsApp or the webhook form (or both) should lead, and confirming the webhook is actually being monitored.
 5. Sourcing and organizing better real project photography into folders in this working directory.

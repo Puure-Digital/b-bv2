@@ -1,0 +1,448 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T21:29:11.614Z",
+  "title": "Design System: Beams & Braces",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Oiled Brass",
+        "canonical": "oklch(69.2% 0.072 71.9)",
+        "tonalRamp": [
+          "oklch(15% 0.072 71.9)",
+          "oklch(26% 0.072 71.9)",
+          "oklch(38% 0.072 71.9)",
+          "oklch(50% 0.072 71.9)",
+          "oklch(62% 0.072 71.9)",
+          "oklch(74% 0.072 71.9)",
+          "oklch(85% 0.072 71.9)",
+          "oklch(95% 0.072 71.9)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Aged Brass",
+        "canonical": "oklch(55.9% 0.066 72.4)",
+        "tonalRamp": [
+          "oklch(15% 0.066 72.4)",
+          "oklch(26% 0.066 72.4)",
+          "oklch(38% 0.066 72.4)",
+          "oklch(50% 0.066 72.4)",
+          "oklch(62% 0.066 72.4)",
+          "oklch(74% 0.066 72.4)",
+          "oklch(85% 0.066 72.4)",
+          "oklch(95% 0.066 72.4)"
+        ]
+      },
+      "accent-deep": {
+        "role": "primary",
+        "displayName": "Burnished Brass",
+        "canonical": "oklch(50.2% 0.062 71.8)",
+        "tonalRamp": [
+          "oklch(15% 0.062 71.8)",
+          "oklch(26% 0.062 71.8)",
+          "oklch(38% 0.062 71.8)",
+          "oklch(50% 0.062 71.8)",
+          "oklch(62% 0.062 71.8)",
+          "oklch(74% 0.062 71.8)",
+          "oklch(85% 0.062 71.8)",
+          "oklch(95% 0.062 71.8)"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Polished Brass",
+        "canonical": "oklch(78.5% 0.063 75.5)",
+        "tonalRamp": [
+          "oklch(15% 0.063 75.5)",
+          "oklch(26% 0.063 75.5)",
+          "oklch(38% 0.063 75.5)",
+          "oklch(50% 0.063 75.5)",
+          "oklch(62% 0.063 75.5)",
+          "oklch(74% 0.063 75.5)",
+          "oklch(85% 0.063 75.5)",
+          "oklch(95% 0.063 75.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Charred Oak",
+        "canonical": "oklch(18.4% 0.005 67.5)",
+        "tonalRamp": [
+          "oklch(15% 0.005 67.5)",
+          "oklch(26% 0.005 67.5)",
+          "oklch(38% 0.005 67.5)",
+          "oklch(50% 0.005 67.5)",
+          "oklch(62% 0.005 67.5)",
+          "oklch(74% 0.005 67.5)",
+          "oklch(85% 0.005 67.5)",
+          "oklch(95% 0.005 67.5)"
+        ]
+      },
+      "dark": {
+        "role": "neutral",
+        "displayName": "Bog Oak",
+        "canonical": "oklch(22.4% 0.009 75.2)",
+        "tonalRamp": [
+          "oklch(15% 0.009 75.2)",
+          "oklch(26% 0.009 75.2)",
+          "oklch(38% 0.009 75.2)",
+          "oklch(50% 0.009 75.2)",
+          "oklch(62% 0.009 75.2)",
+          "oklch(74% 0.009 75.2)",
+          "oklch(85% 0.009 75.2)",
+          "oklch(95% 0.009 75.2)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Limewash",
+        "canonical": "oklch(98.4% 0.004 106.5)",
+        "tonalRamp": [
+          "oklch(15% 0.004 106.5)",
+          "oklch(26% 0.004 106.5)",
+          "oklch(38% 0.004 106.5)",
+          "oklch(50% 0.004 106.5)",
+          "oklch(62% 0.004 106.5)",
+          "oklch(74% 0.004 106.5)",
+          "oklch(85% 0.004 106.5)",
+          "oklch(95% 0.004 106.5)"
+        ]
+      },
+      "surface-2": {
+        "role": "neutral",
+        "displayName": "Sawdust Linen",
+        "canonical": "oklch(95.6% 0.007 80.7)",
+        "tonalRamp": [
+          "oklch(15% 0.007 80.7)",
+          "oklch(26% 0.007 80.7)",
+          "oklch(38% 0.007 80.7)",
+          "oklch(50% 0.007 80.7)",
+          "oklch(62% 0.007 80.7)",
+          "oklch(74% 0.007 80.7)",
+          "oklch(85% 0.007 80.7)",
+          "oklch(95% 0.007 80.7)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Weathered Grain",
+        "canonical": "oklch(50.8% 0.023 64.8)",
+        "tonalRamp": [
+          "oklch(15% 0.023 64.8)",
+          "oklch(26% 0.023 64.8)",
+          "oklch(38% 0.023 64.8)",
+          "oklch(50% 0.023 64.8)",
+          "oklch(62% 0.023 64.8)",
+          "oklch(74% 0.023 64.8)",
+          "oklch(85% 0.023 64.8)",
+          "oklch(95% 0.023 64.8)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Planed Edge",
+        "canonical": "oklch(90.0% 0.012 71.9)",
+        "tonalRamp": [
+          "oklch(15% 0.012 71.9)",
+          "oklch(26% 0.012 71.9)",
+          "oklch(38% 0.012 71.9)",
+          "oklch(50% 0.012 71.9)",
+          "oklch(62% 0.012 71.9)",
+          "oklch(74% 0.012 71.9)",
+          "oklch(85% 0.012 71.9)",
+          "oklch(95% 0.012 71.9)"
+        ]
+      },
+      "border-dark": {
+        "role": "neutral",
+        "displayName": "Scorched Edge",
+        "canonical": "oklch(31.1% 0.012 78.1)",
+        "tonalRamp": [
+          "oklch(15% 0.012 78.1)",
+          "oklch(26% 0.012 78.1)",
+          "oklch(38% 0.012 78.1)",
+          "oklch(50% 0.012 78.1)",
+          "oklch(62% 0.012 78.1)",
+          "oklch(74% 0.012 78.1)",
+          "oklch(85% 0.012 78.1)",
+          "oklch(95% 0.012 78.1)"
+        ]
+      },
+      "dark-text": {
+        "role": "neutral",
+        "displayName": "Shaving White",
+        "canonical": "oklch(94.7% 0.007 80.7)",
+        "tonalRamp": [
+          "oklch(15% 0.007 80.7)",
+          "oklch(26% 0.007 80.7)",
+          "oklch(38% 0.007 80.7)",
+          "oklch(50% 0.007 80.7)",
+          "oklch(62% 0.007 80.7)",
+          "oklch(74% 0.007 80.7)",
+          "oklch(85% 0.007 80.7)",
+          "oklch(95% 0.007 80.7)"
+        ]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "oklch(69.8% 0.02 70.1)",
+        "tonalRamp": [
+          "oklch(15% 0.02 70.1)",
+          "oklch(26% 0.02 70.1)",
+          "oklch(38% 0.02 70.1)",
+          "oklch(50% 0.02 70.1)",
+          "oklch(62% 0.02 70.1)",
+          "oklch(74% 0.02 70.1)",
+          "oklch(85% 0.02 70.1)",
+          "oklch(95% 0.02 70.1)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only, capped at 12ch."
+      },
+      "headline-lg": {
+        "displayName": "Headline Large",
+        "purpose": "The closing invitation."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section heading."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Darren's belief and client reviews."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Range names, work titles, colour preview name, mobile menu links."
+      },
+      "title-figure": {
+        "displayName": "Title Figure",
+        "purpose": "The opening figure of a proof fact."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Leads under headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Buttons, nav links, text links, footer."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Swatch names and the footer base line."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase attributions, credentials, range meta, group names, footer column heads. Never above a heading."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Reveals, underlines, image settles and scales: the slow luxurious tail."
+      },
+      {
+        "name": "ease-std",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "State changes: button fills, colour and opacity fades, nav solidify."
+      },
+      {
+        "name": "hero-settle",
+        "value": "scale 1.06 to 1, 2600ms ease-out-expo",
+        "purpose": "Hero photograph settles on load."
+      },
+      {
+        "name": "rise",
+        "value": "translateY 18px and opacity 0 to rest, 1200ms ease-out-expo, 120ms stagger",
+        "purpose": "Hero content entrance."
+      },
+      {
+        "name": "reveal-media",
+        "value": "clip-path inset(0 0 100% 0) to inset(0) 1400ms; image scale 1.08 to 1 1800ms; ease-out-expo; once at 20% visibility",
+        "purpose": "Section photographs unveil as they enter."
+      },
+      {
+        "name": "colour-crossfade",
+        "value": "opacity 350ms ease-std, scale 1.02 900ms ease-out-expo, after preload",
+        "purpose": "Colour preview plate swaps boards."
+      },
+      {
+        "name": "review-crossfade",
+        "value": "opacity 600ms ease-std",
+        "purpose": "Review carousel slide change."
+      },
+      {
+        "name": "nav-solid",
+        "value": "background 400ms ease-std at 40px scroll",
+        "purpose": "Nav turns solid Charred Oak once the hero is behind it."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "entrances gated behind prefers-reduced-motion: no-preference; all durations 0.01ms under reduce",
+        "purpose": "Motion is always optional."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "footer-3col",
+        "value": "1080px"
+      },
+      {
+        "name": "stack",
+        "value": "960px"
+      },
+      {
+        "name": "phone",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Brass Button",
+      "kind": "button",
+      "refersTo": "button-brass",
+      "description": "Primary action: Let's Chat and WhatsApp. Oiled Brass fill, Charred Oak text.",
+      "html": "<a class=\"ds-btn ds-btn-brass\" href=\"#\">Let's Chat</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 var(--sp-8, 32px); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: var(--text-sm, 0.875rem); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; border: 1px solid transparent; border-radius: 0; cursor: pointer; transition: background-color 300ms cubic-bezier(0.32, 0.72, 0, 1), color 300ms cubic-bezier(0.32, 0.72, 0, 1), border-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-brass { background: var(--color-accent, #B8956A); border-color: var(--color-accent, #B8956A); color: var(--color-ink, #141210); } .ds-btn-brass:hover { background: var(--color-accent-soft, #D1B48C); border-color: var(--color-accent-soft, #D1B48C); } .ds-btn-brass:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; }"
+    },
+    {
+      "name": "Ghost Light Button",
+      "kind": "button",
+      "refersTo": "button-ghost-light",
+      "description": "Secondary action on dark photography.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn ds-btn-ghost\" href=\"#\">Message me on WhatsApp</a></div>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 var(--sp-8, 32px); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: var(--text-sm, 0.875rem); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; border: 1px solid transparent; border-radius: 0; cursor: pointer; transition: background-color 300ms cubic-bezier(0.32, 0.72, 0, 1), color 300ms cubic-bezier(0.32, 0.72, 0, 1), border-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-dark { background: var(--color-ink, #141210); padding: 32px; } .ds-btn-ghost { border-color: rgb(240 237 232 / 0.4); color: var(--color-dark-text, #F0EDE8); background: transparent; } .ds-btn-ghost:hover { border-color: var(--color-dark-text, #F0EDE8); background: rgb(240 237 232 / 0.08); } .ds-btn-ghost:focus-visible { outline: 1px solid var(--color-accent, #B8956A); outline-offset: 4px; }"
+    },
+    {
+      "name": "Ink Button",
+      "kind": "button",
+      "refersTo": "button-ink",
+      "description": "Primary action on light grounds, e.g. Request Free Samples.",
+      "html": "<a class=\"ds-btn ds-btn-ink\" href=\"#\">Request Free Samples</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 var(--sp-8, 32px); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: var(--text-sm, 0.875rem); font-weight: 600; letter-spacing: 0.04em; text-decoration: none; white-space: nowrap; border: 1px solid transparent; border-radius: 0; cursor: pointer; transition: background-color 300ms cubic-bezier(0.32, 0.72, 0, 1), color 300ms cubic-bezier(0.32, 0.72, 0, 1), border-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-ink { background: var(--color-ink, #141210); border-color: var(--color-ink, #141210); color: var(--color-dark-text, #F0EDE8); } .ds-btn-ink:hover { background: var(--color-dark, #1E1B17); color: var(--color-accent, #B8956A); } .ds-btn-ink:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "body-sm",
+      "description": "Hairline-underlined link with a masked SVG arrow; the underline draws back on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">Read the full story</a>",
+      "css": ".ds-link { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.02em; color: var(--color-ink, #141210); text-decoration: none; padding-bottom: 4px; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; transition: background-size 500ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-link::after { content: ''; width: 20px; height: 10px; flex: none; background: currentColor; -webkit-mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M1 6h22M18 1l5 5-5 5' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E\") center / contain no-repeat; mask: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M1 6h22M18 1l5 5-5 5' fill='none' stroke='black' stroke-width='1.2'/%3E%3C/svg%3E\") center / contain no-repeat; transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover { background-size: 40% 1px; } .ds-link:hover::after { transform: translateX(4px); } .ds-link:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; }"
+    },
+    {
+      "name": "Navigation (solid)",
+      "kind": "nav",
+      "refersTo": "nav-solid",
+      "description": "Fixed nav after scroll: Charred Oak with a Scorched Edge hairline; brass underline on hover.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-brand\">Beams &amp; Braces</span><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link\" href=\"#\">Trex Decking</a></li><li><a class=\"ds-nav-link\" href=\"#\">Our Work</a></li><li><a class=\"ds-nav-link\" href=\"#\">About</a></li><li><a class=\"ds-nav-cta\" href=\"#\">Let's Chat</a></li></ul></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; height: 84px; padding: 0 40px; background: var(--color-ink, #141210); box-shadow: 0 1px 0 var(--color-border-dark, #34302A); color: var(--color-dark-text, #F0EDE8); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); } .ds-nav-brand { font-family: var(--font-display, 'Fraunces', Georgia, serif); font-weight: 300; font-size: 1.4rem; } .ds-nav-list { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; } .ds-nav-link { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.02em; color: inherit; text-decoration: none; padding: 8px 0; background: linear-gradient(var(--color-accent, #B8956A), var(--color-accent, #B8956A)) 0 100% / 0 1px no-repeat; transition: background-size 450ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav-link:hover { background-size: 100% 1px; } .ds-nav-link:focus-visible, .ds-nav-cta:focus-visible { outline: 1px solid var(--color-accent, #B8956A); outline-offset: 4px; } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 46px; padding: 0 24px; background: var(--color-accent, #B8956A); color: var(--color-ink, #141210); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-decoration: none; transition: background-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-nav-cta:hover { background: var(--color-accent-soft, #D1B48C); }"
+    },
+    {
+      "name": "Colour Swatch",
+      "kind": "chip",
+      "refersTo": "swatch",
+      "description": "88px square real board photograph with its name; hover and pressed outlines. Production swatches are always real photos, never flat hex.",
+      "html": "<div class=\"ds-swatches\"><button class=\"ds-swatch\" type=\"button\" aria-pressed=\"true\"><img class=\"ds-swatch-img\" src=\"images/boards/Transcend/Lineage/jasper.png\" alt=\"\"><span class=\"ds-swatch-name\">Jasper</span></button><button class=\"ds-swatch\" type=\"button\" aria-pressed=\"false\"><img class=\"ds-swatch-img\" src=\"images/boards/Transcend/island-mist.png\" alt=\"\"><span class=\"ds-swatch-name\">Island Mist</span></button></div>",
+      "css": ".ds-swatches { display: flex; gap: 20px 16px; background: var(--color-surface-2, #F3F0EB); padding: 24px; } .ds-swatch { display: flex; flex-direction: column; gap: 12px; width: 88px; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); } .ds-swatch-img { display: block; width: 88px; height: 88px; object-fit: cover; background: var(--color-border, #E3DDD6); outline: 1px solid transparent; outline-offset: 4px; transition: outline-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-swatch-name { font-size: 0.8125rem; line-height: 1.3; color: var(--color-muted, #6F6358); transition: color 250ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-swatch:hover .ds-swatch-img { outline-color: var(--color-border, #E3DDD6); } .ds-swatch[aria-pressed='true'] .ds-swatch-img { outline-color: var(--color-ink, #141210); } .ds-swatch[aria-pressed='true'] .ds-swatch-name { color: var(--color-ink, #141210); } .ds-swatch:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; }"
+    },
+    {
+      "name": "Range Column",
+      "kind": "card",
+      "refersTo": "title",
+      "description": "Not a card: an Aged Brass hairline over a range name, text and Burnished Brass warranty meta on Sawdust Linen.",
+      "html": "<div class=\"ds-range-wrap\"><article class=\"ds-range\"><h3 class=\"ds-range-name\"><a href=\"#\">Transcend</a></h3><p class=\"ds-range-text\">The richest colours and deepest woodgrain in the Trex lineup.</p><p class=\"ds-range-meta\">50-year fade and stain warranty</p></article></div>",
+      "css": ".ds-range-wrap { background: var(--color-surface-2, #F3F0EB); padding: 32px; } .ds-range { max-width: 360px; padding-top: 24px; border-top: 1px solid var(--color-accent-dark, #8C6E48); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); } .ds-range-name { margin: 0; font-family: var(--font-display, 'Fraunces', Georgia, serif); font-size: clamp(1.4rem, 1.2rem + 0.8vw, 2rem); font-weight: 300; letter-spacing: -0.01em; color: var(--color-ink, #141210); } .ds-range-name a { color: inherit; text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size 500ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-range-name a:hover { background-size: 100% 1px; } .ds-range-name a:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; } .ds-range-text { margin: 12px 0 0; color: var(--color-muted, #6F6358); line-height: 1.7; } .ds-range-meta { margin: 20px 0 0; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-deep, #7A5E3B); }"
+    },
+    {
+      "name": "Review",
+      "kind": "custom",
+      "refersTo": "review-control",
+      "description": "One quote at a time on an Aged Brass hairline, square 56px SVG-arrow controls and a tabular counter.",
+      "html": "<div class=\"ds-review\"><blockquote class=\"ds-review-quote\">“Excellent design and service. Delighted with our Trex decking.”</blockquote><p class=\"ds-review-by\">Mark Burgess</p><div class=\"ds-review-controls\"><button class=\"ds-review-btn\" type=\"button\" aria-label=\"Previous review\"><svg viewBox=\"0 0 24 12\" width=\"24\" height=\"12\" aria-hidden=\"true\"><path d=\"M23 6H1M6 1L1 6l5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg></button><span class=\"ds-review-count\">7 / 8</span><button class=\"ds-review-btn\" type=\"button\" aria-label=\"Next review\"><svg viewBox=\"0 0 24 12\" width=\"24\" height=\"12\" aria-hidden=\"true\"><path d=\"M1 6h22M18 1l5 5-5 5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/></svg></button></div></div>",
+      "css": ".ds-review { border-top: 1px solid var(--color-accent-dark, #8C6E48); padding-top: 48px; background: var(--color-surface, #FAFAF7); color: var(--color-ink, #141210); font-family: var(--font-ui, 'Plus Jakarta Sans', system-ui, sans-serif); } .ds-review-quote { margin: 0; max-width: 30ch; font-family: var(--font-display, 'Fraunces', Georgia, serif); font-weight: 300; font-size: clamp(1.6rem, 1rem + 2.3vw, 3rem); line-height: 1.3; letter-spacing: -0.015em; } .ds-review-by { margin: 32px 0 0; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-dark, #8C6E48); } .ds-review-controls { display: flex; align-items: center; gap: 24px; margin-top: 48px; } .ds-review-btn { display: inline-grid; place-items: center; width: 56px; height: 56px; background: none; color: inherit; border: 1px solid var(--color-border, #E3DDD6); border-radius: 0; cursor: pointer; transition: border-color 300ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-review-btn:hover { border-color: var(--color-ink, #141210); } .ds-review-btn:focus-visible { outline: 1px solid var(--color-accent-dark, #8C6E48); outline-offset: 4px; } .ds-review-count { min-width: 3.5em; text-align: center; font-size: 0.875rem; color: var(--color-muted, #6F6358); font-variant-numeric: tabular-nums; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Luxury Yard",
+    "overview": "The old Beams & Braces world, bog oak, oiled brass and Fraunces, rebuilt with the restraint of a luxury house. It remembers the timber yard Darren grew up in (dark stained wood, brass fittings, the ledger serif) but speaks the way a high-end maker speaks: one idea per screen, real photography at full scale, credentials stated once and quietly. Nothing shouts. The brass is jewellery, not paint.\n\nDensity is low and the rhythm is long. Sections breathe on a fluid section pad of up to 200px, headings sit in light Fraunces at large optical size, and body copy is small, airy Plus Jakarta Sans. Light and dark alternate deliberately: Limewash and Sawdust Linen grounds for reading, Charred Oak and Bog Oak for photography, the outcome statement and the close. Every surface is square-cut and flat. Depth comes from photographs and from the contrast between light and dark bands, never from shadows or cards.\n\nThis world rejects the busy tradesman template: badges, pills, marquees, star rows, floating buttons and card grids.",
+    "keyCharacteristics": [
+      "Balanced light and dark bands, no gradients except photo-protection scrims.",
+      "Fraunces 300 display with one brass italic word; Plus Jakarta Sans for everything else.",
+      "Brass used only as hairlines, one italic word, filled primary buttons and focus rings.",
+      "Square corners everywhere (0 radius), 1px hairlines, no shadows, no cards.",
+      "Real project photography at full bleed; real board photography for every colour swatch.",
+      "Slow, expo-out motion: the hero settles, photographs unveil, the colour preview crossfades."
+    ],
+    "rules": [
+      {
+        "name": "The Jewellery Rule",
+        "body": "Brass is a hairline, one italic word, a filled primary button or a focus ring. It never fills a section, a panel or a large block of text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Right Brass Rule",
+        "body": "Brass text on Limewash is Aged Brass; on Sawdust Linen it is Burnished Brass; Oiled Brass is text only on Charred Oak or Bog Oak. Picking the brass tone by ground is not optional.",
+        "section": "colors"
+      },
+      {
+        "name": "The Token-Only Rule",
+        "body": "Every colour is a `--color-*` token. Translucent variants of a token (scrims, ghost borders) are that token's RGB at an alpha, never a new hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Italic Word Rule",
+        "body": "A heading may carry one `<em>` word in Fraunces italic, coloured brass for its ground. One word, not a phrase, and not in every heading.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Fraunces and Plus Jakarta Sans only. Sizes come from the fluid `--text-*` tokens; no hardcoded heading sizes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Steady Weight Rule",
+        "body": "Hover never changes font weight. Links answer with an underline or colour shift.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Lift Rule",
+        "body": "Nothing floats. No drop shadows, no raised cards, no hover lift. A surface changes state by border, underline, colour or image scale, never by elevation.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set brass text on Limewash in Aged Brass (#8C6E48) and on Sawdust Linen in Burnished Brass (#7A5E3B); use Oiled Brass (#B8956A) for text only on Charred Oak or Bog Oak.",
+      "Do put Charred Oak (#141210) text on every brass button (6.7:1, AA).",
+      "Do keep every corner square (`--radius-none`) and every divider a 1px hairline.",
+      "Do use real board photographs for every colour swatch and keep the swatches and the preview plate square.",
+      "Do take all spacing from the `--sp-*` scale and all type sizes from the fluid `--text-*` tokens.",
+      "Do animate with the named curves only (`--ease-out-expo`, `--ease-std`) and gate entrance motion behind `prefers-reduced-motion: no-preference`.",
+      "Do draw arrows and chevrons as thin-stroke SVG (the arrow is a CSS mask so it inherits `currentColor`).",
+      "Do keep the white box behind the Trex logo; it is required.",
+      "Do keep the CTA wording \"Let's Chat\" and \"Message me on WhatsApp\"."
+    ],
+    "donts": [
+      "Don't put a kicker or eyebrow above a heading. Uppercase labels only follow content (attributions, meta) or name a group.",
+      "Don't use Unicode glyphs as icons (arrows, stars, checkmarks, chevrons).",
+      "Don't recolour, crop or remove the white box from the Trex logo.",
+      "Don't add shadows, cards, rounded corners, pills, badges, star rows, marquees or floating buttons.",
+      "Don't use Oiled Brass as text on Limewash or Sawdust Linen (2.7:1).",
+      "Don't introduce a third typeface or change font weight on hover.",
+      "Don't show a colour as a flat hex block, or crop a square board preview to another ratio.",
+      "Don't add cursor-driven hover motion (tilt, magnetic, parallax-on-pointer)."
+    ]
+  }
+}
