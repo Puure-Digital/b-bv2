@@ -59,7 +59,7 @@ Never use an unverifiable superlative such as "best in the UK". Let the credenti
 - CTA language is "Let's Chat" or "Message me on WhatsApp". Never "Get a Free Quote", "We'd love to hear from you!", or any quote framing.
 - No hype standing in for fact ("passionate about excellence"). Spec-sheet language belongs on product pages, not the homepage.
 - Darren's belief, in his words: "I don't think people buy Trex. I think people buy the outdoor space they've been picturing, and Trex happens to be the best material I've found to build it properly."
-- Assets: logo `images/shared/logo-dark.png` (the only variant; a proper light/dark pair is a known gap), favicon `images/shared/favicon.png`, and the Trex partner logo `images/shared/trex-logo.png` (official, never recolour or crop).
+- Assets: logo `images/shared/logo-dark.png` (the only variant; a proper light/dark pair is a known gap), favicon `images/shared/favicon.png`, and the Trex partner logos `images/shared/trexpro-platinum-white.webp` (white TrexPRO Platinum mark, dark grounds) and `images/shared/trex-logo-oval.webp` (Trex oval, light grounds) (official, never recolour or crop).
 - The work must not read as AI-generated or template-built. Every decision traces back to something true about the business: its materials, its craft, Darren's history.
 
 ## Evidence on Hand

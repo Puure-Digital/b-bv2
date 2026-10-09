@@ -84,6 +84,19 @@ Sources supplied by Cassian on 5 Oct 2026: Trex UK's Signature railing page (uk.
 - Replacement bulbs are 12V warm white.
 - Not stated by the source, so never claim: IP rating, warranty length, lights per transformer, or that no electrician is needed.
 
+## Project photography by range
+
+Confirmed by Cassian. Only name a range or colour on a photo listed here.
+
+- `images/projects/carmel/carmel-*` (DSC03379–DSC03420): **Trex Transcend Lineage, Carmel**. A raised, curved deck with curved steps and black railing. Confirmed 8 Oct 2026.
+- `images/projects/wa-*`, grey deck with covered kitchen and long table: **Trex Transcend**, colour not confirmed.
+- `images/projects/wa-*`, warm brown deck with water feature: **Trex Signature**, colour not confirmed.
+- `images/projects/island-mist/*`: **Trex Transcend, Island Mist** (standard Transcend). Labelled by Cassian, 9 Oct 2026.
+- `images/projects/enhance/enhance-rocky-harbor.jpg`: **Trex Enhance (Naturals), Rocky Harbor**. `enhance-lodge-1.jpg` and `enhance-lodge-2.jpg`: **Trex Enhance**, colour not confirmed. Labelled 9 Oct 2026.
+- `images/projects/railing/railing-*`: railing Darren has fitted. The railing product isn't confirmed, so never call these Trex Signature (`railing-6` is a glass balustrade on stainless steel posts); the decking range isn't confirmed either.
+- `images/projects/curved/curved-decking-1.jpg`: curved decking with railing; range not confirmed.
+- Everything else (DSC029xx–030xx hot tub and fire-table garden, curved-deck shots, gallery-*): range not confirmed, so never label it with a range or colour. `images/trex/trex-enhance.jpg` is no longer used: it was never confirmed as Enhance.
+
 ## Content & voice rules
 
 - **No location-specific landing pages** (e.g. "composite decking Norwich") and no dedicated "areas we cover" page. This mirrors Darren's own preference and how his own site is structured — geography lives as natural mentions in body copy instead.
@@ -113,7 +126,9 @@ Nav labels: **Trex Decking** (dropdown to the hub + 3 range pages) · **Our Work
 
 - Logo: `images/shared/logo-dark.png` — **this is currently the only logo file**, even though the nav markup has separate `nav-logo-img--white` and `nav-logo-img--dark` classes implying two variants should exist. Worth producing a true light/white-mark variant if the nav is ever placed over a light, non-overlaid background.
 - Favicon: `images/shared/favicon.png`
-- Trex partner logo: `images/shared/trex-logo.png` — an official Trex asset, keep unmodified, don't recolour or crop it.
+- Trex partner logos in use: the white TrexPRO Platinum mark `images/shared/trexpro-platinum-white.webp` (original `trexpro-platinum-white-original.png`) on dark grounds, in the footer and the Trex hub and range-page heroes, captioned "Installer since 2017"; and the official chrome Trex oval `images/shared/trex-logo-oval.webp` (original `trex-logo-oval-original.webp`, only the empty margin trimmed) on light grounds, in the homepage ranges section and the Railing & Lighting railing options, beside "TrexPRO Platinum installer since 2017". Never recolour, crop into or plate either. Light grounds can take the Platinum mark once Trex supplies a dark version.
+- On file but not used: a Beams & Braces TrexPRO Platinum Builder badge (`trexpro-platinum-builder-badge*`), taken off the site on 8 Oct 2026 at Cassian's request. The older `trex-logo.png` is retired.
+- Never use another company's personalised badge (e.g. one naming Warner's Decking or showing their years-of-service seal).
 
 ---
 

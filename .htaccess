@@ -1,3 +1,5 @@
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 
 # Anyone still hitting the old page.html address gets sent to the clean version

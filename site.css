@@ -66,7 +66,8 @@
   --gap-lg: clamp(var(--sp-10), 8vw, var(--sp-32));
   --panel-pad: clamp(var(--sp-12), 7vw, var(--sp-32));
   --close-pad: clamp(var(--sp-24), 14vw, 224px);
-  --logo-partner: 88px;
+  --logo-platinum: 152px;        /* the wide TrexPRO Platinum mark */
+  --logo-oval: 84px;             /* the Trex oval */
 
   /* Control and swatch sizes */
   --control:   56px;
@@ -756,7 +757,7 @@ em { font-style: italic; }
 [data-layout="b"] .lens__tile:nth-child(4) { grid-column: 11 / 13; grid-row: 2; }
 [data-layout="c"] .lens__tile:nth-child(1) { grid-column: 1 / 9; grid-row: 1 / 3; }
 [data-layout="c"] .lens__tile:nth-child(2) { grid-column: 9 / 13; grid-row: 1; }
-[data-layout="c"] .lens__tile:nth-child(3) { grid-column: 9 / 11; grid-row: 2; }
+[data-layout="c"] .lens__tile:nth-child(3) { grid-column: 9 / 13; grid-row: 2; }
 [data-layout="c"] .lens__tile:nth-child(4) { grid-column: 11 / 13; grid-row: 2; }
 .lens__cap {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-2) var(--sp-8);
@@ -1175,7 +1176,7 @@ em { font-style: italic; }
 .footer a { color: var(--color-dark-text); text-decoration: none; transition: color 200ms var(--ease-std); }
 .footer a:hover { color: var(--color-accent); }
 .footer ul li + li { margin-top: var(--sp-2); }
-.footer__trex img { width: var(--logo-partner); background: var(--color-logo-backing); padding: var(--sp-1); margin-bottom: var(--sp-3); }
+.footer__trex img { width: var(--logo-platinum); height: auto; margin-bottom: var(--sp-3); }
 .footer__base {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-4) var(--sp-8);
   padding-block: var(--sp-6) var(--sp-10);
@@ -1334,7 +1335,7 @@ em { font-style: italic; }
 .compare__media { overflow: hidden; }
 .compare__media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .compare__name { margin-top: var(--sp-6); font-family: var(--font-display); font-size: var(--text-h3); font-weight: 300; }
-.compare__line { margin-top: var(--sp-3); font-family: var(--font-display); font-style: italic; font-size: var(--text-h4); line-height: 1.4; color: var(--color-ink); }
+.compare__line { margin-top: var(--sp-3); font-family: var(--font-display); font-style: italic; font-weight: 300; font-size: var(--text-h4); line-height: 1.4; color: var(--color-ink); }
 .compare__text { margin-top: var(--sp-4); color: var(--color-muted); }
 .compare__spec { margin-top: var(--sp-6); font-size: var(--text-sm); }
 .compare__spec div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: var(--sp-4); padding-block: var(--sp-3); border-top: 1px solid var(--color-border); }
@@ -1866,7 +1867,12 @@ em { font-style: italic; }
 
 /* ---------- Small phones ---------- */
 /* long addresses break rather than push the page sideways */
-.footer a, .contact__details a, .contact__details dd { overflow-wrap: anywhere; }
+.contact__details a { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .footer__grid > .footer__col:not(nav) { grid-column: 1 / -1; }
+  .footer__grid > .footer__col:not(nav) p br { display: none; }
+  .footer__grid > .footer__col:not(nav) p a { display: block; }
+}
 /* About: a single tall film stays a sensible size on a phone */
 @media (max-width: 720px) {
   .clips[data-count="1"] .clip__frame { max-width: 300px; margin-inline: auto; }
@@ -1932,3 +1938,42 @@ em { font-style: italic; }
 }
 .ticker__star { flex: none; width: 12px; height: 12px; color: var(--color-accent); }
 .credentials--ticker a { color: var(--color-dark-text); }
+
+/* ---------- Trex lockup ----------
+   An official Trex mark beside the TrexPRO Platinum line, divided by a hairline: the
+   white TrexPRO Platinum mark on dark grounds, the Trex oval on light grounds. Never
+   recoloured or cropped into. Used where the site talks about Trex. */
+.trexmark { display: flex; align-items: center; gap: var(--sp-4); margin-top: var(--sp-8); }
+.trexmark img { flex: none; width: var(--logo-oval); height: auto; }
+.trexmark span {
+  padding-left: var(--sp-4); border-left: 1px solid rgb(140 110 72 / 0.4);
+  font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; line-height: 1.4; text-transform: uppercase;
+  color: var(--color-accent-deep); max-width: 30ch;
+}
+.trexmark--platinum img { width: var(--logo-platinum); }
+.trexmark--platinum span { color: var(--color-dark-text); border-left-color: rgb(184 149 106 / 0.55); max-width: 18ch; text-wrap: balance; }
+.page-hero .trexmark { margin-top: var(--sp-10); }
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero__content > :nth-child(4) { animation-delay: 360ms; }
+  .js .hero__content > :nth-child(5) { animation-delay: 480ms; }
+}
+@media (max-width: 600px) { .trexmark img { width: 72px; } .trexmark--platinum img { width: 128px; } }
+
+/* contact hours: each day range stays on one line */
+.nowrap { white-space: nowrap; }
+
+/* a manufacturer photo among Darren's own is labelled as such */
+.shot--credited { position: relative; }
+.shot__credit {
+  position: absolute; left: 0; bottom: 0; z-index: 1; pointer-events: none; padding: var(--sp-1) var(--sp-3);
+  font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--color-ink); color: var(--color-dark-text);
+}
+
+/* photos fade in whole once loaded (site.js marks them); never hidden without script */
+.js img.is-fading { opacity: 0; }
+.js img.is-fading.is-loaded { opacity: 1; transition: opacity 600ms var(--ease-std); }
+@media (prefers-reduced-motion: reduce) { .js img.is-fading.is-loaded { transition: none; } }
+/* frames hold a quiet tone while their photo arrives */
+.lens__tile, .shot__open, .sheet__shot, .related__media, .work__media, .optrow__plate { background-color: var(--color-surface-2); }
+.section--dark .shot__open, .work .sheet__shot, .reel .clip__frame { background-color: var(--color-dark); }

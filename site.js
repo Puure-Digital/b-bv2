@@ -69,6 +69,25 @@
     if (menu && menu.classList.contains('is-open')) { setMenu(false); menuButton.focus(); }
   });
 
+  /* ---------- Photos fade in whole ----------
+     A large photo otherwise paints top to bottom as it downloads. Each photo below the
+     first screen waits, invisible over the frame's own colour, until it has fully loaded
+     and decoded, then fades in. Photos already loaded (from the cache) show at once. */
+  (function () {
+    function show(img) { img.classList.add('is-loaded'); }
+    function ready(img) {
+      if (img.decode) img.decode().then(function () { show(img); }, function () { show(img); });
+      else show(img);
+    }
+    document.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+      if (img.closest('.reveal-media, .nav, .footer, .swatch, .compare__boards')) return;
+      if (img.complete && img.naturalWidth) { show(img); return; }
+      img.classList.add('is-fading');
+      img.addEventListener('load', function () { ready(img); }, { once: true });
+      img.addEventListener('error', function () { show(img); }, { once: true });
+    });
+  })();
+
   /* ---------- Scroll unveil for photographs ---------- */
   var media = document.querySelectorAll('.reveal-media');
   /* Lay the photo only once it has arrived, so the brass edge never sweeps an empty frame */
@@ -415,7 +434,7 @@
         if (!e[0].isIntersecting) return;
         lens.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; });
         o.disconnect();
-      }, { rootMargin: '600px 0px' }).observe(lens);
+      }, { rootMargin: '1800px 0px' }).observe(lens);
     }
     function apply(tab) {
       tabs.forEach(function (t) {
@@ -431,7 +450,11 @@
       var panel = document.getElementById(tab.getAttribute('aria-controls'));
       var imgs = Array.prototype.slice.call(panel.querySelectorAll('img'));
       if (still || !document.startViewTransition) { apply(tab); return; }
-      Promise.all(imgs.map(function (i) { return i.decode ? i.decode().catch(function () {}) : null; })).then(function () {
+      /* give the incoming photos a moment to be ready, but never hold the tab up: any
+         still on their way simply fade in when they arrive */
+      var ready = Promise.all(imgs.map(function (i) { return i.decode ? i.decode().catch(function () {}) : null; }));
+      var wait = new Promise(function (r) { setTimeout(r, 350); });
+      Promise.race([ready, wait]).then(function () {
         document.startViewTransition(function () { apply(tab); });
       });
     }
