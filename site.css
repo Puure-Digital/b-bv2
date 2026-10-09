@@ -1977,3 +1977,40 @@ em { font-style: italic; }
 /* frames hold a quiet tone while their photo arrives */
 .lens__tile, .shot__open, .sheet__shot, .related__media, .work__media, .optrow__plate { background-color: var(--color-surface-2); }
 .section--dark .shot__open, .work .sheet__shot, .reel .clip__frame { background-color: var(--color-dark); }
+
+/* ---------- Photo carousel (phones) ----------
+   On a phone a long photo grid becomes one swipeable row: each photo takes most of the
+   width, snaps into place and the next one peeks in from the edge. Arrows and a counter
+   sit below. Wider screens keep the grid and hide the controls. */
+.carousel__controls { display: none; }
+@media (max-width: 720px) {
+  .shots--carousel {
+    display: flex; gap: var(--sp-3); overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-pad)); padding-inline: var(--container-pad);
+    scroll-padding-inline: var(--container-pad);
+  }
+  .shots--carousel::-webkit-scrollbar { display: none; }
+  .shots--carousel .shot { flex: 0 0 86%; grid-column: auto; scroll-snap-align: start; }
+  .shots--carousel .shot img, .shots--carousel .shot--n img { position: static; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+  .shots--carousel:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 4px; }
+  .carousel__controls { display: flex; align-items: center; gap: var(--sp-6); margin-top: var(--sp-6); }
+  .section--dark .carousel__controls .reviews__btn { border-color: var(--color-border-dark); color: var(--color-dark-text); }
+  .carousel__count { font-size: var(--text-sm); font-variant-numeric: tabular-nums; color: var(--color-dark-muted); min-width: 4ch; text-align: center; }
+}
+@media (max-width: 720px) and (prefers-reduced-motion: no-preference) {
+  .shots--carousel { scroll-behavior: smooth; }
+}
+
+/* ---------- About: the build film beside its story ---------- */
+.buildclip { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--gap-lg); align-items: center; }
+.buildclip__lead { margin-top: var(--sp-6); font-size: var(--text-body-lg); color: var(--color-ink); max-width: 46ch; }
+.buildclip__text { margin-top: var(--sp-4); color: var(--color-muted); max-width: 52ch; }
+.buildclip .link { margin-top: var(--sp-8); }
+.buildclip__film { margin-top: 0; }
+.buildclip__film.clips[data-count="1"] figure { display: block; }
+.buildclip__film .clip__frame { max-width: 360px; margin-inline: auto; }
+@media (max-width: 960px) {
+  .buildclip { grid-template-columns: minmax(0, 1fr); gap: var(--sp-10); }
+  .buildclip__film .clip__frame { max-width: 300px; }
+}

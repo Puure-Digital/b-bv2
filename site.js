@@ -668,6 +668,42 @@
     sync();
   })();
 
+  /* ---------- Photo carousel (phones) ----------
+     The arrows step one photo at a time and the counter follows whatever is in view,
+     whether reached by swiping or by the buttons. */
+  document.querySelectorAll('.shots--carousel').forEach(function (track) {
+    var wrap = track.parentElement;
+    var prev = wrap.querySelector('.carousel__prev'), next = wrap.querySelector('.carousel__next');
+    var idx = wrap.querySelector('.carousel__index'), total = wrap.querySelector('.carousel__total');
+    var items = Array.prototype.slice.call(track.children);
+    if (!prev || !next || !items.length) return;
+    total.textContent = items.length;
+    function current() {
+      var left = track.getBoundingClientRect().left, best = 0, dist = Infinity;
+      items.forEach(function (it, i) { var d = Math.abs(it.getBoundingClientRect().left - left - parseFloat(getComputedStyle(track).paddingLeft)); if (d < dist) { dist = d; best = i; } });
+      return best;
+    }
+    function update() {
+      var i = current();
+      idx.textContent = i + 1;
+      prev.disabled = i === 0; next.disabled = i === items.length - 1;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(items.length - 1, i));
+      track.scrollTo({ left: items[i].offsetLeft - items[0].offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
+    prev.addEventListener('click', function () { go(current() - 1); });
+    next.addEventListener('click', function () { go(current() + 1); });
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); }
+    });
+    var t = null;
+    track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   /* ---------- Photo lightbox ----------
      Any .shot__open button opens the full-size photo in a modal dialog. Arrow keys
      and the on-screen buttons step through every photo on the page; Escape, the close

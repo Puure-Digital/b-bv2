@@ -60,7 +60,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=147" />
+  <link rel="stylesheet" href="site.css?v=149" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--solid">
@@ -166,8 +166,8 @@
     </section>
     <section class="section section--dark" aria-labelledby="fitted-heading">
       <div class="wrap">
-        <div class="section-head"><h2 class="heading heading--light" id="fitted-heading">Railing I've <em>fitted.</em></h2><p class="section-head__text">Balusters, glass and curved runs on real decks, many of them by the water. Tap any photo to see it larger.</p></div>
-        <div class="shots">
+        <div class="section-head"><h2 class="heading heading--light" id="fitted-heading">Railing I've <em>fitted.</em></h2><p class="section-head__text">Balusters, glass and curved runs on real decks, many of them by the water. Tap any photo to see it larger; on a phone, swipe through them.</p></div>
+        <div class="shots shots--carousel" id="fitted-shots" role="group" aria-label="Railing photos" tabindex="0">
           <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-7-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/railing-7-1280.webp" srcset="images/opt/railing-7-640.webp 640w, images/opt/railing-7-1280.webp 1280w, images/opt/railing-7-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="A grey deck with black railing and a gate, looking out to the water" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
           <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/railing-3-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-3-1152.webp" srcset="images/opt/railing-3-640.webp 640w, images/opt/railing-3-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Close-up of a black railing post and balusters on a grey deck" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
           <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/railing-5-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-5-1152.webp" srcset="images/opt/railing-5-640.webp 640w, images/opt/railing-5-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Black railing along a brown deck beside the water, a pergola behind" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
@@ -178,6 +178,11 @@
           <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-4-1179.webp" data-w="1179" data-h="1122"><img src="images/opt/railing-4-1179.webp" srcset="images/opt/railing-4-640.webp 640w, images/opt/railing-4-1179.webp 1179w" sizes="(max-width: 720px) 100vw, 66vw" alt="A holiday lodge with a raised grey deck and black railing" width="1179" height="1122" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
           <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/railing-1-2048.webp" data-w="2048" data-h="1536"><img src="images/opt/railing-1-1280.webp" srcset="images/opt/railing-1-640.webp 640w, images/opt/railing-1-1280.webp 1280w, images/opt/railing-1-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing along a grey composite deck, trees behind" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
           <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/railing-2-1440.webp" data-w="1440" data-h="1077"><img src="images/opt/railing-2-1280.webp" srcset="images/opt/railing-2-640.webp 640w, images/opt/railing-2-1280.webp 1280w, images/opt/railing-2-1440.webp 1440w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing around a grey deck, woodland beyond" width="1440" height="1077" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+        </div>
+        <div class="carousel__controls">
+          <button class="reviews__btn carousel__prev" type="button" aria-controls="fitted-shots" aria-label="Previous photo"><svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M23 6H1M6 1L1 6l5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+          <p class="carousel__count" aria-live="polite"><span class="carousel__index">1</span> / <span class="carousel__total">10</span></p>
+          <button class="reviews__btn carousel__next" type="button" aria-controls="fitted-shots" aria-label="Next photo"><svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M1 6h22M18 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
         </div>
       </div>
     </section>
@@ -323,6 +328,6 @@
     </div>
   </footer>
 
-  <script src="site.js?v=73" defer></script>
+  <script src="site.js?v=74" defer></script>
 </body>
 </html>

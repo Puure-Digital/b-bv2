@@ -41,7 +41,7 @@
 
   <link rel="preload" as="image" href="images/opt/curved-trex-deck-overview-1200.webp" imagesrcset="images/opt/curved-trex-deck-overview-640.webp 640w, images/opt/curved-trex-deck-overview-1200.webp 1200w" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=147" />
+  <link rel="stylesheet" href="site.css?v=149" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -126,9 +126,14 @@
     </section>
 
     <section class="section section--linen" aria-labelledby="clip-heading">
-      <div class="wrap">
-        <div class="section-head"><h2 class="heading" id="clip-heading">See how I <em>build.</em></h2><a class="link" href="see-us-in-action.html">See us in action</a></div>
-        <ul class="clips" data-count="1">
+      <div class="wrap buildclip">
+        <div class="buildclip__copy">
+          <h2 class="heading" id="clip-heading">See how I <em>build.</em></h2>
+          <p class="buildclip__lead">The finished deck is only half the story. This is the part most people never see: the frame going in before a single board goes down.</p>
+          <p class="buildclip__text">Posts levelled, cut ends treated, joists checked and the first boards laid. Every deck I build sits on UC4-rated joists, with joist protection tape and a plastic subframe, because that is what decides whether it is still right in twenty years.</p>
+          <a class="link" href="see-us-in-action.html">More films from real jobs</a>
+        </div>
+        <ul class="clips buildclip__film" data-count="1">
           <li class="clip">
             <figure>
               <div class="clip__frame">
@@ -136,10 +141,7 @@
                 <button class="clip__play" type="button" aria-controls="about-clip"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: The build, as it happens</span></button>
                 <span class="clip__length" aria-hidden="true">0:29</span>
               </div>
-              <figcaption>
-                <h3 class="clip__title">The build, as it happens.</h3>
-                <p class="clip__text">Posts levelled, cut ends treated, joists checked and the first boards laid.</p>
-              </figcaption>
+              <figcaption class="visually-hidden">The build, as it happens. 0:29.</figcaption>
             </figure>
           </li>
         </ul>
@@ -247,6 +249,6 @@
     </div>
   </footer>
 
-  <script src="site.js?v=73" defer></script>
+  <script src="site.js?v=74" defer></script>
 </body>
 </html>
