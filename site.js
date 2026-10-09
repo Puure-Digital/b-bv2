@@ -678,6 +678,15 @@
     var items = Array.prototype.slice.call(track.children);
     if (!prev || !next || !items.length) return;
     total.textContent = items.length;
+    /* the photos beyond the edge are only reached by swiping, so fetch them as the
+       carousel approaches rather than waiting for each swipe */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e, o) {
+        if (!e[0].isIntersecting) return;
+        track.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; });
+        o.disconnect();
+      }, { rootMargin: '800px 0px' }).observe(track);
+    }
     function current() {
       var left = track.getBoundingClientRect().left, best = 0, dist = Infinity;
       items.forEach(function (it, i) { var d = Math.abs(it.getBoundingClientRect().left - left - parseFloat(getComputedStyle(track).paddingLeft)); if (d < dist) { dist = d; best = i; } });
