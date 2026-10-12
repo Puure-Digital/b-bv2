@@ -27,7 +27,7 @@ Standard footer/legal line (use verbatim, don't reword): *"Beams & Braces is a t
 
 ## Credentials & real numbers (never round up, never invent a new stat)
 
-- **TrexPRO Platinum installer since 2017** (verified against Trex's own official "Find a Builder" profile) — Trex's highest certification, held by **fewer than 5% of UK Trex contractors** (per the client brief)
+- **Working with Trex since 2014; TrexPRO Platinum installer since 2016** (Darren's own dates, given 12 Oct 2026; these replace the earlier 2017 taken from Trex's "Find a Builder" profile) — Trex's highest certification, held by **fewer than 5% of UK Trex contractors** (per the client brief)
 - **Trex Pro Advisory Council member since 2024** — one of the few UK installers Trex consults directly on what's working on the ground
 - **500+ composite decks installed since 2016** (the year Darren started doing decking specifically, distinct from the family's timber/joinery business, which goes back to 1987 when Darren was three years old)
 - **95% recycled content, every Trex range** (per the client brief)
@@ -35,7 +35,7 @@ Standard footer/legal line (use verbatim, don't reword): *"Beams & Braces is a t
 - **5.0 rating, 10 Google reviews** (current live count on the homepage — verify this number before quoting it elsewhere, it will climb over time)
 - Darren personally uses **UC4-rated joists, joist protection tape, and plastic subframes on every job** — a real build-quality detail worth repeating, not marketing fluff
 
-Real timeline (from `about.html` and the client brief, Darren's own story): 1987 parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2016 Beams & Braces / Trex decking begins → 2017 TrexPRO Platinum → 2024 Trex Pro Advisory Council.
+Real timeline (from `about.html` and the client brief, Darren's own story): 1987 parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2014 starts working with Trex → 2016 Beams & Braces and TrexPRO Platinum → 2024 Trex Pro Advisory Council.
 
 ## Real reviews — use only these, never fabricate one
 
@@ -92,7 +92,8 @@ Confirmed by Cassian. Only name a range or colour on a photo listed here.
 - `images/projects/wa-*`, grey deck with covered kitchen and long table: **Trex Transcend**, colour not confirmed.
 - `images/projects/wa-*`, warm brown deck with water feature: **Trex Signature**, colour not confirmed.
 - `images/projects/island-mist/*`: **Trex Transcend, Island Mist** (standard Transcend). Labelled by Cassian, 9 Oct 2026.
-- `images/projects/enhance/enhance-rocky-harbor.jpg`: **Trex Enhance (Naturals), Rocky Harbor**. `enhance-lodge-1.jpg` and `enhance-lodge-2.jpg`: **Trex Enhance**, colour not confirmed. Labelled 9 Oct 2026.
+- `images/projects/enhance/enhance-rocky-harbor.jpg`: **Trex Enhance (Naturals), Rocky Harbor**. `enhance-lodge-1.jpg` and `enhance-lodge-2.jpg`: **Trex Enhance (Naturals), Toasted Sand**, with **white Trex Signature railing** and white fascia (confirmed by Darren, 12 Oct 2026). These two are the only photos that may be called Trex Signature railing.
+- `images/opt/bar-gallery-2-*` (aerial of a large deck wrapping a house): **not Darren's install** (a JR Tolley job, per Darren, 12 Oct 2026). Never use it anywhere on the site. Other aerials (`gym-gallery-2`, `bar-gallery-3`) are unconfirmed; check with Darren before relying on them.
 - `images/projects/railing/railing-*`: railing Darren has fitted. The railing product isn't confirmed, so never call these Trex Signature (`railing-6` is a glass balustrade on stainless steel posts); the decking range isn't confirmed either.
 - `images/projects/curved/curved-decking-1.jpg`: curved decking with railing; range not confirmed.
 - Everything else (DSC029xx–030xx hot tub and fire-table garden, curved-deck shots, gallery-*): range not confirmed, so never label it with a range or colour. `images/trex/trex-enhance.jpg` is no longer used: it was never confirmed as Enhance.

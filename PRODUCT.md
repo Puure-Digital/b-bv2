@@ -20,7 +20,7 @@ Decking, lighting, and railing/trellis are presented as one outdoor living packa
 
 ## Positioning
 
-- TrexPRO Platinum installer since 2017, Trex's highest certification, held by fewer than 5% of UK Trex contractors.
+- Working with Trex since 2014; TrexPRO Platinum installer since 2016, Trex's highest certification, held by fewer than 5% of UK Trex contractors.
 - Trex Pro Advisory Council member since 2024, one of the few UK installers Trex consults directly.
 - The UK's leading curved-deck builder, including some of the largest curved Trex decks installed anywhere in the UK.
 - 500+ composite decks since 2016, on top of a family timber and joinery lineage going back to 1987.
@@ -64,8 +64,8 @@ Never use an unverifiable superlative such as "best in the UK". Let the credenti
 
 ## Evidence on Hand
 
-- Approved story timeline: 1987 his parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2016 Beams & Braces and the Trex partnership begin → 2017 TrexPRO Platinum → 2024 Trex Pro Advisory Council. (`SITE-REBUILD-BRIEF-DRAFT.md` puts the age-three memory in 2002; that is wrong, and 1987 is correct.)
-- Credentials verified against Trex's "Find a Builder" profile, Companies House, and Arbordeck: 2017 Platinum, 2024 Advisory Council, 500+ decks since 2016, 95% recycled content in every Trex range.
+- Approved story timeline: 1987 his parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2014 Darren starts working with Trex → 2016 Beams & Braces and TrexPRO Platinum → 2024 Trex Pro Advisory Council. (`SITE-REBUILD-BRIEF-DRAFT.md` puts the age-three memory in 2002; that is wrong, and 1987 is correct.)
+- Credentials verified against Trex's "Find a Builder" profile, Companies House, and Arbordeck: 2024 Advisory Council, 500+ decks since 2016, 95% recycled content in every Trex range. Platinum year (2016) and the 2014 start with Trex are Darren's own dates, 12 Oct 2026.
 - Google rating: 5.0 across 10 reviews (the count will climb; verify before quoting).
 - Reviews: exactly 8 curated real Google reviews: Jeannette Astley-Jones, Dr S J Miller-Smith, Nana, Jason A, Julie, Mark Burgess, Kim Frost, Cherry Brooks. Never add a 9th, reword one, or attach an invented quote to a real name.
 - Board photography: `images/boards/<Range>/…` (Enhance splits into Naturals and Basics). Always use a real photo for a swatch, never a flat hex block.
