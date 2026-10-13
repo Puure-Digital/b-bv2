@@ -71,9 +71,9 @@ Sources supplied by Cassian on 5 Oct 2026: Trex UK's Signature railing page (uk.
 
 **Trex Signature railing**
 - Powder-coated aluminium rails that resist fading and corrosion; described by Trex as low-maintenance.
-- Three matte finishes: Charcoal Black, Bronze, Classic White. Glass railing is Charcoal Black only.
-- Infill: square or round aluminium balusters, or glass panels. (A "rail and rod kit" is listed as a component, but horizontal rod infill isn't described, so don't claim it.)
-- Available as curvable hand railing, in the same three finishes.
+- Matte finishes Darren offers: Charcoal Black and Classic White. Glass railing is Charcoal Black only. Bronze is being discontinued (Darren, 13 Oct 2026), so never list it.
+- Infill Darren offers: square aluminium balusters or glass panels. He does not offer round balusters (confirmed 13 Oct 2026), so never list them. (A "rail and rod kit" is listed as a component, but horizontal rod infill isn't described, so don't claim it.)
+- Darren does not offer the curvable hand railing (confirmed 13 Oct 2026), so never mention curved rail.
 - Aluminium gates are listed by Trex as a matching product.
 - Backed by Trex's 50-year Limited Warranty.
 - Trex lists imperial post and rail sizes; don't quote them on this metric UK site.
@@ -89,10 +89,12 @@ Sources supplied by Cassian on 5 Oct 2026: Trex UK's Signature railing page (uk.
 Confirmed by Cassian. Only name a range or colour on a photo listed here.
 
 - `images/projects/carmel/carmel-*` (DSC03379–DSC03420): **Trex Transcend Lineage, Carmel**. A raised, curved deck with curved steps and black railing. Confirmed 8 Oct 2026.
-- `images/projects/wa-*`, grey deck with covered kitchen and long table: **Trex Transcend**, colour not confirmed.
+- `images/projects/wa-*`, grey deck with covered kitchen and long table: **Trex Transcend Island Mist** (standard Transcend) with an inlay border of **Transcend Lineage Biscayne** (Darren, 13 Oct 2026; he called it "Lineage Island Mist", but the site keeps Island Mist as standard Transcend).
 - `images/projects/wa-*`, warm brown deck with water feature: **Trex Signature**, colour not confirmed.
 - `images/projects/island-mist/*`: **Trex Transcend, Island Mist** (standard Transcend). Labelled by Cassian, 9 Oct 2026.
 - `images/projects/enhance/enhance-rocky-harbor.jpg`: **Trex Enhance (Naturals), Rocky Harbor**. `enhance-lodge-1.jpg` and `enhance-lodge-2.jpg`: **Trex Enhance (Naturals), Toasted Sand**, with **white Trex Signature railing** and white fascia (confirmed by Darren, 12 Oct 2026). These two are the only photos that may be called Trex Signature railing.
+- **Carmel project** (carmel-*): a collaboration between Beams & Braces and @wirraldeckingcompany, installed in Hull. Darren formed the curved picture frame and staircase in his own oven (Darren, 13 Oct 2026). Never present it as Darren's solo build.
+- **Island Mist is currently exclusive to Beams & Braces** (Darren, 13 Oct 2026). Shown quietly: a note under the colour name when Island Mist is selected, and in the Transcend page's Island Mist section. Remove both if the exclusivity ends.
 - `images/opt/bar-gallery-2-*` (aerial of a large deck wrapping a house): **not Darren's install** (a JR Tolley job, per Darren, 12 Oct 2026). Never use it anywhere on the site. Other aerials (`gym-gallery-2`, `bar-gallery-3`) are unconfirmed; check with Darren before relying on them.
 - `images/projects/railing/railing-*`: railing Darren has fitted. The railing product isn't confirmed, so never call these Trex Signature (`railing-6` is a glass balustrade on stainless steel posts); the decking range isn't confirmed either.
 - `images/projects/curved/curved-decking-1.jpg`: curved decking with railing; range not confirmed.

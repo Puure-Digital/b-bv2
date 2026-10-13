@@ -483,6 +483,8 @@ em { font-style: italic; }
 .optrow__icon { display: block; width: 100%; max-width: 132px; height: auto; color: var(--color-accent-dark); }
 .optrow__label { display: block; margin-top: var(--sp-4); font-size: var(--text-body); line-height: 1.35; color: var(--color-ink); max-width: 18ch; }
 @media (max-width: 720px) { .optrow { grid-template-columns: repeat(2, minmax(0, 1fr)); } .optrow__icon { max-width: 104px; } }
+/* two options only: they share the row in halves */
+.optrow--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 /* Photo version: a square night plate per part, then a hairline with the part's line
    mark and name, so the drawing labels the real thing. Plates sit on Charred Oak so
    the one drawn plate (the transformer) matches the night photographs. */
@@ -2014,3 +2016,7 @@ em { font-style: italic; }
   .buildclip { grid-template-columns: minmax(0, 1fr); gap: var(--sp-10); }
   .buildclip__film .clip__frame { max-width: 300px; }
 }
+
+/* a quiet note under the range name (Island Mist: currently exclusive) */
+.colours__note { display: block; margin-top: var(--sp-1); font-style: italic; color: var(--color-accent-dark); }
+@media (max-width: 720px) { .colours__preview .colours__note { margin-top: 0; font-size: var(--text-xs); line-height: 1.4; } }

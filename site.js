@@ -918,7 +918,17 @@
       var d = btn.dataset;
       if (img) lay(d.src, "Trex " + d.range + " board in " + d.name);
       if (nameEl) nameEl.textContent = d.name;
-      if (rangeEl) rangeEl.textContent = d.range;
+      if (rangeEl) {
+        rangeEl.textContent = d.range;
+        /* a colour with a note (Island Mist is currently exclusive) shows it quietly under the range */
+        if (d.note) {
+          var note = document.createElement("span");
+          note.className = "colours__note";
+          note.textContent = d.note;
+          rangeEl.appendChild(document.createTextNode(" "));
+          rangeEl.appendChild(note);
+        }
+      }
     }
 
     swatches.forEach(function (btn, i) {
