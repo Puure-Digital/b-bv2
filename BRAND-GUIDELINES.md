@@ -33,7 +33,7 @@ Standard footer/legal line (use verbatim, don't reword): *"Beams & Braces is a t
 - **95% recycled content, every Trex range** (per the client brief)
 - **UK's leading curved-deck builder** — some of the largest curved Trex decks installed anywhere in the UK
 - **5.0 rating, 10 Google reviews** (current live count on the homepage — verify this number before quoting it elsewhere, it will climb over time)
-- Darren personally uses **UC4-rated joists, joist protection tape, and plastic subframes on every job** — a real build-quality detail worth repeating, not marketing fluff
+- Darren personally uses **UC4 pressure-treated joists and Trex Protect joist tape on every job, with plastic subframes on a concrete raft for ground-level decks** — a real build-quality detail worth repeating, not marketing fluff
 
 Real timeline (from `about.html` and the client brief, Darren's own story): 1987 parents open the wood yard, Darren is three → 2002 Darren joins the family business the day he finishes school → 2014 starts working with Trex → 2016 Beams & Braces and TrexPRO Platinum → 2024 Trex Pro Advisory Council.
 
@@ -94,6 +94,8 @@ Confirmed by Cassian. Only name a range or colour on a photo listed here.
 - `images/projects/island-mist/*`: **Trex Transcend, Island Mist** (standard Transcend). Labelled by Cassian, 9 Oct 2026.
 - `images/projects/enhance/enhance-rocky-harbor.jpg`: **Trex Enhance (Naturals), Rocky Harbor**. `enhance-lodge-1.jpg` and `enhance-lodge-2.jpg`: **Trex Enhance (Naturals), Toasted Sand**, with **white Trex Signature railing** and white fascia (confirmed by Darren, 12 Oct 2026). These two are the only photos that may be called Trex Signature railing.
 - **Carmel project** (carmel-*): a collaboration between Beams & Braces and @wirraldeckingcompany, installed in Hull. Darren formed the curved picture frame and staircase in his own oven (Darren, 13 Oct 2026). Never present it as Darren's solo build.
+- **Transcend Lineage, in Darren's words** (13 Oct 2026): engineered outdoor flooring, a solid board with the Transcend shell; his favoured range; can be curved and folded into a design; built-in heat-mitigation technology, which he calls "sun-comfortable". Look: a modern, smooth grain texture with subtle streaking.
+- **Foundation standard** (Darren, 13 Oct 2026): UC4 pressure-treated joists and Trex Protect joist tape as standard; plastic subframes on a concrete raft foundation for ground-level decks. Never say a plastic subframe goes under every deck.
 - **Island Mist is currently exclusive to Beams & Braces** (Darren, 13 Oct 2026). Shown quietly: a note under the colour name when Island Mist is selected, and in the Transcend page's Island Mist section. Remove both if the exclusivity ends.
 - `images/opt/bar-gallery-2-*` (aerial of a large deck wrapping a house): **not Darren's install** (a JR Tolley job, per Darren, 12 Oct 2026). Never use it anywhere on the site. Other aerials (`gym-gallery-2`, `bar-gallery-3`) are unconfirmed; check with Darren before relying on them.
 - `images/projects/railing/railing-*`: railing Darren has fitted. The railing product isn't confirmed, so never call these Trex Signature (`railing-6` is a glass balustrade on stainless steel posts); the decking range isn't confirmed either.
@@ -134,6 +136,8 @@ Nav labels: **Trex Decking** (dropdown to the hub + 3 range pages) · **Our Work
 - Never use another company's personalised badge (e.g. one naming Warner's Decking or showing their years-of-service seal).
 
 ---
+
+- **Caching:** `.htaccess` tells browsers to keep images, videos, fonts, `site.css` and `site.js` for a year. When a file is replaced under the same name, add or bump a `?v=` number wherever it is referenced (as with `site.css?v=` and the corrected Enhance photos), or returning visitors keep seeing the old file.
 
 ## Visual identity
 
