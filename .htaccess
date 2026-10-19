@@ -2,6 +2,44 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
+# One address for the site: www goes to the bare domain (matches the canonical tags)
+RewriteCond %{HTTP_HOST} ^www\.beamsandbraces\.co\.uk$ [NC]
+RewriteRule ^(.*)$ https://beamsandbraces.co.uk/$1 [R=301,L]
+
+# Old site (pre-October 2026) addresses, each sent to its nearest new page so
+# existing Google rankings and links carry over. Works with or without the trailing slash.
+RewriteRule ^composite-decking-norwich/?$ /trex [R=301,L]
+RewriteRule ^trex-products/?$ /trex [R=301,L]
+RewriteRule ^fencing-norwich/?$ / [R=301,L]
+RewriteRule ^garden-pergolas-norfolk/?$ /work [R=301,L]
+RewriteRule ^garden-rooms/?$ /work [R=301,L]
+RewriteRule ^insulated-garden-rooms/?$ /work [R=301,L]
+RewriteRule ^garden-gyms-norfolk/?$ /work [R=301,L]
+RewriteRule ^garden-bar-installation/?$ /work [R=301,L]
+RewriteRule ^composite-decking-burnham-market/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-cromer-norfolk/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-eaton-norwich/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-holt-norfolk/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-horning-norfolk/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-hoveton-norfolk/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-southwold/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-weybourne-norfolk/?$ /trex [R=301,L]
+RewriteRule ^composite-decking-wroxham/?$ /trex [R=301,L]
+RewriteRule ^areas-we-cover/?$ /contact [R=301,L]
+RewriteRule ^testimonials/?$ /about [R=301,L]
+RewriteRule ^gallery/?$ /work [R=301,L]
+RewriteRule ^faqs/?$ /trex [R=301,L]
+RewriteRule ^blog/composite-vs-timber-decking/?$ /trex [R=301,L]
+RewriteRule ^blog/trex-decking-jjh-collaboration/?$ /work [R=301,L]
+RewriteRule ^blog/wheelchair-accessible-garden-room/?$ /work [R=301,L]
+RewriteRule ^blog/january-is-for-planning/?$ / [R=301,L]
+RewriteRule ^blog/winter-garden-upgrades/?$ / [R=301,L]
+RewriteRule ^blog/?$ / [R=301,L]
+
+# Any other address ending in a slash (but not a real folder) loses the slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
 # Anyone still hitting the old page.html address gets sent to the clean version
 RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
