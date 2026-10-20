@@ -50,6 +50,9 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^([^.]+)$ $1.html [L]
 
 # ---------- Performance ----------
+# The homepage film is AVIF: make sure it is served as an image
+AddType image/avif .avif
+
 # Compress text files on the way out
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml text/plain application/xml text/xml
@@ -66,6 +69,7 @@ RewriteRule ^([^.]+)$ $1.html [L]
   ExpiresByType application/javascript "access plus 1 year"
   ExpiresByType text/javascript "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"

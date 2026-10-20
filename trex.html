@@ -59,7 +59,7 @@
 
   <link rel="preload" as="image" href="images/opt/dsc03014-1280.webp" imagesrcset="images/opt/dsc03014-640.webp 640w, images/opt/dsc03014-1280.webp 1280w, images/opt/dsc03014-2048.webp 2048w" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=159" />
+  <link rel="stylesheet" href="site.css?v=194" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -189,11 +189,13 @@
       </div>
     </section>
 
-    <section class="belief wrap" aria-label="A client review">
-      <blockquote class="belief__quote">
-        <p>“Fantastic company if you want trex decking look no further. Darren was able to discuss all options, arranged a site visit, and designed a bespoke look to complement our existing and new swimspa and Garden Room area.”</p>
-      </blockquote>
-      <p class="belief__by">Nana, Google review</p>
+    <section class="belief belief--manifesto belief--review" aria-label="A client review">
+      <div class="belief__inner wrap">
+        <blockquote class="belief__quote" data-words>
+          <p><span class="belief__mark" aria-hidden="true">“</span>Fantastic company if you want trex decking look no further. Darren was able to discuss all options, arranged a site visit, and designed a bespoke look to complement our existing and new swimspa and Garden Room area.<span class="belief__mark belief__mark--close" aria-hidden="true">”</span></p>
+        </blockquote>
+        <p class="belief__by">Nana, Google review</p>
+      </div>
     </section>
 
     <section class="section" id="process" aria-labelledby="steps-heading">
@@ -274,8 +276,9 @@
         <a href="terms.html">Terms</a>
       </p>
     </div>
+    <p class="footer__mark" aria-hidden="true">Beams <em>&amp;</em> Braces</p>
   </footer>
 
-  <script src="site.js?v=77" defer></script>
+  <script src="site.js?v=95" defer></script>
 </body>
 </html>

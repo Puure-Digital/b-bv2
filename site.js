@@ -6,13 +6,24 @@
   var menu = document.getElementById('menu');
   var menuButton = document.getElementById('menuButton');
 
-  /* ---------- Nav turns solid once the hero is behind it ---------- */
+  /* ---------- Nav turns solid once the hero is behind it ----------
+     It also slips away while you scroll down through the page and comes back as soon as
+     you scroll up, so the photographs get the whole screen. It never hides near the top,
+     while the menu is open, or while anything in it has focus. */
+  var lastY = window.scrollY;
   function updateNav() {
-    nav.classList.toggle('is-solid', document.body.classList.contains('page--solid') || window.scrollY > 40);
+    var y = window.scrollY;
+    var film = document.querySelector('.hero--scrub.is-scrubbing');
+    nav.classList.toggle('is-solid', document.body.classList.contains('page--solid') || y > (film ? film.offsetHeight - window.innerHeight : 40));
+    var busy = nav.classList.contains('is-menu-open') || nav.contains(document.activeElement) || nav.querySelector('.menu__item--group.is-open');
+    if (y < window.innerHeight * 0.6 || busy || y < lastY - 6) nav.classList.remove('is-hidden');
+    else if (y > lastY + 6) nav.classList.add('is-hidden');
+    if (Math.abs(y - lastY) > 6) lastY = y;
   }
   if (nav) {
     updateNav();
     window.addEventListener('scroll', updateNav, { passive: true });
+    nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); });
   }
 
   /* ---------- Mobile menu ---------- */
@@ -155,6 +166,7 @@
     });
     el.classList.add("is-scrubbed");
     var by = el.nextElementSibling;
+    var host = el.closest(".belief--manifesto");
     var soft = 4, last = -1, ticking = false;
 
     function update() {
@@ -173,6 +185,7 @@
         w.style.setProperty("--o", (0.14 + o * 0.86).toFixed(3));
       });
       if (by) by.style.setProperty("--by", Math.max(0, Math.min(1, (p - 0.85) / 0.15)).toFixed(3));
+      if (host) host.style.setProperty("--lit", p.toFixed(3));
     }
     function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -180,6 +193,376 @@
     window.addEventListener("load", onScroll);
     update();
   });
+
+  /* ---------- Hero film, scrubbed by scroll ----------
+     The homepage hero is a short film held as still frames. The stage pins to the screen
+     while the section scrolls past and scroll position picks the frame, eased so the camera
+     glides rather than jumps. Neighbouring frames are blended, so a few frames play
+     smoothly. data-scrub-map maps scroll (0-1) to frame position and data-scrub-zoom adds
+     a zoom of the drawing itself, both as "scroll:value" points. Frames load coarse to
+     fine with a brass rule along the foot; copy arrives in beats at set points. The film
+     only starts once its first frame has arrived. Reduced motion, no script or no frames:
+     a still hero showing the real photo. */
+  (function () {
+    var hero = document.querySelector('.hero--scrub');
+    if (!hero) return;
+    /* if the film's first frame is missing, fall back to the real photo */
+    var poster = hero.querySelector('.hero__poster');
+    function fallback() { hero.querySelectorAll('picture source').forEach(function (s) { s.remove(); }); }
+    if (poster) {
+      if (poster.complete && !poster.naturalWidth) fallback();
+      else poster.addEventListener('error', fallback, { once: true });
+    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var canvas = hero.querySelector('.hero__canvas');
+    var ctx = canvas && canvas.getContext && canvas.getContext('2d');
+    if (!ctx) return;
+    var stage = hero.querySelector('.hero__stage');
+    var bar = hero.querySelector('.hero__progress');
+    var count = Number(hero.dataset.scrubCount) || 0;
+    var narrow = window.matchMedia('(max-width: 767px)').matches;
+    var dir = narrow ? hero.dataset.scrubMobile : hero.dataset.scrub;
+    var ext = hero.dataset.scrubExt || 'webp';
+    function points(s) {
+      return (s || '').split(',').filter(Boolean).map(function (pair) { var x = pair.split(':'); return [+x[0], +x[1]]; });
+    }
+    function interp(pts, p, dflt) {
+      if (!pts.length) return dflt;
+      if (p <= pts[0][0]) return pts[0][1];
+      for (var k = 1; k < pts.length; k++) {
+        if (p <= pts[k][0]) { var u = pts[k - 1], v = pts[k]; return u[1] + (v[1] - u[1]) * (p - u[0]) / (v[0] - u[0]); }
+      }
+      return pts[pts.length - 1][1];
+    }
+    var map = points(hero.dataset.scrubMap), zoomAt = points(hero.dataset.scrubZoom), veilAt = points(hero.dataset.scrubVeil);
+    var frames = new Array(count), loaded = 0, drawn = '', ps = 0, raf = 0, live = false, started = false;
+    var beats = Array.prototype.slice.call(hero.querySelectorAll('[data-beat-in], [data-beat-out]'));
+
+    function src(i) { return dir + '/frame_' + String(i + 1).padStart(4, '0') + '.' + ext; }
+    function nearest(i) {
+      for (var d = 0; d < count; d++) {
+        if (frames[i - d]) return frames[i - d];
+        if (frames[i + d]) return frames[i + d];
+      }
+      return null;
+    }
+    function size() {
+      /* a stage taller than the screen (small phones) scrolls up to its foot, then pins */
+      stage.style.setProperty('--stage-top', Math.min(0, window.innerHeight - stage.offsetHeight) + 'px');
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(stage.clientWidth * dpr);
+      canvas.height = Math.round(stage.clientHeight * dpr);
+      drawn = '';
+    }
+    function paint(img, alpha, zoom) {
+      var cw = canvas.width, ch = canvas.height, iw = img.naturalWidth, ih = img.naturalHeight;
+      var s = Math.max(cw / iw, ch / ih) * zoom, w = iw * s, hgt = ih * s;
+      ctx.globalAlpha = alpha;
+      ctx.drawImage(img, (cw - w) / 2, (ch - hgt) / 2, w, hgt);
+      ctx.globalAlpha = 1;
+    }
+    /* frame position f (fractional): the frame below, with the next one blended over it */
+    function draw(f, zoom) {
+      var key = f.toFixed(2) + '/' + zoom.toFixed(3);
+      if (key === drawn) return;
+      var lo = Math.floor(f), t = f - lo;
+      var base = nearest(lo);
+      if (!base) return;
+      paint(base, 1, zoom);
+      var over = t > 0.02 && frames[lo + 1];
+      if (over && base === frames[lo]) paint(over, t, zoom);
+      drawn = key;
+      if (!live) { live = true; hero.classList.add('is-live'); }
+    }
+    function progress() {
+      var span = hero.offsetHeight - window.innerHeight;
+      return span > 0 ? Math.min(1, Math.max(0, -hero.getBoundingClientRect().top / span)) : 0;
+    }
+    function ramp(p, x, y) { return Math.min(1, Math.max(0, (p - x) / (y - x))); }
+    function setBeats(p) {
+      beats.forEach(function (el) {
+        var i = el.dataset.beatIn, o = el.dataset.beatOut;
+        var v = (i === undefined ? 1 : ramp(p, i - 0.07, +i)) * (o === undefined ? 1 : 1 - ramp(p, +o, +o + 0.07));
+        el.style.opacity = v.toFixed(3);
+        el.style.transform = 'translateY(' + ((1 - v) * (i !== undefined && p < i ? 18 : -18)).toFixed(1) + 'px)';
+        /* a beat that has faded out stays readable to screen readers; only its links leave
+           the tab order and stop taking clicks */
+        var off = v < 0.05;
+        if (el._off !== off) {
+          el._off = off;
+          el.style.pointerEvents = off ? 'none' : '';
+          el.querySelectorAll('a, button').forEach(function (x) { if (off) x.setAttribute('tabindex', '-1'); else x.removeAttribute('tabindex'); });
+        }
+      });
+    }
+    function tick() {
+      raf = 0;
+      var p = progress();
+      ps += (p - ps) * 0.16;
+      if (Math.abs(p - ps) < 0.0004) ps = p;
+      draw(interp(map, ps, ps * (count - 1)), interp(zoomAt, ps, 1));
+      hero.style.setProperty('--veil', interp(veilAt, ps, 1).toFixed(3));
+      setBeats(ps);
+      if (ps !== p) raf = requestAnimationFrame(tick);
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+    /* the long pinned film starts once its first frame is here */
+    function start() {
+      if (started) return;
+      started = true;
+      hero.classList.add('is-scrubbing');
+      size();
+      ps = progress();
+      setBeats(ps);
+      window.addEventListener('scroll', kick, { passive: true });
+      kick();
+    }
+
+    /* coarse to fine: first and last frame, then every 8th, 4th, 2nd, then the rest */
+    var order = [0, count - 1], seen = {}, next = 0, busy = 0;
+    seen[0] = seen[count - 1] = true;
+    [8, 4, 2, 1].forEach(function (step) {
+      for (var k = 0; k < count; k += step) if (!seen[k]) { seen[k] = true; order.push(k); }
+    });
+    function pump() {
+      while (started && busy < 4 && next < order.length) load(order[next++]);
+    }
+    function load(i) {
+      busy++;
+      var img = new Image();
+      img.decoding = 'async';
+      img.onload = function () {
+        busy--; loaded++;
+        frames[i] = img;
+        if (i === 0) start();
+        if (bar) bar.style.transform = 'scaleX(' + (loaded / count).toFixed(3) + ')';
+        if (loaded === count) hero.classList.add('is-loaded');
+        drawn = ''; kick();
+        pump();
+      };
+      img.onerror = function () {
+        busy--;
+        if (i === 0) { next = order.length; return; }   /* no film: stay a still hero */
+        pump();
+      };
+      img.src = src(i);
+    }
+    /* the first frame alone; once it has arrived, the rest follow */
+    load(0); next = 1;
+    window.addEventListener('resize', function () {
+      if (!started) return;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (Math.abs(stage.clientWidth * dpr - canvas.width) < 2 && Math.abs(stage.clientHeight * dpr - canvas.height) < 80) return;
+      size(); kick();
+    });
+  })();
+
+  /* ---------- Story facts: laid in once, as they come into view ----------
+     Hairlines are drawn left to right, then each figure rises into place and its words
+     follow, one fact after another. Only set up when the row is still below the screen,
+     so nothing already visible is hidden; reduced motion or no script: shown as they are. */
+  (function () {
+    var list = document.querySelector('.story--spread .story__facts');
+    if (!list || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (list.getBoundingClientRect().top < window.innerHeight) return;
+    list.classList.add('is-set');
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      list.classList.add('is-in');
+      io.disconnect();
+    }, { threshold: 0.35 });
+    io.observe(list);
+  })();
+
+  /* ---------- Outcome: the plan becomes the deck ----------
+     A plan of the deck in the photograph, traced in its own pixel coordinates, is drawn
+     over it as the section arrives; then the deck is built, frame first and then course by
+     course, and the garden appears around it until only the photograph is left. Scroll
+     position sets --p (0-1), eased; every line and board reads its own window of it from
+     CSS. Desktop: the section holds still for a screen while this plays. Reduced motion or
+     no script: just the photograph. */
+  (function () {
+    var sec = document.querySelector('.outcome--plan');
+    if (!sec || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var svg = sec.querySelector('.bpx'), plate = sec.querySelector('.outcome__plate');
+    if (!svg || !plate) return;
+    var wide = window.matchMedia('(min-width: 961px)');
+    var ps = 0, raf = 0;
+    function clamp(v) { return Math.max(0, Math.min(1, v)); }
+    function progress() {
+      var vh = window.innerHeight;
+      if (sec.classList.contains('is-pinned')) {
+        /* from the section top at half the screen to the end of the held screen */
+        var top = sec.getBoundingClientRect().top, run = sec.offsetHeight - vh;
+        return clamp((vh * 0.5 - top) / (vh * 0.5 + run));
+      }
+      /* phones and tablets: while the plate travels from low on the screen to near the top */
+      return clamp((vh * 0.82 - plate.getBoundingClientRect().top) / (vh * 0.74));
+    }
+    /* skip repaints too small to see: the plan redraws as a whole, so fewer is smoother on phones */
+    var shown = -1;
+    function paint() {
+      if (Math.abs(ps - shown) < 0.0008 && ps !== 0 && ps !== 1) return;
+      shown = ps;
+      svg.style.setProperty('--p', ps.toFixed(4));
+      sec.classList.toggle('is-built', ps > 0.995);
+    }
+    function tick() {
+      raf = 0;
+      var p = progress();
+      ps += (p - ps) * 0.14;
+      if (Math.abs(p - ps) < 0.0005) ps = p;
+      paint();
+      if (ps !== p) raf = requestAnimationFrame(tick);
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+    function setPin() { sec.classList.toggle('is-pinned', wide.matches); }
+    setPin();
+    sec.classList.add('is-plan');
+    ps = progress(); paint();
+    window.addEventListener('scroll', kick, { passive: true });
+    window.addEventListener('resize', kick);
+    if (wide.addEventListener) wide.addEventListener('change', function () { setPin(); kick(); });
+  })();
+
+  /* ---------- Board strips: laid in once, as they arrive ----------
+     Each range's strip of boards is laid left to right the first time it comes into view.
+     Only strips still below the screen are held back; reduced motion: shown as they are. */
+  (function () {
+    var strips = Array.prototype.slice.call(document.querySelectorAll('.range__boards'));
+    if (!strips.length || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-laid');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+    strips.forEach(function (el) {
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.classList.add('is-set');
+      io.observe(el);
+    });
+  })();
+
+  /* ---------- Page heroes: the title rises line by line as the page opens ----------
+     Each word of an inner page's title sits in a clipped slot and rises into it; words on
+     one line move together and each line follows the one above. Reduced motion: as is. */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.page-hero:not(.page-hero--dusk) .hero__title').forEach(function (el) {
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(function (node) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var slot = document.createElement('span'); slot.className = 'm-slot';
+          var word = document.createElement('span'); word.className = 'm-word'; word.textContent = part;
+          slot.appendChild(word); frag.appendChild(slot);
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+      var top = null, line = -1;
+      el.querySelectorAll('.m-slot').forEach(function (sl) {
+        var t = Math.round(sl.getBoundingClientRect().top);
+        if (top === null || Math.abs(t - top) > 4) { line++; top = t; }
+        sl.style.setProperty('--line', line);
+      });
+      el.classList.add('m-lines', 'm-lines--hero');
+      requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('is-shown'); }); });
+    });
+  })();
+
+  /* ---------- Motion: headings rise line by line, then the words around them ----------
+     With motion allowed, each word of a section heading sits in a clipped slot and rises
+     into it; words on one line move together and each line follows the one above, like
+     boards being laid. Paragraphs, lists and cards then fade up in reading order. Text
+     stays real text, and only things still below the first screen are touched, so nothing
+     visible ever blinks out and back. */
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var own = '.hero, .page-hero, .lens, .sheet, .reviews__stage, .colours__groups, .years, .menu, .footer, .lightbox, [data-words]';
+    var headingSel = '.heading, .close__title, .page-title, .reel__heading, .detail__title';
+    var textSel = '.section-head__text, .split__text, .story__text, .story__more, .intro__body > p, .close__text, .close__actions, .page-lead, .detail__lead, .outcome__detail, .intro .trexmark';
+    var itemSel = '.features > li, .steps > li, .facts-row > div, .faq > details, .related > li, .compare__card, .ranges__list > .range, .reel__grid > li, .work__cats > li, .shots:not(.shots--carousel) > .shot, .detail__spec > div, .contact__details > div, .notice__list > li';
+    var below = function (el) { return el.getBoundingClientRect().top > window.innerHeight; };
+
+    function split(el) {
+      var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      var nodes = [];
+      while (walker.nextNode()) if (!walker.currentNode.parentNode.closest('svg')) nodes.push(walker.currentNode);
+      nodes.forEach(function (node) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var slot = document.createElement('span');
+          slot.className = 'm-slot';
+          var word = document.createElement('span');
+          word.className = 'm-word';
+          word.textContent = part;
+          slot.appendChild(word);
+          frag.appendChild(slot);
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+      el.classList.add('m-lines');
+    }
+    /* number the lines as laid out right now, just before the heading rises */
+    function lineUp(el) {
+      var top = null, line = -1;
+      el.querySelectorAll('.m-slot').forEach(function (s) {
+        var t = Math.round(s.getBoundingClientRect().top);
+        if (top === null || Math.abs(t - top) > 4) { line++; top = t; }
+        s.style.setProperty('--line', line);
+      });
+    }
+    /* once faded in, hand the element back to its own transitions (hover states etc.) */
+    function settle(el) {
+      el.addEventListener('transitionend', function end(e) {
+        if (e.target !== el || e.propertyName !== 'transform') return;
+        el.removeEventListener('transitionend', end);
+        el.classList.remove('m-fade', 'is-shown');
+        el.style.removeProperty('--d');
+      });
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      var batch = entries.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+      batch.sort(function (a, b) { return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1; });
+      var n = 0;
+      batch.forEach(function (el) {
+        io.unobserve(el);
+        if (el.classList.contains('m-lines')) lineUp(el);
+        else {
+          /* text after a heading waits for its first line; items in a row follow each other */
+          var base = el.classList.contains('m-text') ? 160 : 0;
+          el.style.setProperty('--d', (base + Math.min(n, 6) * 80) + 'ms');
+          n++;
+          settle(el);
+        }
+        el.classList.add('is-shown');
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+
+    document.querySelectorAll(headingSel).forEach(function (el) {
+      if (el.closest(own) || !below(el)) return;
+      split(el);
+      io.observe(el);
+    });
+    [[textSel, 'm-text'], [itemSel, 'm-item']].forEach(function (pair) {
+      document.querySelectorAll(pair[0]).forEach(function (el) {
+        if (el.closest(own) || !below(el)) return;
+        el.classList.add('m-fade', pair[1]);
+        io.observe(el);
+      });
+    });
+  })();
 
   /* ---------- Timeline: split-flap year board ----------
      Desktop with motion allowed: the section pins and the board rolls through every
@@ -203,6 +586,29 @@
     var ROLL = 0.6;            /* share of each step spent rolling; the rest holds on the chapter */
     var LEAD = 0.35, TAIL = 0.5; /* holds before the first roll and after the last */
     var ticking = false, current = -1, shown = years[0];
+    /* the rail under the years: a track from the first year to the last, a brass fill
+       that follows the scroll, and a dot on each year */
+    var rail = null, fill = null, centres = [];
+    if (nav && buttons.length) {
+      rail = document.createElement("span"); rail.className = "years__rail"; rail.setAttribute("aria-hidden", "true");
+      fill = document.createElement("span"); fill.className = "years__fill";
+      rail.appendChild(fill);
+      nav.insertBefore(rail, nav.firstChild);
+    }
+    function measure() {
+      if (!rail || nav.hidden) return;
+      var left = nav.getBoundingClientRect().left;
+      centres = buttons.map(function (b) { var r = b.getBoundingClientRect(); return r.left - left + r.width / 2; });
+      rail.style.left = centres[0] + "px";
+      rail.style.width = (centres[centres.length - 1] - centres[0]) + "px";
+    }
+    function railTo(s) {
+      if (!fill || centres.length < 2) return;
+      var i = Math.min(centres.length - 2, Math.floor(s)), u = Math.min(1, s - i);
+      var x = centres[i] + (centres[i + 1] - centres[i]) * u - centres[0];
+      fill.style.transform = "scaleX(" + (x / (centres[centres.length - 1] - centres[0])).toFixed(4) + ")";
+      buttons.forEach(function (b, n) { b.classList.toggle("is-passed", n <= s + 0.001); });
+    }
 
     /* ---- one card ---- */
     function Flip(el) {
@@ -288,6 +694,7 @@
       if (r.bottom < 0 || r.top > window.innerHeight) return;
       var run = sec.offsetHeight - window.innerHeight;
       var s = stepAt(Math.max(0, Math.min(1, -r.top / run)));
+      railTo(s);
       var i = Math.min(N - 2, Math.floor(s));
       var u = s - i;
       var year, idx;
@@ -319,6 +726,7 @@
       if (on) {
         flips.forEach(function (f, i) { f.digit = String(years[0])[i]; f.rest(); });
         shown = years[0];
+        measure();
         update();
         return;
       }
@@ -337,7 +745,8 @@
     });
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", function () { measure(); onScroll(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); onScroll(); });
     if (mq.addEventListener) mq.addEventListener("change", mode); else mq.addListener(mode);
     mode();
   })();
@@ -455,7 +864,11 @@
       var ready = Promise.all(imgs.map(function (i) { return i.decode ? i.decode().catch(function () {}) : null; }));
       var wait = new Promise(function (r) { setTimeout(r, 350); });
       Promise.race([ready, wait]).then(function () {
-        document.startViewTransition(function () { apply(tab); });
+        /* the page-to-page fade is switched off for this in-page transition */
+        document.documentElement.classList.add('vt-lens');
+        var vt = document.startViewTransition(function () { apply(tab); });
+        vt.finished.then(done, done);
+        function done() { document.documentElement.classList.remove('vt-lens'); }
       });
     }
     tabs.forEach(function (tab, i) {
@@ -763,6 +1176,117 @@
     box.addEventListener('close', function () { opens[at].focus({ preventScroll: true }); });
   })();
 
+  /* ---------- Screening room (homepage films) ----------
+     One screen and an index of three films. On a desktop with motion allowed the films
+     play silently in turn while the screen is in view, each for up to nine seconds, the
+     brass line over its title counting the time; as the screen arrives the room dims and
+     a beam sweeps once. Choosing a title moves the screen to that film. The play control
+     plays the current film from the start with sound and its own controls; the silent run
+     waits until it ends. Phones, reduced motion or data saving: nothing plays or
+     downloads until asked, and the index simply changes the film. */
+  (function () {
+    var screen = document.querySelector('[data-screen]');
+    if (!screen) return;
+    var films = Array.prototype.slice.call(screen.querySelectorAll('.screen__film'));
+    var picks = Array.prototype.slice.call(screen.querySelectorAll('.screen__pick'));
+    var glows = Array.prototype.slice.call(screen.querySelectorAll('.screen__glows img'));
+    var sound = screen.querySelector('.screen__sound');
+    var now = screen.querySelector('.screen__now');
+    var reel = screen.closest('.reel');
+    if (!films.length || !sound) return;
+    var conn = navigator.connection || {};
+    var quiet = window.matchMedia('(prefers-reduced-motion: reduce)').matches || conn.saveData || /2g/.test(conn.effectiveType || '');
+    var hasIO = 'IntersectionObserver' in window;
+    var auto = !quiet && hasIO && window.matchMedia('(min-width: 961px)').matches;
+    var STEP = 9;
+    var at = 0, inView = false, chosen = false, resume = 0;
+
+    function vid(i) { return films[i].querySelector('video'); }
+    function load(v) { if (!v.src && v.dataset.src) v.src = v.dataset.src; }
+    function show(i) {
+      at = (i + films.length) % films.length;
+      films.forEach(function (f, n) { f.classList.toggle('is-active', n === at); });
+      glows.forEach(function (g, n) { g.classList.toggle('is-active', n === at); });
+      picks.forEach(function (p, n) {
+        p.classList.toggle('is-active', n === at);
+        p.setAttribute('aria-pressed', String(n === at));
+        p.style.setProperty('--p', '0');
+      });
+      sound.setAttribute('aria-controls', vid(at).id);
+      if (now) now.textContent = picks[at].querySelector('.screen__title').textContent;
+    }
+    function stop(except) {
+      films.forEach(function (f, n) {
+        if (n === except) return;
+        var v = vid(n); v.pause(); v.controls = false; v.muted = true;
+      });
+    }
+    function silent() {
+      if (!auto || chosen || !inView || document.hidden) return;
+      var v = vid(at);
+      load(v);
+      v.muted = true; v.controls = false;
+      try { v.currentTime = 0; } catch (e) {}
+      var p = v.play(); if (p && p.catch) p.catch(function () {});
+    }
+    function next() { stop(-1); show(at + 1); silent(); }
+
+    films.forEach(function (f, n) {
+      var v = vid(n);
+      v.addEventListener('timeupdate', function () {
+        if (n !== at) return;
+        var len = chosen ? v.duration : Math.min(v.duration || STEP, STEP);
+        if (len) picks[n].style.setProperty('--p', Math.min(1, v.currentTime / len).toFixed(4));
+        if (!chosen && auto && v.currentTime >= STEP) next();
+      });
+      v.addEventListener('ended', function () {
+        if (n !== at) return;
+        if (chosen) {
+          chosen = false;
+          screen.classList.remove('is-playing');
+          v.controls = false; v.muted = true;
+          sound.focus({ preventScroll: true });
+          clearTimeout(resume);
+          resume = setTimeout(next, 1200);
+        } else if (auto) next();
+      });
+    });
+    picks.forEach(function (p, n) {
+      p.addEventListener('click', function () {
+        clearTimeout(resume);
+        chosen = false;
+        screen.classList.remove('is-playing');
+        stop(-1);
+        show(n);
+        silent();
+      });
+    });
+    sound.addEventListener('click', function () {
+      clearTimeout(resume);
+      var v = vid(at);
+      stop(at);
+      load(v);
+      chosen = true;
+      screen.classList.add('is-playing');
+      try { v.currentTime = 0; } catch (e) {}
+      v.muted = false; v.loop = false; v.controls = true;
+      var p = v.play();
+      if (p && p.catch) p.catch(function () { v.muted = true; v.play(); });
+      v.focus();
+    });
+    show(0);
+    if (hasIO) {
+      new IntersectionObserver(function (e) {
+        inView = e[0].isIntersecting;
+        if (inView) { if (reel) reel.classList.add('is-lit'); silent(); }
+        else if (!chosen) stop(-1);
+      }, { threshold: 0.35 }).observe(screen.querySelector('.screen__stage'));
+    }
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { if (!chosen) stop(-1); } else silent();
+    });
+  })();
+
   /* ---------- Site clips ----------
      Every clip: loads only near the screen; pressing play starts it from the top
      with sound and native controls, and pauses every other clip.
@@ -954,10 +1478,20 @@
     var countEl = scope.querySelector(".reviews__index");
     var current = 0;
     if (!reviews.length) return;
+    /* a brass rule under the controls fills a step for each review read */
+    var controls = scope.querySelector(".reviews__controls");
+    var bar = null;
+    if (controls) {
+      bar = document.createElement("span");
+      bar.className = "reviews__bar"; bar.setAttribute("aria-hidden", "true");
+      bar.appendChild(document.createElement("span"));
+      controls.insertAdjacentElement("afterend", bar);
+    }
     function show(i, dir) {
       var prev = reviews[current];
       current = (i + reviews.length) % reviews.length;
       stage.style.setProperty("--review-in", (dir < 0 ? -32 : 32) + "px");
+      stage.classList.toggle("is-back", dir < 0);
       reviews.forEach(function (r, n) {
         r.classList.remove("is-leaving");
         r.classList.toggle("is-active", n === current);
@@ -965,6 +1499,7 @@
       });
       if (dir && prev !== reviews[current]) prev.classList.add("is-leaving");
       if (countEl) countEl.textContent = current + 1;
+      if (bar) bar.firstChild.style.transform = "scaleX(" + ((current + 1) / reviews.length).toFixed(4) + ")";
     }
     show(0, 0);
     scope.querySelector(".reviews__prev").addEventListener("click", function () { show(current - 1, -1); });

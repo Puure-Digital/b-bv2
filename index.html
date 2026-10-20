@@ -58,9 +58,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
 
-    <link rel="preload" as="image" href="images/opt/gallery-deck-2-1280.webp" imagesrcset="images/opt/gallery-deck-2-640.webp 640w, images/opt/gallery-deck-2-1280.webp 1280w, images/opt/gallery-deck-2-2048.webp 2048w" imagesizes="100vw" fetchpriority="high" />
+    <link rel="preload" as="image" href="videos/hero/frames/frame_0001.avif" type="image/avif" media="(prefers-reduced-motion: no-preference) and (min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="videos/hero/frames-mobile/frame_0001.avif" type="image/avif" media="(prefers-reduced-motion: no-preference) and (max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="images/opt/carmel-03395-1280.webp" imagesrcset="images/opt/carmel-03395-640.webp 640w, images/opt/carmel-03395-1280.webp 1280w, images/opt/carmel-03395-2048.webp 2048w" imagesizes="100vw" media="(prefers-reduced-motion: reduce)" fetchpriority="high" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=159" />
+  <link rel="stylesheet" href="site.css?v=194" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -113,53 +115,75 @@
   <main id="main-content">
 
     <!-- Hero -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero__media">
-        <img src="images/opt/gallery-deck-2-1280.webp" srcset="images/opt/gallery-deck-2-640.webp 640w, images/opt/gallery-deck-2-1280.webp 1280w, images/opt/gallery-deck-2-2048.webp 2048w" sizes="100vw" alt="A hot tub set into a grey Trex deck, low sun casting long shadows across the boards" width="2048" height="1152" fetchpriority="high">
-      </div>
-      <div class="hero__content wrap">
-        <h1 class="hero__title" id="hero-heading">Not everyone needs a <span class="nowrap"><em data-shimmer="premium">premium</em> deck.</span></h1>
-        <p class="hero__lead">I'm Darren Gooch, Norwich's TrexPRO Platinum installer and one of the few contractors on Trex's own Pro Advisory Council. I build the kind of outdoor space you stop noticing you're standing on and start living in.</p>
-        <div class="hero__actions">
-          <a class="button button--brass" href="contact.html">Let's Chat</a>
-          <a class="link link--light" href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">Message me on WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a>
+    <section class="hero hero--scrub" aria-labelledby="hero-heading" data-scrub="videos/hero/frames" data-scrub-mobile="videos/hero/frames-mobile" data-scrub-count="26" data-scrub-ext="avif" data-scrub-map="0:0,0.3:2,0.44:3,1:25" data-scrub-zoom="0:1.16,0.3:1" data-scrub-veil="0:1,0.5:1,0.62:0.55,1:0.3">
+      <div class="hero__stage">
+        <div class="hero__media">
+          <picture>
+            <source media="(prefers-reduced-motion: no-preference) and (max-width: 767px)" srcset="videos/hero/frames-mobile/frame_0001.avif" type="image/avif">
+            <source media="(prefers-reduced-motion: no-preference)" srcset="videos/hero/frames/frame_0001.avif" type="image/avif">
+            <img class="hero__poster" src="images/opt/carmel-03395-1280.webp" srcset="images/opt/carmel-03395-640.webp 640w, images/opt/carmel-03395-1280.webp 1280w, images/opt/carmel-03395-2048.webp 2048w" sizes="100vw" alt="A curved, raised Trex Transcend Lineage deck in Carmel with outdoor sofas, set into a planted garden" width="2048" height="1368" fetchpriority="high">
+          </picture>
+          <canvas class="hero__canvas" aria-hidden="true"></canvas>
         </div>
-      </div>
-      <div class="hero__foot wrap">
-        <p class="credentials">
-          <span>TrexPRO Platinum since 2016</span>
-          <span>Trex Pro Advisory Council, 2024</span>
-          <span>500+ decks since 2016</span>
-          <a href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer">5.0 from 10 Google reviews<span class="visually-hidden"> (opens in a new tab)</span></a>
-        </p>
+        <div class="hero__content wrap" data-beat-out="0.07">
+          <h1 class="hero__title" id="hero-heading">Not everyone needs a <span class="nowrap"><em data-shimmer="premium">premium</em> deck.</span></h1>
+          <p class="hero__lead">I'm Darren Gooch, Norwich's TrexPRO Platinum installer and one of the few contractors on Trex's own Pro Advisory Council. I build the kind of outdoor space you stop noticing you're standing on and start living in.</p>
+          <div class="hero__actions">
+            <a class="button button--brass" href="contact.html">Let's Chat</a>
+            <a class="link link--light" href="https://wa.me/447983531860" target="_blank" rel="noopener noreferrer">Message me on WhatsApp<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+        <p class="hero__beat hero__beat--board wrap" data-beat-in="0.22" data-beat-out="0.34">Trex builds the board.</p>
+        <p class="hero__beat hero__beat--deck wrap" data-beat-in="0.58" data-beat-out="0.8">I build the deck <em>that lasts.</em></p>
+        <div class="hero__beat hero__beat--end wrap" data-beat-in="0.97">
+          <p class="hero__caption">Transcend Lineage in Carmel: a real photo of a deck built with @wirraldeckingcompany.</p>
+          <div class="hero__actions">
+            <a class="button button--brass" href="contact.html">Let's Chat</a>
+            <a class="link link--light" href="trex-transcend.html#carmel-heading">See the Carmel build</a>
+          </div>
+        </div>
+        <div class="hero__foot wrap">
+          <p class="credentials">
+            <span>TrexPRO Platinum since 2016</span>
+            <span>Trex Pro Advisory Council, 2024</span>
+            <span>500+ decks since 2016</span>
+            <a href="https://www.google.com/maps/search/Beams+and+Braces+Norwich" target="_blank" rel="noopener noreferrer">5.0 from 10 Google reviews<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </p>
+        </div>
+        <p class="hero__note wrap" data-beat-out="0.9">AI-generated film</p>
+        <span class="hero__progress" aria-hidden="true"></span>
       </div>
     </section>
 
     <!-- Belief -->
-    <section class="belief wrap" aria-label="Darren's approach">
-      <blockquote class="belief__quote" data-words>
-        <p>“I don't think people buy Trex. I think people buy the outdoor space they've been picturing, and Trex happens to be the best material I've found to build it properly.”</p>
-      </blockquote>
-      <p class="belief__by">Darren Gooch, founder</p>
+    <section class="belief belief--manifesto belief--before-story" aria-label="Darren's approach">
+      <div class="belief__inner wrap">
+        <blockquote class="belief__quote" data-words>
+          <p><span class="belief__mark" aria-hidden="true">“</span>I don't think people buy Trex. I&nbsp;think people buy <em>the outdoor space they've been picturing</em>, and Trex happens to be the best material I've found to build it properly.<span class="belief__mark belief__mark--close" aria-hidden="true">”</span></p>
+        </blockquote>
+        <p class="belief__by">Darren Gooch, founder</p>
+      </div>
     </section>
 
     <!-- Story -->
-    <section class="story wrap" aria-labelledby="story-heading">
-      <figure class="story__media story__media--collage reveal-media">
-        <img class="collage__a" src="images/opt/dg12-640.webp" srcset="images/opt/dg12-640.webp 640w, images/opt/dg12-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren in a Trex cap cutting a board on a mitre saw" width="1153" height="2048" loading="lazy" decoding="async">
-        <img class="collage__b" src="images/opt/dg14-640.webp" srcset="images/opt/dg14-640.webp 640w, images/opt/dg14-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren on site beside a timber workbench" width="2048" height="1152" loading="lazy" decoding="async">
-        <img class="collage__c" src="images/opt/dg11-640.webp" srcset="images/opt/dg11-640.webp 640w, images/opt/dg11-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren lining up a cut on a mitre saw" width="2048" height="1153" loading="lazy" decoding="async">
-        <img class="collage__d" src="images/opt/dg13-640.webp" srcset="images/opt/dg13-640.webp 640w, images/opt/dg13-1152.webp 1152w" sizes="(min-width: 961px) 220px, 50vw" alt="Darren standing on site in a work hoodie" width="1365" height="2048" loading="lazy" decoding="async">
-      </figure>
-      <div class="story__body">
-        <h2 class="heading" id="story-heading">It started when I was three.</h2>
-        <p class="story__text">My parents ran a timber yard, and I grew up in it. I've spent every year since building things properly, and since 2014 that's meant one thing: Trex composite decking, done to a standard most installers never bother reaching for.</p>
+    <section class="story story--spread" aria-labelledby="story-heading">
+      <div class="story__inner wrap">
+        <figure class="story__media story__media--collage reveal-media">
+          <span class="collage__tile collage__a"><img src="images/opt/dg12-640.webp" srcset="images/opt/dg12-640.webp 640w, images/opt/dg12-1152.webp 1152w" sizes="(min-width: 961px) 26vw, 50vw" alt="Darren in a Trex cap cutting a board on a mitre saw" width="1153" height="2048" loading="lazy" decoding="async"></span>
+          <span class="collage__tile collage__b"><img src="images/opt/dg14-640.webp" srcset="images/opt/dg14-640.webp 640w, images/opt/dg14-1152.webp 1152w" sizes="(min-width: 961px) 26vw, 50vw" alt="Darren on site beside a timber workbench" width="2048" height="1152" loading="lazy" decoding="async"></span>
+          <span class="collage__tile collage__c"><img src="images/opt/dg11-640.webp" srcset="images/opt/dg11-640.webp 640w, images/opt/dg11-1152.webp 1152w" sizes="(min-width: 961px) 26vw, 50vw" alt="Darren lining up a cut on a mitre saw" width="2048" height="1153" loading="lazy" decoding="async"></span>
+          <span class="collage__tile collage__d"><img src="images/opt/dg13-640.webp" srcset="images/opt/dg13-640.webp 640w, images/opt/dg13-1152.webp 1152w" sizes="(min-width: 961px) 26vw, 50vw" alt="Darren standing on site in a work hoodie" width="1365" height="2048" loading="lazy" decoding="async"></span>
+        </figure>
+        <div class="story__body">
+          <h2 class="heading" id="story-heading">It started when I was <em>three.</em></h2>
+          <p class="story__text">My parents ran a timber yard, and I grew up in it. I've spent every year since building things properly, and since 2014 that's meant one thing: Trex composite decking, done to a standard most installers never bother reaching for.</p>
+          <a class="link story__more" href="about.html">Read the full story</a>
+        </div>
         <ul class="story__facts">
-          <li><strong>500+</strong> composite decks since 2016, including some of the largest curved Trex decks in the UK.</li>
-          <li><strong>Fewer than 5%</strong> of UK Trex contractors hold TrexPRO Platinum. I've held it since 2016.</li>
-          <li><strong>Since 2024</strong> on Trex's own Pro Advisory Council, one of the few UK installers Trex consults directly.</li>
+          <li class="fact"><strong class="fact__figure"><span class="fact__num">500<span class="fact__unit">+</span></span></strong> <span class="fact__text">composite decks since 2016, including some of the largest curved Trex decks in the UK.</span></li>
+          <li class="fact"><strong class="fact__figure"><span class="fact__pre">Fewer than</span> <span class="fact__num">5<span class="fact__unit">%</span></span></strong> <span class="fact__text">of UK Trex contractors hold TrexPRO Platinum. I've held it since 2016.</span></li>
+          <li class="fact"><strong class="fact__figure"><span class="fact__pre">Since</span> <span class="fact__num">2024</span></strong> <span class="fact__text">on Trex's own Pro Advisory Council, one of the few UK installers Trex consults directly.</span></li>
         </ul>
-        <a class="link" href="about.html">Read the full story</a>
       </div>
     </section>
 
@@ -235,14 +259,28 @@
     </section>
 
     <!-- Outcome -->
-    <section class="outcome" aria-labelledby="outcome-heading">
-      <div class="outcome__media reveal-media">
-        <img src="images/opt/hero-1280.webp" srcset="images/opt/hero-640.webp 640w, images/opt/hero-1280.webp 1280w, images/opt/hero-2048.webp 2048w" sizes="(min-width: 961px) 60vw, 100vw" alt="Aerial view of a finished grey Trex deck beside a lawn, boards running in two directions around a planted border" width="2048" height="1365" loading="lazy">
-      </div>
-      <div class="outcome__panel">
-        <h2 class="heading heading--light" id="outcome-heading">The last deck you'll ever need to <em>build.</em></h2>
-        <p>Real wood asks something of you every year: sanding, staining, replacing boards that have started to split. Trex asks nothing. It's what I fit on every job, from a quiet corner of a garden to some of the largest curved decks built anywhere in the UK.</p>
-        <p class="outcome__detail">Underneath every deck: UC4 pressure-treated joists and Trex Protect joist tape, with plastic subframes on a concrete raft for ground-level decks. Boards are single-face embossed with a grooved edge, so the fixings stay hidden.</p>
+    <section class="outcome outcome--plan" aria-labelledby="outcome-heading">
+      <div class="outcome__stage">
+        <div class="outcome__media">
+          <div class="outcome__plate">
+            <img src="images/opt/hero-1280.webp" srcset="images/opt/hero-640.webp 640w, images/opt/hero-1280.webp 1280w, images/opt/hero-2048.webp 2048w" sizes="(min-width: 961px) 60vw, 100vw" alt="Aerial view of a finished grey Trex deck beside a lawn, boards running in two directions around a planted border" width="2048" height="1365" loading="lazy">
+            <svg class="bpx" viewBox="0 0 2048 1365" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs>
+<pattern id="bpx-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path class="bpx-grid__minor" d="M40 0H0V40"/></pattern>
+<pattern id="bpx-grid-major" width="200" height="200" patternUnits="userSpaceOnUse"><path class="bpx-grid__major" d="M200 0H0V200"/></pattern>
+<pattern id="bpx-stipple" width="64" height="64" patternUnits="userSpaceOnUse"><g class="bpx-dots"><circle cx="8" cy="11" r="1.6"/><circle cx="37" cy="6" r="1.3"/><circle cx="54" cy="29" r="1.6"/><circle cx="23" cy="34" r="1.2"/><circle cx="44" cy="52" r="1.5"/><circle cx="12" cy="55" r="1.3"/></g></pattern>
+<pattern id="bpx-gravel" width="30" height="30" patternUnits="userSpaceOnUse"><g class="bpx-dots"><circle cx="4" cy="5" r="1.7"/><circle cx="17" cy="3" r="1.2"/><circle cx="26" cy="13" r="1.8"/><circle cx="11" cy="16" r="1.4"/><circle cx="21" cy="25" r="1.6"/><circle cx="5" cy="26" r="1.2"/></g></pattern>
+<pattern id="bpx-hatch" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="bpx-hatch" d="M0 0V18"/></pattern>
+<clipPath id="bpx-clip-up"><path d="M362 0L1204.8 0L812.3 546L362 546Z"/></clipPath>
+<clipPath id="bpx-clip-low"><path d="M0 745L235 745L235 609L836 609L1002.1 378L1067 425L1067 1175L0 1175Z"/></clipPath>
+<mask id="bpx-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="2048" height="1365"><rect width="2048" height="1365" fill="#fff"/><path class="bpx-f" d="M1204.8 0L1273.8 0L836 609L795 570Z" fill="#000" style="--a:0.44;--l:0.04"/><path class="bpx-f" d="M195 570L795 570L836 609L195 609Z" fill="#000" style="--a:0.452;--l:0.04"/><path class="bpx-f" d="M1067 425L1100 427L1100 1216L1067 1175Z" fill="#000" style="--a:0.464;--l:0.04"/><path class="bpx-f" d="M0 1175L1067 1175L1100 1216L0 1216Z" fill="#000" style="--a:0.476;--l:0.04"/><path class="bpx-f" d="M322 0L362 0L362 546L322 570Z" fill="#000" style="--a:0.488;--l:0.04"/><path class="bpx-f" d="M362 546L812.3 546L795 570L322 570L322 546Z" fill="#000" style="--a:0.5;--l:0.04"/><path class="bpx-f" d="M1026.1 344.5L1100 398L1100 427L1067 425L1002 378Z" fill="#000" style="--a:0.512;--l:0.04"/><path class="bpx-f" d="M195 609L235 609L235 745L195 745Z" fill="#000" style="--a:0.524;--l:0.04"/><path class="bpx-f" d="M135 745L175 745L175 1175L135 1175Z" fill="#000" style="--a:0.536;--l:0.04"/><path class="bpx-f" d="M98 928L212 928L212 1045L98 1045Z" fill="#000" style="--a:0.548;--l:0.04"/><g clip-path="url(#bpx-clip-up)"><rect class="bpx-lay" x="362" y="-12.2" width="842.8" height="40.3" fill="#000" style="--a:0.5;--l:0.05"/><rect class="bpx-lay" x="362" y="27.5" width="842.8" height="40.3" fill="#000" style="--a:0.5071;--l:0.05"/><rect class="bpx-lay" x="362" y="67.2" width="842.8" height="40.3" fill="#000" style="--a:0.5143;--l:0.05"/><rect class="bpx-lay" x="362" y="106.9" width="842.8" height="40.3" fill="#000" style="--a:0.5214;--l:0.05"/><rect class="bpx-lay" x="362" y="146.6" width="842.8" height="40.3" fill="#000" style="--a:0.5286000000000001;--l:0.05"/><rect class="bpx-lay" x="362" y="186.3" width="842.8" height="40.3" fill="#000" style="--a:0.5357000000000001;--l:0.05"/><rect class="bpx-lay" x="362" y="226" width="842.8" height="40.3" fill="#000" style="--a:0.5428999999999999;--l:0.05"/><rect class="bpx-lay" x="362" y="265.7" width="842.8" height="40.3" fill="#000" style="--a:0.55;--l:0.05"/><rect class="bpx-lay" x="362" y="305.4" width="842.8" height="40.3" fill="#000" style="--a:0.5571;--l:0.05"/><rect class="bpx-lay" x="362" y="345.1" width="842.8" height="40.3" fill="#000" style="--a:0.5642999999999999;--l:0.05"/><rect class="bpx-lay" x="362" y="384.8" width="842.8" height="40.3" fill="#000" style="--a:0.5714;--l:0.05"/><rect class="bpx-lay" x="362" y="424.5" width="842.8" height="40.3" fill="#000" style="--a:0.5786;--l:0.05"/><rect class="bpx-lay" x="362" y="464.2" width="842.8" height="40.3" fill="#000" style="--a:0.5857;--l:0.05"/><rect class="bpx-lay" x="362" y="503.9" width="842.8" height="40.3" fill="#000" style="--a:0.5929;--l:0.05"/><rect class="bpx-lay" x="362" y="543.6" width="842.8" height="3" fill="#000" style="--a:0.6;--l:0.05"/></g><g clip-path="url(#bpx-clip-low)"><rect class="bpx-lay" x="0" y="368" width="1100" height="40.8" fill="#000" style="--a:0.6071;--l:0.05"/><rect class="bpx-lay" x="0" y="408.2" width="1100" height="41" fill="#000" style="--a:0.6143;--l:0.05"/><rect class="bpx-lay" x="0" y="448.6" width="1100" height="41" fill="#000" style="--a:0.6214;--l:0.05"/><rect class="bpx-lay" x="0" y="488.9" width="1100" height="41" fill="#000" style="--a:0.6286;--l:0.05"/><rect class="bpx-lay" x="0" y="529.3" width="1100" height="41" fill="#000" style="--a:0.6357;--l:0.05"/><rect class="bpx-lay" x="0" y="569.6" width="1100" height="41" fill="#000" style="--a:0.6429;--l:0.05"/><rect class="bpx-lay" x="0" y="610" width="1100" height="41" fill="#000" style="--a:0.65;--l:0.05"/><rect class="bpx-lay" x="0" y="650.4" width="1100" height="41" fill="#000" style="--a:0.6571;--l:0.05"/><rect class="bpx-lay" x="0" y="690.7" width="1100" height="41" fill="#000" style="--a:0.6643;--l:0.05"/><rect class="bpx-lay" x="0" y="731.1" width="1100" height="41" fill="#000" style="--a:0.6714;--l:0.05"/><rect class="bpx-lay" x="0" y="771.4" width="1100" height="41" fill="#000" style="--a:0.6786;--l:0.05"/><rect class="bpx-lay" x="0" y="811.8" width="1100" height="41" fill="#000" style="--a:0.6857000000000001;--l:0.05"/><rect class="bpx-lay" x="0" y="852.2" width="1100" height="41" fill="#000" style="--a:0.6929;--l:0.05"/><rect class="bpx-lay" x="0" y="892.5" width="1100" height="41" fill="#000" style="--a:0.7;--l:0.05"/><rect class="bpx-lay" x="0" y="932.9" width="1100" height="41" fill="#000" style="--a:0.7071000000000001;--l:0.05"/><rect class="bpx-lay" x="0" y="973.2" width="1100" height="41" fill="#000" style="--a:0.7142999999999999;--l:0.05"/><rect class="bpx-lay" x="0" y="1013.6" width="1100" height="41" fill="#000" style="--a:0.7213999999999999;--l:0.05"/><rect class="bpx-lay" x="0" y="1054" width="1100" height="41" fill="#000" style="--a:0.7286;--l:0.05"/><rect class="bpx-lay" x="0" y="1094.3" width="1100" height="41" fill="#000" style="--a:0.7357;--l:0.05"/><rect class="bpx-lay" x="0" y="1134.7" width="1100" height="40.9" fill="#000" style="--a:0.7429;--l:0.05"/></g><rect class="bpx-f" width="2048" height="1365" fill="#000" style="--a:0.76;--l:0.14"/></mask>
+</defs><g class="bpx__sheet" mask="url(#bpx-reveal)"><rect class="bpx-paper" width="2048" height="1365"/><rect class="bpx-grid" width="2048" height="1365" fill="url(#bpx-grid)"/><rect class="bpx-grid" width="2048" height="1365" fill="url(#bpx-grid-major)"/><rect class="bpx-border" x="14" y="14" width="2020" height="1337"/><path class="bpx-f bpx-lawn" d="M1100 427L1331.8 105L1700 105L1700 92L2048 92L2048 1365L0 1365L0 1216L1100 1216Z" fill="url(#bpx-stipple)" style="--a:0.27;--l:0.08"/><rect class="bpx-f bpx-gravel" x="0" y="128" width="322" height="442" fill="url(#bpx-gravel)" style="--a:0.28;--l:0.08"/><rect class="bpx-f bpx-hatchfill" x="0" y="0" width="310" height="96" fill="url(#bpx-hatch)" style="--a:0.29;--l:0.08"/><path class="bpx-d bpx-joint" d="M362 27.5H1185" pathLength="1" style="--a:0.15;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 67.2H1156.5" pathLength="1" style="--a:0.1555;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 106.9H1127.9" pathLength="1" style="--a:0.161;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 146.6H1099.4" pathLength="1" style="--a:0.1665;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 186.3H1070.8" pathLength="1" style="--a:0.172;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 226H1042.3" pathLength="1" style="--a:0.1775;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 265.7H1013.8" pathLength="1" style="--a:0.183;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 305.4H985.2" pathLength="1" style="--a:0.1885;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 345.1H956.7" pathLength="1" style="--a:0.194;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 384.8H928.2" pathLength="1" style="--a:0.1995;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 424.5H899.6" pathLength="1" style="--a:0.205;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 464.2H871.1" pathLength="1" style="--a:0.2105;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 503.9H842.6" pathLength="1" style="--a:0.216;--l:0.05"/><path class="bpx-d bpx-joint" d="M362 543.6H814" pathLength="1" style="--a:0.2215;--l:0.05"/><path class="bpx-d bpx-joint" d="M1044.2 408.2H1067" pathLength="1" style="--a:0.227;--l:0.05"/><path class="bpx-d bpx-joint" d="M951.3 448.6H1067" pathLength="1" style="--a:0.2325;--l:0.05"/><path class="bpx-d bpx-joint" d="M922.3 488.9H1067" pathLength="1" style="--a:0.238;--l:0.05"/><path class="bpx-d bpx-joint" d="M893.3 529.3H1067" pathLength="1" style="--a:0.2435;--l:0.05"/><path class="bpx-d bpx-joint" d="M864.3 569.6H1067" pathLength="1" style="--a:0.249;--l:0.05"/><path class="bpx-d bpx-joint" d="M235 610H1067" pathLength="1" style="--a:0.2545;--l:0.05"/><path class="bpx-d bpx-joint" d="M235 650.4H1067" pathLength="1" style="--a:0.26;--l:0.05"/><path class="bpx-d bpx-joint" d="M235 690.7H1067" pathLength="1" style="--a:0.2655;--l:0.05"/><path class="bpx-d bpx-joint" d="M235 731.1H1067" pathLength="1" style="--a:0.271;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 771.4H135" pathLength="1" style="--a:0.2765;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 771.4H1067" pathLength="1" style="--a:0.2765;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 811.8H135" pathLength="1" style="--a:0.282;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 811.8H1067" pathLength="1" style="--a:0.282;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 852.2H135" pathLength="1" style="--a:0.2875;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 852.2H1067" pathLength="1" style="--a:0.2875;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 892.5H135" pathLength="1" style="--a:0.293;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 892.5H1067" pathLength="1" style="--a:0.293;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 932.9H98" pathLength="1" style="--a:0.2985;--l:0.05"/><path class="bpx-d bpx-joint" d="M212 932.9H1067" pathLength="1" style="--a:0.2985;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 973.2H98" pathLength="1" style="--a:0.304;--l:0.05"/><path class="bpx-d bpx-joint" d="M212 973.2H1067" pathLength="1" style="--a:0.304;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 1013.6H98" pathLength="1" style="--a:0.3095;--l:0.05"/><path class="bpx-d bpx-joint" d="M212 1013.6H1067" pathLength="1" style="--a:0.3095;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 1054H135" pathLength="1" style="--a:0.315;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 1054H1067" pathLength="1" style="--a:0.315;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 1094.3H135" pathLength="1" style="--a:0.3205;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 1094.3H1067" pathLength="1" style="--a:0.3205;--l:0.05"/><path class="bpx-d bpx-joint" d="M0 1134.7H135" pathLength="1" style="--a:0.326;--l:0.05"/><path class="bpx-d bpx-joint" d="M175 1134.7H1067" pathLength="1" style="--a:0.326;--l:0.05"/><path class="bpx-f bpx-joist" d="M48 745V1216" style="--a:0.25;--l:0.05"/><path class="bpx-f bpx-joist" d="M155 745V1216" style="--a:0.256;--l:0.05"/><path class="bpx-f bpx-joist" d="M266 609V1216" style="--a:0.262;--l:0.05"/><path class="bpx-f bpx-joist" d="M377 609V1216" style="--a:0.268;--l:0.05"/><path class="bpx-f bpx-joist" d="M488 609V1216" style="--a:0.274;--l:0.05"/><path class="bpx-f bpx-joist" d="M599 609V1216" style="--a:0.28;--l:0.05"/><path class="bpx-f bpx-joist" d="M710 609V1216" style="--a:0.286;--l:0.05"/><path class="bpx-f bpx-joist" d="M821 609V1216" style="--a:0.292;--l:0.05"/><path class="bpx-f bpx-joist" d="M932 475.5V1216" style="--a:0.298;--l:0.05"/><path class="bpx-f bpx-joist" d="M1043 407.3V1216" style="--a:0.304;--l:0.05"/><path class="bpx-f bpx-joist" d="M377 0V546" style="--a:0.31;--l:0.05"/><path class="bpx-f bpx-joist" d="M488 0V546" style="--a:0.316;--l:0.05"/><path class="bpx-f bpx-joist" d="M599 0V546" style="--a:0.322;--l:0.05"/><path class="bpx-f bpx-joist" d="M710 0V546" style="--a:0.328;--l:0.05"/><path class="bpx-f bpx-joist" d="M821 0V533.9" style="--a:0.334;--l:0.05"/><path class="bpx-f bpx-joist" d="M932 0V379.5" style="--a:0.34;--l:0.05"/><path class="bpx-f bpx-joist" d="M1043 0V225" style="--a:0.346;--l:0.05"/><path class="bpx-f bpx-joist" d="M1154 0V70.6" style="--a:0.352;--l:0.05"/><circle class="bpx-d bpx-plant" cx="1248" cy="40" r="26" pathLength="1" style="--a:0.27;--l:0.05"/><path class="bpx-f bpx-plant" d="M1238.9 40H1257.1M1248 30.9V49.1" style="--a:0.3;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1196" cy="120" r="30" pathLength="1" style="--a:0.274;--l:0.05"/><path class="bpx-f bpx-plant" d="M1185.5 120H1206.5M1196 109.5V130.5" style="--a:0.304;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1160" cy="196" r="24" pathLength="1" style="--a:0.278;--l:0.05"/><path class="bpx-f bpx-plant" d="M1151.6 196H1168.4M1160 187.6V204.4" style="--a:0.308;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1120" cy="262" r="28" pathLength="1" style="--a:0.282;--l:0.05"/><path class="bpx-f bpx-plant" d="M1110.2 262H1129.8M1120 252.2V271.8" style="--a:0.312;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1076" cy="326" r="20" pathLength="1" style="--a:0.286;--l:0.05"/><path class="bpx-f bpx-plant" d="M1069 326H1083M1076 319V333" style="--a:0.316;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1300" cy="30" r="18" pathLength="1" style="--a:0.29;--l:0.05"/><path class="bpx-f bpx-plant" d="M1293.7 30H1306.3M1300 23.7V36.3" style="--a:0.32;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1572" cy="40" r="20" pathLength="1" style="--a:0.294;--l:0.05"/><path class="bpx-f bpx-plant" d="M1565 40H1579M1572 33V47" style="--a:0.324;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1640" cy="32" r="24" pathLength="1" style="--a:0.298;--l:0.05"/><path class="bpx-f bpx-plant" d="M1631.6 32H1648.4M1640 23.6V40.4" style="--a:0.328;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1730" cy="44" r="22" pathLength="1" style="--a:0.302;--l:0.05"/><path class="bpx-f bpx-plant" d="M1722.3 44H1737.7M1730 36.3V51.7" style="--a:0.332;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1820" cy="34" r="26" pathLength="1" style="--a:0.306;--l:0.05"/><path class="bpx-f bpx-plant" d="M1810.9 34H1829.1M1820 24.9V43.1" style="--a:0.336;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1910" cy="42" r="20" pathLength="1" style="--a:0.31;--l:0.05"/><path class="bpx-f bpx-plant" d="M1903 42H1917M1910 35V49" style="--a:0.34;--l:0.04"/><circle class="bpx-d bpx-plant" cx="1995" cy="36" r="24" pathLength="1" style="--a:0.314;--l:0.05"/><path class="bpx-f bpx-plant" d="M1986.6 36H2003.4M1995 27.6V44.4" style="--a:0.344;--l:0.04"/><circle class="bpx-d bpx-canopy" cx="155" cy="986" r="372" pathLength="1" style="--a:0.26;--l:0.1"/><circle class="bpx-d bpx-trunk" cx="155" cy="986" r="22" pathLength="1" style="--a:0.3;--l:0.04"/><path class="bpx-d bpx-leader" d="M1170 548L1084 600" pathLength="1" style="--a:0.33;--l:0.04"/><circle class="bpx-f bpx-dot" cx="1084" cy="600" r="6" style="--a:0.36;--l:0.02"/><text class="bpx-f bpx-label" x="1182" y="556" text-anchor="start" style="--a:0.35;--l:0.05"><tspan x="1182" dy="0">Frame board</tspan></text><path class="bpx-d bpx-leader" d="M1170 768L1000 792" pathLength="1" style="--a:0.34;--l:0.04"/><circle class="bpx-f bpx-dot" cx="1000" cy="792" r="6" style="--a:0.37;--l:0.02"/><text class="bpx-f bpx-label" x="1182" y="760" text-anchor="start" style="--a:0.36;--l:0.05"><tspan x="1182" dy="0">Grooved-edge boards,</tspan><tspan x="1182" dy="1.25em">hidden fixings</tspan></text><path class="bpx-d bpx-leader" d="M1170 1008L932 1052" pathLength="1" style="--a:0.35;--l:0.04"/><circle class="bpx-f bpx-dot" cx="932" cy="1052" r="6" style="--a:0.38;--l:0.02"/><text class="bpx-f bpx-label" x="1182" y="1000" text-anchor="start" style="--a:0.37;--l:0.05"><tspan x="1182" dy="0">UC4 pressure-treated joists,</tspan><tspan x="1182" dy="1.25em">Trex Protect joist tape, below</tspan></text><text class="bpx-f bpx-label bpx-label--area" x="1700" y="330" text-anchor="middle" style="--a:0.33;--l:0.05"><tspan x="1700" dy="0">Lawn</tspan></text><text class="bpx-f bpx-label bpx-label--small" x="1440" y="54" text-anchor="middle" style="--a:0.34;--l:0.05"><tspan x="1440" dy="0">Planting</tspan></text><text class="bpx-f bpx-label bpx-label--small" x="161" y="360" text-anchor="middle" style="--a:0.34;--l:0.05"><tspan x="161" dy="0">Gravel</tspan></text><g class="bpx-f bpx-title" style="--a:0.36;--l:0.06"><rect x="1620" y="1132" width="384" height="196"/><path class="bpx-title__rule" d="M1620 1186H2004"/><text class="bpx-title__name" x="1646" y="1168">Beams &amp; Braces</text><text class="bpx-title__what" x="1646" y="1256">Deck plan</text><text class="bpx-title__note" x="1646" y="1302">Not to scale</text></g></g><g class="bpx__edges"><path class="bpx-d bpx-edge" d="M0 1216L1100 1216L1100 427" pathLength="1" style="--a:0.02;--l:0.1"/><path class="bpx-d bpx-edge" d="M0 1175L1067 1175L1067 425" pathLength="1" style="--a:0.04;--l:0.09"/><path class="bpx-d bpx-edge" d="M1067 1175L1100 1216" pathLength="1" style="--a:0.1;--l:0.02"/><path class="bpx-d bpx-edge" d="M1026.1 344.5L1100 398L1100 427L1067 425L1002 378" pathLength="1" style="--a:0.08;--l:0.06"/><path class="bpx-d bpx-edge" d="M1204.8 0L795 570L836 609L1273.8 0" pathLength="1" style="--a:0.06;--l:0.1"/><path class="bpx-d bpx-edge" d="M195 570L795 570" pathLength="1" style="--a:0.09;--l:0.06"/><path class="bpx-d bpx-edge" d="M195 609L836 609" pathLength="1" style="--a:0.1;--l:0.06"/><path class="bpx-d bpx-edge" d="M362 546L812.3 546" pathLength="1" style="--a:0.11;--l:0.05"/><path class="bpx-d bpx-edge" d="M322 0L322 570" pathLength="1" style="--a:0.05;--l:0.07"/><path class="bpx-d bpx-edge" d="M362 0L362 546" pathLength="1" style="--a:0.06;--l:0.07"/><path class="bpx-d bpx-edge" d="M195 570L195 745L42 745L42 570L195 570" pathLength="1" style="--a:0.12;--l:0.06"/><path class="bpx-d bpx-edge" d="M235 609L235 745L195 745" pathLength="1" style="--a:0.12;--l:0.04"/><rect class="bpx-d bpx-edge bpx-edge--fine" x="60" y="588" width="117" height="139" pathLength="1" style="--a:0.15;--l:0.05"/><path class="bpx-d bpx-edge" d="M135 745L135 928" pathLength="1" style="--a:0.14;--l:0.04"/><path class="bpx-d bpx-edge" d="M175 745L175 928" pathLength="1" style="--a:0.14;--l:0.04"/><path class="bpx-d bpx-edge" d="M135 1045L135 1175" pathLength="1" style="--a:0.15;--l:0.04"/><path class="bpx-d bpx-edge" d="M175 1045L175 1175" pathLength="1" style="--a:0.15;--l:0.04"/><rect class="bpx-d bpx-edge" x="98" y="928" width="114" height="117" pathLength="1" style="--a:0.14;--l:0.05"/><rect class="bpx-d bpx-edge bpx-edge--fine" x="107" y="937" width="96" height="99" pathLength="1" style="--a:0.16;--l:0.05"/><path class="bpx-d bpx-edge" d="M1098 396L1325.6 72L1700 72L1700 105L1331.8 105L1100 427" pathLength="1" style="--a:0.13;--l:0.1"/><path class="bpx-d bpx-edge" d="M1700 92L2048 92" pathLength="1" style="--a:0.18;--l:0.05"/><rect class="bpx-d bpx-edge bpx-edge--fine" x="0" y="100" width="322" height="28" pathLength="1" style="--a:0.17;--l:0.05"/><path class="bpx-d bpx-edge" d="M0 96L310 96L310 0" pathLength="1" style="--a:0.16;--l:0.05"/></g></svg>
+          </div>
+        </div>
+        <div class="outcome__panel">
+          <h2 class="heading heading--light" id="outcome-heading">The last deck you'll ever need to <em>build.</em></h2>
+          <p>Real wood asks something of you every year: sanding, staining, replacing boards that have started to split. Trex asks nothing. It's what I fit on every job, from a quiet corner of a garden to some of the largest curved decks built anywhere in the UK.</p>
+          <p class="outcome__detail">Underneath every deck: UC4 pressure-treated joists and Trex Protect joist tape, with plastic subframes on a concrete raft for ground-level decks. Boards are single-face embossed with a grooved edge, so the fixings stay hidden.</p>
+        </div>
       </div>
     </section>
 
@@ -258,18 +296,21 @@
 
       <div class="ranges__list">
         <article class="range">
+          <div class="range__boards" aria-hidden="true"><img src="images/opt/ocracoke-176.webp" alt="" width="176" height="176" decoding="async" style="--i:0"><img src="images/opt/whidbey-176.webp" alt="" width="176" height="176" decoding="async" style="--i:1"></div>
           <h3 class="range__name"><a href="trex-signature.html">Signature</a></h3>
           <p class="range__text">Sleek, minimal and precise. Built for contemporary architecture and clients who notice the details most people miss.</p>
           <p class="range__meta">50-year fade and stain warranty</p>
           <a class="link range__link" href="trex-signature.html">Explore Signature</a>
         </article>
         <article class="range">
+          <div class="range__boards" aria-hidden="true"><img src="images/opt/jasper-176.webp" alt="" width="176" height="176" decoding="async" style="--i:0"><img src="images/opt/biscayne-176.webp" alt="" width="176" height="176" decoding="async" style="--i:1"><img src="images/opt/rainier-176.webp" alt="" width="176" height="176" decoding="async" style="--i:2"><img src="images/opt/carmel-176.webp" alt="" width="176" height="176" decoding="async" style="--i:3"><img src="images/opt/island-mist-176.webp" alt="" width="176" height="176" decoding="async" style="--i:4"></div>
           <h3 class="range__name"><a href="trex-transcend.html">Transcend</a></h3>
           <p class="range__text">The richest colours and deepest woodgrain in the Trex lineup. The one I recommend most, built for a lifetime of outdoor living.</p>
           <p class="range__meta">50-year fade and stain warranty</p>
           <a class="link range__link" href="trex-transcend.html">Explore Transcend</a>
         </article>
         <article class="range">
+          <div class="range__boards" aria-hidden="true"><img src="images/opt/foggy-wharf-176.webp" alt="" width="176" height="176" decoding="async" style="--i:0"><img src="images/opt/rocky-harbor-176.webp" alt="" width="176" height="176" decoding="async" style="--i:1"><img src="images/opt/toasted-sand-176.webp" alt="" width="176" height="176" decoding="async" style="--i:2"><img src="images/opt/calm-water-176.webp" alt="" width="176" height="176" decoding="async" style="--i:3"><img src="images/opt/clam-shell-176.webp" alt="" width="176" height="176" decoding="async" style="--i:4"><img src="images/opt/tide-pool-176.webp" alt="" width="176" height="176" decoding="async" style="--i:5"></div>
           <h3 class="range__name"><a href="trex-enhance-naturals.html">Enhance</a></h3>
           <p class="range__text">All the warmth of natural wood, none of the maintenance. Two collections: Naturals and Basics.</p>
           <p class="range__meta">25-year fade and stain warranty</p>
@@ -515,7 +556,7 @@
     </section>
 
     <!-- Showreel: video only -->
-    <section class="reel" aria-labelledby="reel-heading">
+    <section class="reel reel--screen" aria-labelledby="reel-heading">
       <div class="wrap">
         <div class="section-head section-head--light">
           <div>
@@ -524,38 +565,35 @@
           </div>
           <a class="link link--light" href="see-us-in-action.html">See us in action</a>
         </div>
-        <ul class="reel__grid">
-          <li class="clip clip--feature">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="reel-1" data-src="videos/web/landscape1-1280.mp4?v=3" poster="videos/web/landscape1-poster.webp?v=2" width="1280" height="720" preload="none" playsinline muted loop aria-label="A deck wrapped round the pool, 0:18 video"></video>
-                <button class="clip__play" type="button" aria-controls="reel-1"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: A deck wrapped round the pool</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:18</p><h3 class="clip__title">A deck wrapped round the pool.</h3></figcaption>
+        <div class="screen" data-screen>
+          <div class="screen__room">
+            <div class="screen__glows" aria-hidden="true">
+              <img class="is-active" src="videos/web/landscape1-poster.webp?v=2" alt="" width="1024" height="576" decoding="async">
+              <img src="videos/web/portrait1-poster.webp?v=2" alt="" width="540" height="960" decoding="async">
+              <img src="videos/web/posts-to-boards-poster.webp?v=2" alt="" width="720" height="1280" decoding="async">
+            </div>
+            <div class="screen__stage">
+              <div class="screen__film is-active" data-shape="wide">
+                <img class="screen__fill" src="videos/web/landscape1-poster.webp?v=2" alt="" width="1024" height="576" decoding="async">
+                <video class="screen__video" id="reel-1" data-src="videos/web/landscape1-1280.mp4?v=3" poster="videos/web/landscape1-poster.webp?v=2" width="1280" height="720" preload="none" playsinline muted aria-label="A deck wrapped round the pool, 0:18 video"></video>
               </div>
-            </figure>
-          </li>
-          <li class="clip">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="reel-2" data-src="videos/web/portrait1-720.mp4?v=3" poster="videos/web/portrait1-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="From straight above, 0:15 video"></video>
-                <button class="clip__play" type="button" aria-controls="reel-2"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: From straight above</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:15</p><h3 class="clip__title">From straight above.</h3></figcaption>
+              <div class="screen__film" data-shape="tall">
+                <img class="screen__fill" src="videos/web/portrait1-poster.webp?v=2" alt="" width="540" height="960" decoding="async">
+                <video class="screen__video" id="reel-2" data-src="videos/web/portrait1-720.mp4?v=3" poster="videos/web/portrait1-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted aria-label="From straight above, 0:15 video"></video>
               </div>
-            </figure>
-          </li>
-          <li class="clip">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="reel-3" data-src="videos/web/posts-to-boards-720.mp4?v=3" poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="The build, as it happens, 0:29 video"></video>
-                <button class="clip__play" type="button" aria-controls="reel-3"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: The build, as it happens</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Build · 0:29</p><h3 class="clip__title">The build, as it happens.</h3></figcaption>
+              <div class="screen__film" data-shape="tall">
+                <img class="screen__fill" src="videos/web/posts-to-boards-poster.webp?v=2" alt="" width="720" height="1280" decoding="async">
+                <video class="screen__video" id="reel-3" data-src="videos/web/posts-to-boards-720.mp4?v=3" poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted aria-label="The build, as it happens, 0:29 video"></video>
               </div>
-            </figure>
-          </li>
-        </ul>
+              <button class="screen__sound" type="button" aria-controls="reel-1"><span class="screen__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: <span class="screen__now">A deck wrapped round the pool.</span></span></button>
+            </div>
+          </div>
+          <ol class="screen__index">
+            <li><button class="screen__pick is-active" type="button" aria-controls="reel-1" aria-pressed="true"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Drone · 0:18</span><span class="screen__title">A deck wrapped round the pool.</span></button></li>
+            <li><button class="screen__pick" type="button" aria-controls="reel-2" aria-pressed="false"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Drone · 0:15</span><span class="screen__title">From straight above.</span></button></li>
+            <li><button class="screen__pick" type="button" aria-controls="reel-3" aria-pressed="false"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Build · 0:29</span><span class="screen__title">The build, as it happens.</span></button></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -678,8 +716,9 @@
         <a href="terms.html">Terms</a>
       </p>
     </div>
+    <p class="footer__mark" aria-hidden="true">Beams <em>&amp;</em> Braces</p>
   </footer>
 
-  <script src="site.js?v=77" defer></script>
+  <script src="site.js?v=95" defer></script>
 </body>
 </html>
