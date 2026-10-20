@@ -110,14 +110,14 @@ Confirmed by Cassian. Only name a range or colour on a photo listed here.
 - **Never fabricate a testimonial, review, or statistic**, and never attach an invented quote to a real named reviewer, even loosely worded. This site previously had real, serious fabrication problems (invented names, invented UK towns, non-existent product colours in testimonials, and fabricated review schema) that were all removed — don't reintroduce anything in that direction.
 - Fencing and garden rooms are real services but deprioritized (low enquiry volume through this site) — don't remove them, but don't over-invest in them either without being asked.
 
-## Lead capture (current real setup — verify before calling this "unsolved")
+## Lead capture (current real setup)
 
-`contact.html` currently has **two live paths**, not zero:
+`contact.html` has two live paths:
 
 1. **WhatsApp**: a direct link to `https://wa.me/447983531860`, styled as the primary CTA ("Message Me on WhatsApp").
-2. **A multi-step form** (`.quote-form-embed`) that collects service type, name, phone, email, and postcode, then POSTs as JSON to a LeadConnector/GoHighLevel webhook (`https://services.leadconnectorhq.com/hooks/Axt4G21iCMs3IB0wkLjD/webhook-trigger/...`) before redirecting to `/thank-you`.
+2. **A GoHighLevel-hosted form** (since 19 Oct 2026), embedded as an iframe: `https://api.leadconnectorhq.com/widget/form/ivjDr4goHqgVvI8ivPz0`, resized by `https://link.msgsndr.com/js/form_embed.js`. Fields: first name, last name, phone, email, range considered. Its look, button text and on-submit redirect are set inside GHL, not in this repo. It replaced the old custom two-step form that POSTed to a GHL webhook.
 
-Both exist in the live code today. What's still unconfirmed: whether that webhook is actively monitored/connected to a working CRM pipeline on Darren's end, and which of the two paths he actually wants to lead with. Don't assume this is a from-scratch backend decision — it's a "verify and possibly simplify" task, not a "build" task.
+Still to do in GHL (outside this repo): the new-enquiry automation, Darren's notification, and the on-submit redirect to `/thank-you`. The submit button should read "Let's Chat" (never quote framing). Testing a real submission is done by hand, never by automated tests.
 
 ## Current site map
 

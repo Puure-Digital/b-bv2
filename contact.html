@@ -51,7 +51,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
 
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=156" />
+  <link rel="stylesheet" href="site.css?v=159" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--solid">
@@ -119,46 +119,27 @@
           </dl>
         </div>
 
-        <form class="enquiry" id="enquiry" novalidate aria-labelledby="enquiry-title">
-          <h2 class="enquiry__title" id="enquiry-title">Or leave your details</h2>
-          <div class="enquiry__progress" aria-hidden="true">
-            <span class="is-active" data-progress="1">Your deck</span>
-            <span data-progress="2">Your details</span>
-          </div>
-
-          <fieldset class="enquiry__step is-active" data-step="1">
-            <legend class="enquiry__question">Which range are you considering?</legend>
-            <p class="enquiry__hint">Step 1 of 2. Pick one or more.</p>
-            <div class="options" id="serviceGrid">
-              <button class="option" type="button" aria-pressed="false" data-service="Trex Enhance">Enhance <span class="option__note">Naturals or Basics</span></button>
-              <button class="option" type="button" aria-pressed="false" data-service="Trex Transcend">Transcend</button>
-              <button class="option" type="button" aria-pressed="false" data-service="Trex Signature">Signature</button>
-              <button class="option" type="button" aria-pressed="false" data-service="Not Sure Yet">Not sure yet</button>
-            </div>
-            <p class="enquiry__error" id="serviceError" role="alert" hidden>Pick at least one range, or "Not sure yet" if you'd like advice.</p>
-            <div class="enquiry__buttons">
-              <button class="button button--ink" type="button" data-go="2">Next</button>
-            </div>
-          </fieldset>
-
-          <fieldset class="enquiry__step" data-step="2">
-            <legend class="enquiry__question">Your details</legend>
-            <p class="enquiry__hint">Step 2 of 2. I'll use these to call you back.</p>
-            <div class="field-row">
-              <div class="field"><label for="firstName">First name</label><input type="text" id="firstName" autocomplete="given-name" placeholder="e.g. Sarah" required aria-describedby="firstName-error"><p class="field__error" id="firstName-error">Add your first name.</p></div>
-              <div class="field"><label for="lastName">Last name (optional)</label><input type="text" id="lastName" autocomplete="family-name" placeholder="e.g. Thompson"></div>
-            </div>
-            <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" autocomplete="tel" placeholder="e.g. 07700 900123" required aria-describedby="phone-error"><p class="field__error" id="phone-error">Add a phone number so I can call you back.</p></div>
-            <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="email" placeholder="e.g. sarah@example.co.uk" required aria-describedby="email-error"><p class="field__error" id="email-error">Add an email address.</p></div>
-            <div class="field"><label for="postcode">Postcode</label><input type="text" id="postcode" autocomplete="postal-code" placeholder="e.g. NR1 3JD" required aria-describedby="postcode-error"><p class="field__error" id="postcode-error">Add your postcode so I know where the garden is.</p></div>
-            <div class="enquiry__buttons">
-              <button class="link link--back" type="button" data-go="1">Back</button>
-              <button class="button button--ink" type="submit" id="enquirySubmit">Send my details</button>
-            </div>
-          </fieldset>
-
+        <div class="enquiry enquiry--ghl">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/ivjDr4goHqgVvI8ivPz0"
+            class="enquiry__frame"
+            id="inline-ivjDr4goHqgVvI8ivPz0"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="B&amp;B Form"
+            data-height="823"
+            data-layout-iframe-id="inline-ivjDr4goHqgVvI8ivPz0"
+            data-form-id="ivjDr4goHqgVvI8ivPz0"
+            data-cookie-consent="true"
+            data-cookie-consent-provider="auto"
+            title="Enquiry form: leave your details and Darren will call you back"></iframe>
           <p class="enquiry__note">I only use your details to get back to you about your garden. <a href="privacy-policy.html">Privacy policy</a></p>
-        </form>
+        </div>
       </div>
     </section>
   </main>
@@ -205,89 +186,6 @@
   </footer>
 
   <script src="site.js?v=77" defer></script>
-  <script>
-    (function () {
-      var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/Axt4G21iCMs3IB0wkLjD/webhook-trigger/e5ec36de-6e97-4615-b57e-adda35ee63e1';
-      var form = document.getElementById('enquiry');
-      var grid = document.getElementById('serviceGrid');
-      var serviceError = document.getElementById('serviceError');
-
-      function selected() {
-        return Array.prototype.map.call(grid.querySelectorAll('[aria-pressed="true"]'), function (o) { return o.dataset.service; });
-      }
-      grid.addEventListener('click', function (e) {
-        var o = e.target.closest('.option');
-        if (!o) return;
-        o.setAttribute('aria-pressed', String(o.getAttribute('aria-pressed') !== 'true'));
-        grid.classList.remove('is-invalid'); serviceError.hidden = true;
-      });
-
-      function goToStep(step) {
-        if (step === 2 && !selected().length) {
-          grid.classList.add('is-invalid'); serviceError.hidden = false;
-          return;
-        }
-        form.querySelectorAll('.enquiry__step').forEach(function (s) { s.classList.toggle('is-active', s.dataset.step === String(step)); });
-        form.querySelectorAll('[data-progress]').forEach(function (p) { p.classList.toggle('is-active', Number(p.dataset.progress) <= step); });
-        var first = form.querySelector('.enquiry__step.is-active input, .enquiry__step.is-active .option');
-        if (first) first.focus();
-      }
-      form.querySelectorAll('[data-go]').forEach(function (b) {
-        b.addEventListener('click', function () { goToStep(Number(b.dataset.go)); });
-      });
-
-      form.querySelectorAll('input').forEach(function (input) {
-        input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
-      });
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        var firstInvalid = null;
-        var messages = {
-          firstName: 'Add your first name.',
-          phone: 'Add a phone number so I can call you back.',
-          email: 'Add an email address.',
-          postcode: 'Add your postcode so I know where the garden is.'
-        };
-        ['firstName', 'phone', 'email', 'postcode'].forEach(function (id) {
-          var el = document.getElementById(id);
-          var err = document.getElementById(id + '-error');
-          var value = el.value.trim();
-          var problem = !value ? messages[id]
-            : id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? 'Check the email address. It should look like name@example.co.uk.'
-            : '';
-          err.textContent = problem || messages[id];
-          if (problem) { el.setAttribute('aria-invalid', 'true'); firstInvalid = firstInvalid || el; }
-          else { el.removeAttribute('aria-invalid'); }
-        });
-        if (firstInvalid) { firstInvalid.focus(); return; }
-
-        var btn = document.getElementById('enquirySubmit');
-        btn.textContent = 'Sending…';
-        btn.disabled = true;
-
-        var formData = {
-          service: selected().join(', '),
-          firstName: document.getElementById('firstName').value.trim(),
-          lastName: document.getElementById('lastName').value.trim(),
-          phone: document.getElementById('phone').value.trim(),
-          email: document.getElementById('email').value.trim(),
-          postcode: document.getElementById('postcode').value.trim()
-        };
-
-        try {
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-          });
-        } catch (err) {
-          console.error('Webhook error:', err);
-        }
-
-        window.location.href = '/thank-you';
-      });
-    })();
-  </script>
+  <script src="https://link.msgsndr.com/js/form_embed.js" defer></script>
 </body>
 </html>

@@ -2020,3 +2020,9 @@ em { font-style: italic; }
 /* a quiet note under the range name (Island Mist: currently exclusive) */
 .colours__note { display: block; margin-top: var(--sp-1); font-style: italic; color: var(--color-accent-dark); }
 @media (max-width: 720px) { .colours__preview .colours__note { margin-top: 0; font-size: var(--text-xs); line-height: 1.4; } }
+
+/* GHL enquiry form: the iframe fills the cream panel; GHL's script sets its height
+   to fit the form, the min-height just holds the space while it loads */
+.enquiry--ghl { display: flex; flex-direction: column; padding: var(--sp-6) var(--sp-4); }
+.enquiry--ghl .enquiry__note { padding-inline: var(--sp-5); }
+.enquiry__frame { display: block; width: 100%; height: 823px; border: 0; border-radius: var(--radius-sm); background: transparent; }
