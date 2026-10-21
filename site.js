@@ -19,11 +19,15 @@
     if (y < window.innerHeight * 0.6 || busy || y < lastY - 6) nav.classList.remove('is-hidden');
     else if (y > lastY + 6) nav.classList.add('is-hidden');
     if (Math.abs(y - lastY) > 6) lastY = y;
+    navAway();
   }
+  /* sticky bands (the colour preview and the year counters on phones) sit under the nav and
+     move up into its place while it is away, so nothing shows through the gap it leaves */
+  function navAway() { document.documentElement.classList.toggle('nav-away', nav.classList.contains('is-hidden')); }
   if (nav) {
     updateNav();
     window.addEventListener('scroll', updateNav, { passive: true });
-    nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); });
+    nav.addEventListener('focusin', function () { nav.classList.remove('is-hidden'); navAway(); });
   }
 
   /* ---------- Mobile menu ---------- */
@@ -476,26 +480,67 @@
     });
   })();
 
-  /* ---------- Railing & Lighting hero: night falls once the night frames are ready ----------
+  /* ---------- Railing & Lighting hero: night falls as you scroll ----------
      The two generated night frames are only requested once the real day photo has arrived,
-     so they never slow the first picture down, and both are decoded before anything changes,
-     so the garden never goes dark onto a half-loaded picture. If either fails, the real day
-     photo simply stays. */
+     so they never slow the first picture down, and both are decoded before they are used.
+     The stage then stays on screen for about a screen of scrolling while the garden falls
+     dark and the deck lighting comes up, scroll by scroll; scrolling back brings the day back.
+     A stage taller than the screen (phones) scrolls to its foot first, then holds. Reduced
+     motion: no holding, the night simply fades up once it is ready. If either frame fails,
+     the real day photo stays. */
   (function () {
     var hero = document.querySelector('.page-hero--dusk');
     if (!hero) return;
+    var stage = hero.querySelector('.dusk__stage');
+    var media = hero.querySelector('.hero__media');
     var day = hero.querySelector('.dusk__day');
-    var frames = [].slice.call(hero.querySelectorAll('.dusk__dark, .dusk__lit'));
-    if (!day || !frames.length) return;
+    var dark = hero.querySelector('.dusk__dark'), lit = hero.querySelector('.dusk__lit'), ai = hero.querySelector('.dusk__ai');
+    var frames = [dark, lit].filter(Boolean);
+    if (!stage || !media || !day || frames.length < 2) return;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ready = false, run = 0, lead = 0, raf = 0, width = 0;
+    function ramp(p, a, b) { return Math.min(1, Math.max(0, (p - a) / (b - a))); }
+    function paint() {
+      raf = 0;
+      if (!run) return;
+      var p = Math.min(1, Math.max(0, (-hero.getBoundingClientRect().top - lead) / run));
+      var d = ready ? ramp(p, 0.08, 0.55) : 0, l = ready ? ramp(p, 0.5, 0.92) : 0;
+      dark.style.opacity = d.toFixed(3);
+      lit.style.opacity = l.toFixed(3);
+      if (ai) ai.style.opacity = Math.min(1, d * 4).toFixed(3);
+      media.style.transform = 'scale(' + (1.06 - 0.06 * p).toFixed(4) + ')';
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(paint); }
+    /* the hold lasts about a screen; only a change of width re-measures, because a phone's
+       toolbar folding away changes the height mid-scroll */
+    function measure() {
+      var vh = window.innerHeight, sh = stage.offsetHeight;
+      width = window.innerWidth;
+      lead = Math.max(0, sh - vh);
+      run = Math.round(vh * 1.2);
+      stage.style.setProperty('--stage-top', Math.min(0, vh - sh) + 'px');
+      hero.style.height = (sh + run) + 'px';
+      kick();
+    }
+    if (!still) {
+      hero.classList.add('is-scroll');
+      measure();
+      window.addEventListener('scroll', kick, { passive: true });
+      var resizeTimer = 0;
+      window.addEventListener('resize', function () {
+        if (window.innerWidth === width) return;
+        clearTimeout(resizeTimer); resizeTimer = setTimeout(measure, 150);
+      });
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    }
     function fetchNight() {
       frames.forEach(function (img) {
         if (img.dataset.srcset) img.srcset = img.dataset.srcset;
         if (img.dataset.src) img.src = img.dataset.src;
       });
-      if (!frames[0].decode) { hero.classList.add('is-ready'); return; }
-      Promise.all(frames.map(function (img) { return img.decode(); }))
-        .then(function () { hero.classList.add('is-ready'); })
-        .catch(function () {});
+      function go() { ready = true; hero.classList.add('is-ready'); kick(); }
+      if (!frames[0].decode) { go(); return; }
+      Promise.all(frames.map(function (img) { return img.decode(); })).then(go).catch(function () {});
     }
     if (day.complete && day.naturalWidth) fetchNight();
     else {

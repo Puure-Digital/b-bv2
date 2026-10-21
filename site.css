@@ -197,6 +197,10 @@ em { font-style: italic; }
   transition: background-color 400ms var(--ease-std), box-shadow 400ms var(--ease-std), transform 700ms var(--ease-out-expo);
 }
 .nav.is-hidden { transform: translateY(-100%); }
+/* sticky bands sit just under the nav; while it is away (site.js sets .nav-away) they move up
+   into its place, so nothing on the page shows through the gap it leaves */
+:root { --sticky-top: var(--nav-height); }
+html.nav-away { --sticky-top: 0px; }
 .nav.is-solid { background: var(--color-ink); box-shadow: 0 1px 0 var(--color-border-dark); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-8); height: var(--nav-height); }
 .nav__brand img { width: 150px; }
@@ -1414,7 +1418,7 @@ html.vt-lens::view-transition-old(root), html.vt-lens::view-transition-new(root)
   /* on narrow screens the counter rides along the top as a slim bar */
   .js .chronicle { grid-template-columns: minmax(0, 1fr); }
   .js .chronicle__aside {
-    top: var(--nav-height); z-index: 2; padding: var(--sp-4) 0;
+    top: var(--sticky-top); transition: top 700ms var(--ease-out-expo); z-index: 2; padding: var(--sp-4) 0;
     display: flex; align-items: baseline; gap: var(--sp-5);
     background: var(--color-surface); border-bottom: 1px solid var(--color-accent-dark);
   }
@@ -1447,8 +1451,7 @@ html.vt-lens::view-transition-old(root), html.vt-lens::view-transition-new(root)
    photo and registered to it pixel for pixel, so nothing shifts as they cross, and the caption
    says the night view is AI-generated. The three frames settle as one.
    The night frames are fetched by site.js once the day photo is in, so with no script the
-   real photo stays by day and the caption says nothing of a night view. Reduced motion: the
-   light changes, nothing moves. */
+   real photo stays by day and the caption says nothing of a night view. */
 .page-hero--dusk .hero__media img { position: absolute; inset: 0; object-position: 85% 60%; }
 /* the day photo is only lightly washed so it still reads as daylight; the night frames need none */
 .page-hero--dusk .hero__media::before { content: ''; position: absolute; inset: 0; z-index: 1; background: rgb(20 18 16 / 0.18); }
@@ -1492,14 +1495,28 @@ html.vt-lens::view-transition-old(root), html.vt-lens::view-transition-new(root)
 /* --p is registered as a number so it can be animated; the blueprint and the progress lines read it */
 @property --p { syntax: '<number>'; inherits: true; initial-value: 1; }
 html:not(.js) .dusk__ai { display: none; }
-/* held at day until both night frames are decoded (site.js adds .is-ready) */
-.js .page-hero--dusk .dusk__dark, .js .page-hero--dusk .dusk__lit, .js .page-hero--dusk .dusk__ai { opacity: 0; }
-.js .page-hero--dusk.is-ready .dusk__dark { animation: fade 3600ms var(--ease-in-out) 1200ms both; }
-.js .page-hero--dusk.is-ready .dusk__ai { animation: fade 900ms var(--ease-std) 1200ms both; }
-.js .page-hero--dusk.is-ready .dusk__lit { animation: fade 2200ms var(--ease-std) 4600ms both; }
+/* the stage holds the photo and the words. site.js pins it for about a screen of scrolling and
+   the scroll drives the night: the garden falls dark, then the lights come up, and scrolling
+   back brings the day back. A stage taller than the screen scrolls to its foot first. */
+.page-hero--dusk { display: block; overflow: clip; }
+.dusk__stage {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  min-height: clamp(520px, 78svh, 860px);
+}
+/* with script and motion the scroll layout is there from the first paint (a screen of photo plus
+   the hold), so nothing below jumps when site.js sets the exact height */
 @media (prefers-reduced-motion: no-preference) {
-  .js .page-hero--dusk .hero__media { animation: hero-settle 7000ms var(--ease-std) both; }
-  .js .page-hero--dusk .hero__media img { animation: none; }
+  .js .page-hero--dusk { min-height: 220svh; }
+  .js .page-hero--dusk .dusk__stage { position: sticky; top: var(--stage-top, 0px); min-height: 100svh; }
+  .js .page-hero.page-hero--dusk .hero__media, .js .page-hero.page-hero--dusk .hero__content { animation: none; }
+}
+.js .page-hero--dusk .hero__media img { animation: none; }
+/* held at day until both night frames are decoded; site.js then sets each layer's opacity */
+.js .page-hero--dusk .dusk__dark, .js .page-hero--dusk .dusk__lit, .js .page-hero--dusk .dusk__ai { opacity: 0; }
+/* reduced motion: nothing pins; once the night frames are in, the night fades up */
+@media (prefers-reduced-motion: reduce) {
+  .js .page-hero--dusk.is-ready .dusk__dark, .js .page-hero--dusk.is-ready .dusk__lit, .js .page-hero--dusk.is-ready .dusk__ai { opacity: 1; transition: opacity 1200ms var(--ease-std); }
 }
 
 /* ---------- Photo grid ----------
@@ -1816,7 +1833,7 @@ html:not(.js) .dusk__ai { display: none; }
   .reviews__side .reviews__controls { margin-top: 0; }
   .ranges__list { grid-template-columns: minmax(0, 1fr); gap: var(--sp-8); }
   .colours__preview {
-    position: sticky; top: var(--nav-height); z-index: 3;
+    position: sticky; top: var(--sticky-top); z-index: 3; transition: top 700ms var(--ease-out-expo);
     --plate: 96px;
     display: grid; grid-template-columns: var(--plate) minmax(0, 1fr); column-gap: var(--sp-5); align-items: center;
     padding-block: var(--sp-3); margin-inline: calc(-1 * var(--container-pad)); padding-inline: var(--container-pad);
@@ -1920,9 +1937,15 @@ html:not(.js) .dusk__ai { display: none; }
 .chronicle--home .chronicle__aside { display: none; }
 @media (max-width: 960px) {
   .js .chronicle--home .chronicle__aside {
-    display: flex; position: sticky; top: var(--nav-height); z-index: 2;
+    display: flex; position: sticky; top: var(--sticky-top); z-index: 2; transition: top 700ms var(--ease-out-expo);
     margin-top: var(--sp-8); background: var(--color-surface-2);
   }
+}
+/* the bands follow the nav without gliding when motion is reduced */
+@media (max-width: 960px) and (prefers-reduced-motion: reduce) {
+  .colours__preview, .js .chronicle__aside, .js .chronicle--home .chronicle__aside { transition: none; }
+}
+@media (max-width: 960px) {
   .js .chronicle--home .years__chapters { margin-top: 0; border-top: 0; }
   .js .chronicle--home .years__chapter { padding-block: var(--sp-6); }
   .js .chronicle--home .years__chapter-year { color: var(--color-muted); transition: color 400ms var(--ease-std); }
@@ -2163,7 +2186,12 @@ html:not(.js) .dusk__ai { display: none; }
 .hero__poster { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; }
 .hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 600ms var(--ease-std); }
 .hero__beat { display: none; }
-.hero__note { display: none; }
+/* with script and motion the beats take their place from the first paint, unseen and out of
+   reach, so the opening words don't drop when the film starts and the closing beat appears */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero--scrub .hero__beat { display: block; visibility: hidden; }
+  .js .hero--scrub.is-scrubbing .hero__beat { visibility: visible; }
+}
 .hero__progress { display: none; }
 
 .hero--scrub.is-scrubbing { height: 350svh; }
@@ -2180,7 +2208,6 @@ html:not(.js) .dusk__ai { display: none; }
 }
 .hero--scrub.is-scrubbing .hero__media img { animation: none; }
 .hero--scrub.is-scrubbing .hero__beat { display: block; }
-.hero--scrub.is-scrubbing .hero__note { display: block; }
 .hero--scrub.is-scrubbing .hero__progress { display: block; }
 
 /* the two middle lines sit centred over the film, large and quiet */
@@ -2200,12 +2227,6 @@ html:not(.js) .dusk__ai { display: none; }
 .hero__beat--end .hero__actions { margin-top: var(--sp-8); }
 .hero--scrub .hero__content, .hero__beat--end { grid-column: 1; grid-row: 1; }
 .hero--scrub [data-beat-in], .hero--scrub [data-beat-out] { will-change: opacity, transform; }
-/* while the generated close-up plays, a small label says so; it leaves before the real deck */
-.hero__note {
-  position: absolute; top: calc(var(--nav-height) + var(--sp-4)); left: 0; right: 0; z-index: 1;
-  font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgb(240 237 232 / 0.72);
-}
 /* a brass rule laid along the foot while the frames arrive, gone once they have */
 .hero__progress {
   position: absolute; left: 0; right: 0; bottom: 0; height: 2px; z-index: 2;
@@ -2213,10 +2234,6 @@ html:not(.js) .dusk__ai { display: none; }
   transition: transform 300ms var(--ease-std), opacity 900ms var(--ease-std) 400ms;
 }
 .hero--scrub.is-loaded .hero__progress { opacity: 0; }
-/* no script, motion allowed: the still hero is the generated first frame, so it is labelled */
-@media (prefers-reduced-motion: no-preference) {
-  html:not(.js) .hero--scrub .hero__note { display: block; }
-}
 
 /* ---------- Belief as the film's closing title card (homepage) ----------
    The film ends and the screen stays dark; Darren's words light up one by one as they
@@ -2700,6 +2717,14 @@ html:not(.js) .dusk__ai { display: none; }
 
 /* A. page hero titles rise line by line on arrival (the words keep their own layout) */
 .m-lines--hero .m-word { transition-duration: 1300ms; transition-delay: calc(250ms + var(--line, 0) * 140ms); }
+/* a page-hero title rises once: site.js splits it into words, and until it has, the title waits
+   unseen (otherwise it shows, drops away as it is split, and rises a second time). If the
+   script never arrives, the title simply appears after three seconds. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .page-hero .hero__title { animation: none; }
+  .js .page-hero .hero__title:not(.m-lines) { opacity: 0; animation: title-wait 1ms linear 3s forwards; }
+}
+@keyframes title-wait { to { opacity: 1; } }
 
 /* B. facts rows: larger figures under brass hairlines that are laid in */
 .facts-row div { position: relative; padding-top: var(--sp-6); border-top: 0; }
@@ -3047,7 +3072,8 @@ html:not(.js) .dusk__ai { display: none; }
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
     linear-gradient(to top, var(--color-ink) 0%, rgb(20 18 16 / 0.78) 24%, rgb(20 18 16 / 0.12) 56%, rgb(20 18 16 / 0.45) 100%),
-    linear-gradient(to right, rgb(20 18 16 / 0.6) 0%, rgb(20 18 16 / 0) 58%);
+    linear-gradient(to right, rgb(20 18 16 / 0.6) 0%, rgb(20 18 16 / 0) 58%),
+    rgb(20 18 16 / 0.25);
 }
 .rl-night__credit {
   position: absolute; top: var(--sp-6); right: var(--container-pad); z-index: 1;
@@ -3055,7 +3081,9 @@ html:not(.js) .dusk__ai { display: none; }
   color: rgb(240 237 232 / 0.7);
 }
 .rl-night__intro { padding-block: var(--sp-32) var(--sp-16); }
-.rl-night__intro .heading { font-size: clamp(2.6rem, 1.5rem + 3.6vw, 5.25rem); line-height: 1.02; letter-spacing: -0.025em; max-width: 14ch; }
+/* sized from the room the line has (Fraunces sets small sizes wider, about 10.4em for the longer line on a phone) */
+.rl-night__intro .heading { font-size: min(5.25rem, calc((100vw - 2 * var(--container-pad)) / 10.6)); line-height: 1.04; letter-spacing: -0.025em; max-width: none; }
+.rl-night__line { display: block; }
 .rl-night__intro .rl-lead { color: rgb(240 237 232 / 0.82); max-width: 50ch; }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -3112,6 +3140,14 @@ html:not(.js) .dusk__ai { display: none; }
     position: relative; top: auto; min-height: 0; height: min(125vw, 82svh);
     margin-inline: calc(-1 * var(--container-pad));
   }
+  /* the heading and the opening paragraph come first, then Darren's photo, then the points */
+  .rl-spread__grid { gap: 0; }
+  .rl-spread__body { display: contents; }
+  .rl-spread__body > .heading { order: 1; }
+  .rl-spread__body > .rl-lead { order: 2; }
+  .rl-spread__media { order: 3; margin-top: var(--sp-10); }
+  .rl-spread__body > .rl-points { order: 4; }
+  .rl-spread__body > .rl-options { order: 5; }
   .rl-night__stage { min-height: clamp(520px, 88svh, 900px); }
   .rl-night__intro { padding-block: var(--sp-24) var(--sp-12); }
 }
