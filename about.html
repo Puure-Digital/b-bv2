@@ -3,7 +3,8 @@
 <head>
 
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="images/shared/favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/shared/favicon-96.png">
+  <link rel="apple-touch-icon" href="images/shared/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#141210">
   <title>About Darren Gooch | Beams &amp; Braces</title>
@@ -41,7 +42,7 @@
 
   <link rel="preload" as="image" href="images/opt/curved-trex-deck-overview-1200.webp" imagesrcset="images/opt/curved-trex-deck-overview-640.webp 640w, images/opt/curved-trex-deck-overview-1200.webp 1200w" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=194" />
+  <link rel="stylesheet" href="site.css?v=207" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -138,7 +139,7 @@
           <li class="clip">
             <figure>
               <div class="clip__frame">
-                <video class="clip__video" id="about-clip" data-src="videos/web/posts-to-boards-720.mp4?v=3" poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="The build, as it happens, 0:29 video"></video>
+                <video class="clip__video" id="about-clip" data-src="videos/web/posts-to-boards-720.mp4?v=3" data-poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="The build, as it happens, 0:29 video"></video>
                 <button class="clip__play" type="button" aria-controls="about-clip"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: The build, as it happens</span></button>
                 <span class="clip__length" aria-hidden="true">0:29</span>
               </div>
@@ -149,11 +150,13 @@
       </div>
     </section>
 
-    <section class="belief belief--about wrap" aria-label="What Darren believes">
-      <blockquote class="belief__quote" data-words>
-        <p>“I don't think people buy Trex. I think people buy the outdoor space they've been picturing, and Trex happens to be the best material I've found to build it properly.”</p>
-      </blockquote>
-      <p class="belief__by">Darren Gooch, founder</p>
+    <section class="belief belief--manifesto" aria-label="What Darren believes">
+      <div class="belief__inner wrap">
+        <blockquote class="belief__quote" data-words>
+          <p><span class="belief__mark" aria-hidden="true">“</span>I don't think people buy Trex. I&nbsp;think people buy <em>the outdoor space they've been picturing</em>, and Trex happens to be the best material I've found to build it properly.<span class="belief__mark belief__mark--close" aria-hidden="true">”</span></p>
+        </blockquote>
+        <p class="belief__by">Darren Gooch, founder</p>
+      </div>
     </section>
 
     <section class="reviews reviews--split wrap" aria-labelledby="reviews-heading">
@@ -248,9 +251,8 @@
         <a href="terms.html">Terms</a>
       </p>
     </div>
-    <p class="footer__mark" aria-hidden="true">Beams <em>&amp;</em> Braces</p>
   </footer>
 
-  <script src="site.js?v=95" defer></script>
+  <script src="site.js?v=103" defer></script>
 </body>
 </html>

@@ -214,6 +214,8 @@
       else poster.addEventListener('error', fallback, { once: true });
     }
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* data saving: the real photo as an ordinary still hero, no film */
+    if ((navigator.connection || {}).saveData) { fallback(); return; }
     var canvas = hero.querySelector('.hero__canvas');
     var ctx = canvas && canvas.getContext && canvas.getContext('2d');
     if (!ctx) return;
@@ -318,14 +320,33 @@
       kick();
     }
 
-    /* coarse to fine: first and last frame, then every 8th, 4th, 2nd, then the rest */
-    var order = [0, count - 1], seen = {}, next = 0, busy = 0;
-    seen[0] = seen[count - 1] = true;
+    /* the opening (the close-up and the cross-fade, frames 0-3) first; then the pull-back
+       coarse to fine: its last frame, then every 8th, 4th, 2nd, then the rest */
+    var OPENING = Math.min(4, count);
+    var order = [], seen = {}, next = 0, busy = 0;
+    for (var k = 0; k < OPENING; k++) { seen[k] = true; order.push(k); }
+    if (!seen[count - 1]) { seen[count - 1] = true; order.push(count - 1); }
     [8, 4, 2, 1].forEach(function (step) {
       for (var k = 0; k < count; k += step) if (!seen[k]) { seen[k] = true; order.push(k); }
     });
+    /* the pull-back is most of the film's weight (about 2 MB on a phone), so it waits until
+       the visitor shows they are staying: a scroll, touch, key or wheel, or on a desktop
+       simply the page finishing loading. A quick look costs only the opening frames. */
+    var armed = false;
+    function arm() {
+      if (armed) return;
+      armed = true;
+      ['scroll', 'touchstart', 'pointerdown', 'keydown', 'wheel'].forEach(function (t) { window.removeEventListener(t, arm); });
+      pump();
+    }
+    ['scroll', 'touchstart', 'pointerdown', 'keydown', 'wheel'].forEach(function (t) { window.addEventListener(t, arm, { passive: true }); });
+    if (!narrow) {
+      if (document.readyState === 'complete') arm();
+      else window.addEventListener('load', arm, { once: true });
+    }
     function pump() {
-      while (started && busy < 4 && next < order.length) load(order[next++]);
+      var limit = armed ? order.length : OPENING;
+      while (started && busy < 4 && next < limit) load(order[next++]);
     }
     function load(i) {
       busy++;
@@ -431,7 +452,15 @@
      Only strips still below the screen are held back; reduced motion: shown as they are. */
   (function () {
     var strips = Array.prototype.slice.call(document.querySelectorAll('.range__boards'));
-    if (!strips.length || !('IntersectionObserver' in window)) return;
+    if (!strips.length) return;
+    /* a strip waiting to be laid is clipped, and native lazy loading reads a clipped photo
+       as off screen, so the boards are fetched here as their strip approaches */
+    function fetchBoards(el) { el.querySelectorAll('img').forEach(function (img) { img.loading = 'eager'; }); }
+    if (!('IntersectionObserver' in window)) { strips.forEach(fetchBoards); return; }
+    var early = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { fetchBoards(e.target); early.unobserve(e.target); } });
+    }, { rootMargin: '800px 0px' });
+    strips.forEach(function (el) { early.observe(el); });
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -447,12 +476,40 @@
     });
   })();
 
+  /* ---------- Railing & Lighting hero: night falls once the night frames are ready ----------
+     The two generated night frames are only requested once the real day photo has arrived,
+     so they never slow the first picture down, and both are decoded before anything changes,
+     so the garden never goes dark onto a half-loaded picture. If either fails, the real day
+     photo simply stays. */
+  (function () {
+    var hero = document.querySelector('.page-hero--dusk');
+    if (!hero) return;
+    var day = hero.querySelector('.dusk__day');
+    var frames = [].slice.call(hero.querySelectorAll('.dusk__dark, .dusk__lit'));
+    if (!day || !frames.length) return;
+    function fetchNight() {
+      frames.forEach(function (img) {
+        if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+        if (img.dataset.src) img.src = img.dataset.src;
+      });
+      if (!frames[0].decode) { hero.classList.add('is-ready'); return; }
+      Promise.all(frames.map(function (img) { return img.decode(); }))
+        .then(function () { hero.classList.add('is-ready'); })
+        .catch(function () {});
+    }
+    if (day.complete && day.naturalWidth) fetchNight();
+    else {
+      day.addEventListener('load', fetchNight, { once: true });
+      day.addEventListener('error', fetchNight, { once: true });
+    }
+  })();
+
   /* ---------- Page heroes: the title rises line by line as the page opens ----------
      Each word of an inner page's title sits in a clipped slot and rises into it; words on
      one line move together and each line follows the one above. Reduced motion: as is. */
   (function () {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    document.querySelectorAll('.page-hero:not(.page-hero--dusk) .hero__title').forEach(function (el) {
+    document.querySelectorAll('.page-hero .hero__title').forEach(function (el) {
       var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [];
       while (walker.nextNode()) nodes.push(walker.currentNode);
       nodes.forEach(function (node) {
@@ -475,6 +532,77 @@
       el.classList.add('m-lines', 'm-lines--hero');
       requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('is-shown'); }); });
     });
+  })();
+
+  /* ---------- Gallery chapters (Our Work) ----------
+     Every photo group is a chapter. A small index floats at the foot of the screen while
+     the gallery is in view: the current chapter, a brass line showing progress through the
+     gallery, and a list to jump to any chapter. */
+  (function () {
+    var main = document.querySelector('.gallery-page');
+    if (!main) return;
+    var secs = Array.prototype.slice.call(main.querySelectorAll(':scope > section.section'));
+    var heads = secs.map(function (s) { return s.querySelector('.heading'); });
+    if (secs.length < 2 || heads.some(function (h) { return !h || !h.id; })) return;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var total = pad(secs.length);
+    var nav = document.createElement('nav');
+    nav.className = 'chapters'; nav.setAttribute('aria-label', 'Gallery chapters');
+    nav.innerHTML =
+      '<ol class="chapters__list" id="chapters-list" hidden>' +
+      heads.map(function (h, i) { return '<li><a href="#' + h.id + '"><span class="chapters__n">' + pad(i + 1) + '</span><span>' + h.textContent.replace(/</g, '&lt;') + '</span></a></li>'; }).join('') +
+      '</ol>' +
+      '<button class="chapters__toggle" type="button" aria-expanded="false" aria-controls="chapters-list">' +
+      '<span class="chapters__count"><span class="chapters__now">01</span><span aria-hidden="true"> / </span><span class="visually-hidden"> of </span>' + total + '</span>' +
+      '<span class="chapters__name">' + heads[0].textContent.replace(/</g, '&lt;') + '</span>' +
+      '<span class="chapters__icon" aria-hidden="true"></span>' +
+      '<span class="chapters__bar" aria-hidden="true"><span></span></span>' +
+      '</button>';
+    document.body.appendChild(nav);
+    var toggle = nav.querySelector('.chapters__toggle'), list = nav.querySelector('.chapters__list');
+    var nowEl = nav.querySelector('.chapters__now'), nameEl = nav.querySelector('.chapters__name');
+    var bar = nav.querySelector('.chapters__bar > span');
+    var links = Array.prototype.slice.call(list.querySelectorAll('a'));
+    var current = -1, ticking = false;
+
+    function open(on) {
+      list.hidden = !on;
+      toggle.setAttribute('aria-expanded', String(on));
+      nav.classList.toggle('is-open', on);
+    }
+    toggle.addEventListener('click', function () { open(list.hidden); });
+    links.forEach(function (a) {
+      a.addEventListener('click', function () { open(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !list.hidden) { open(false); toggle.focus(); }
+    });
+    document.addEventListener('click', function (e) { if (!list.hidden && !nav.contains(e.target)) open(false); });
+
+    function update() {
+      ticking = false;
+      var vh = window.innerHeight;
+      var first = secs[0].getBoundingClientRect(), last = secs[secs.length - 1].getBoundingClientRect();
+      /* shown from the first chapter reaching mid-screen until the last one has gone */
+      var visible = first.top < vh * 0.6 && last.bottom > vh * 0.4;
+      nav.classList.toggle('is-visible', visible);
+      if (!visible && !list.hidden) open(false);
+      var idx = 0;
+      secs.forEach(function (sec, i) { if (sec.getBoundingClientRect().top < vh * 0.45) idx = i; });
+      if (idx !== current) {
+        current = idx;
+        nowEl.textContent = pad(idx + 1);
+        nameEl.textContent = heads[idx].textContent;
+        links.forEach(function (a, i) { if (i === idx) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      }
+      var span = last.bottom - first.top - vh;
+      var p = span > 0 ? Math.max(0, Math.min(1, -first.top / span)) : 1;
+      bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   })();
 
   /* ---------- Motion: headings rise line by line, then the words around them ----------
@@ -806,6 +934,8 @@
       }
       if (still) v = years[i];
       setDigits(v);
+      var run = tops[tops.length - 1] - tops[0];
+      box.style.setProperty('--chron', run > 0 ? Math.max(0, Math.min(1, (line - tops[0]) / run)).toFixed(4) : '0');
       if (i !== active) {
         active = i;
         items.forEach(function (li, n) { li.classList.toggle('is-active', n === i); });
@@ -890,10 +1020,11 @@
 
   /* ---------- Contact sheet drift (homepage work) ----------
      Each column scrolls by a few pixels a second, alternate columns opposite ways,
-     wrapping at the height of one run so the loop is seamless. Constant speed, so it
-     is driven per frame rather than by an easing curve. Pauses under a mouse or
-     keyboard focus, while it is off screen or the tab is hidden; reduced
-     motion: no drift, the photos sit as a still grid. */
+     wrapping at the height of one run so the loop is seamless. Constant speed, run as
+     one endless animation per column on the compositor, so the page does no work per
+     frame (it matters on a phone). Pauses under a mouse or keyboard focus, while it is
+     off screen or the tab is hidden; reduced motion: no drift, the photos sit as a
+     still grid. */
   (function () {
     var sheet = document.querySelector('.sheet');
     if (!sheet) return;
@@ -906,26 +1037,44 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var cols = Array.prototype.slice.call(sheet.querySelectorAll('.sheet__col'));
     var speeds = [14, 11, 16, 12, 15];                   /* px per second */
+    if (!cols.length || !cols[0].animate) return;
     var state = cols.map(function (col, i) {
-      return { col: col, run: col.querySelector('.sheet__run'), y: 0, v: speeds[i % speeds.length] * (col.dataset.dir === 'down' ? -1 : 1) };
+      /* start the columns part-way so the sheet opens full */
+      return { col: col, run: col.querySelector('.sheet__run'), h: 0, anim: null, y0: (i * 97) % 300, v: speeds[i % speeds.length] * (col.dataset.dir === 'down' ? -1 : 1) };
     });
-    var visible = false, held = false, last = 0, raf = 0;
-    function frame(t) {
-      var dt = last ? Math.min(64, t - last) / 1000 : 0; last = t;
+    var visible = false, held = false;
+    /* one loop per column, rebuilt only when a run's height changes (a narrower screen
+       hides columns and resizes the photos); the loop keeps its place across a rebuild */
+    function build() {
       state.forEach(function (s) {
-        var h = s.run.offsetHeight; if (!h) return;
-        s.y = (s.y + s.v * dt) % h; if (s.y < 0) s.y += h;
-        s.col.style.transform = 'translate3d(0,' + (-s.y).toFixed(2) + 'px,0)';
+        var h = s.run.offsetHeight;
+        if (h === s.h) return;
+        var y = s.y0;
+        if (s.anim) {
+          var d = s.anim.effect.getTiming().duration, f = (s.anim.currentTime % d) / d;
+          y = (s.v > 0 ? f : 1 - f) * s.h;
+          s.anim.cancel(); s.anim = null;
+        }
+        s.h = h;
+        if (!h) return;
+        var top = 'translate3d(0,0,0)', end = 'translate3d(0,' + (-h) + 'px,0)';
+        var dur = h / Math.abs(s.v) * 1000;
+        s.anim = s.col.animate(s.v > 0 ? [{ transform: top }, { transform: end }] : [{ transform: end }, { transform: top }], { duration: dur, iterations: Infinity });
+        s.anim.currentTime = (s.v > 0 ? (y % h) / h : 1 - (y % h) / h) * dur;
       });
-      raf = requestAnimationFrame(frame);
+      run();
     }
     function run() {
       var go = visible && !held && !document.hidden;
-      if (go && !raf) { last = 0; raf = requestAnimationFrame(frame); }
-      if (!go && raf) { cancelAnimationFrame(raf); raf = 0; }
+      state.forEach(function (s) {
+        if (!s.anim) return;
+        if (go && s.anim.playState !== 'running') s.anim.play();
+        if (!go && s.anim.playState === 'running') s.anim.pause();
+      });
     }
-    /* start the downward columns part-way so the sheet opens full */
-    state.forEach(function (s, i) { s.y = (i * 97) % 300; s.col.style.transform = 'translate3d(0,' + (-s.y) + 'px,0)'; });
+    build();
+    var resizeTimer = 0;
+    window.addEventListener('resize', function () { clearTimeout(resizeTimer); resizeTimer = setTimeout(build, 150); });
     new IntersectionObserver(function (e) { visible = e[0].isIntersecting; run(); }).observe(sheet);
     /* only a mouse pauses it on hover: a thumb on a phone scrolls past, and iOS can
        leave a touch "hovering" long after the finger has gone */
@@ -1001,7 +1150,8 @@
 
   /* ---------- Credentials ticker (homepage hero, phones) ----------
      On a phone the credentials run as one line drifting slowly sideways at a constant
-     speed (driven per frame, not by an easing curve), looping seamlessly: the line is
+     speed (one endless animation on the compositor, so the page does no work per frame),
+     looping seamlessly: the line is
      held twice, the copy hidden from assistive tech and the tab order. Holding a finger
      on it pauses it, a tap stops or restarts it, and it rests off screen, in a
      background tab and under keyboard focus. Wider screens, reduced motion or no
@@ -1014,19 +1164,28 @@
     var items = Array.prototype.slice.call(line.children);
     var STAR = '<svg class="ticker__star" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M6 .8l1.53 3.3 3.6.42-2.67 2.46.71 3.56L6 8.77 2.83 10.54l.71-3.56L.87 4.52l3.6-.42z" fill="currentColor"/></svg>';
     var SPEED = 28;                                     /* px per second */
-    var track = null, runA = null, x = 0, last = 0, raf = 0;
+    var track = null, runA = null, anim = null, width = 0;
     var visible = !('IntersectionObserver' in window), held = false, stopped = false;
 
-    function frame(t) {
-      var dt = last ? Math.min(64, t - last) / 1000 : 0; last = t;
+    /* one run's width per loop at SPEED; rebuilt (keeping its place) when the width
+       changes, as it does once the web fonts arrive */
+    function measure() {
+      if (!track || !track.animate) return;
       var w = runA.offsetWidth;
-      if (w) { x = (x + SPEED * dt) % w; track.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)'; }
-      raf = requestAnimationFrame(frame);
+      if (!w || w === width) return;
+      var f = 0;
+      if (anim) { var d = anim.effect.getTiming().duration; f = (anim.currentTime % d) / d; anim.cancel(); }
+      width = w;
+      var dur = w / SPEED * 1000;
+      anim = track.animate([{ transform: 'translate3d(0,0,0)' }, { transform: 'translate3d(' + (-w) + 'px,0,0)' }], { duration: dur, iterations: Infinity });
+      anim.currentTime = f * dur;
+      run();
     }
     function run() {
+      if (!anim) return;
       var go = !!track && visible && !held && !stopped && !document.hidden;
-      if (go && !raf) { last = 0; raf = requestAnimationFrame(frame); }
-      if (!go && raf) { cancelAnimationFrame(raf); raf = 0; }
+      if (go && anim.playState !== 'running') anim.play();
+      if (!go && anim.playState === 'running') anim.pause();
     }
     function build() {
       if (track) return;
@@ -1039,11 +1198,11 @@
       runB.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
       track.appendChild(runA); track.appendChild(runB);
       line.appendChild(track); line.classList.add('credentials--ticker');
-      x = 0; run();
+      width = 0; measure();
     }
     function unbuild() {
       if (!track) return;
-      if (raf) { cancelAnimationFrame(raf); raf = 0; }
+      if (anim) { anim.cancel(); anim = null; width = 0; }
       runA.querySelectorAll('.ticker__star').forEach(function (s) { s.remove(); });
       items.forEach(function (el) { line.appendChild(el); });
       track.remove(); track = runA = null;
@@ -1078,6 +1237,8 @@
     if (!visible) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; run(); }).observe(line);
     document.addEventListener('visibilitychange', run);
     [phone, still].forEach(function (mq) { if (mq.addEventListener) mq.addEventListener('change', sync); else mq.addListener(sync); });
+    window.addEventListener('resize', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
     sync();
   })();
 
@@ -1110,6 +1271,36 @@
       idx.textContent = i + 1;
       prev.disabled = i === 0; next.disabled = i === items.length - 1;
     }
+    /* the brass line follows the strip exactly, frame by frame */
+    var bar = wrap.querySelector('.carousel__bar > span'), barRaf = 0;
+    function paintBar() {
+      barRaf = 0;
+      var room = track.scrollWidth - track.clientWidth;
+      if (bar) bar.style.transform = 'scaleX(' + (room > 0 ? Math.min(1, track.scrollLeft / room) : 1).toFixed(4) + ')';
+    }
+    if (bar) track.addEventListener('scroll', function () { if (!barRaf) barRaf = requestAnimationFrame(paintBar); }, { passive: true });
+    /* with a mouse the strip can be dragged; a drag never opens a photo */
+    var drag = null, dragged = false;
+    track.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      drag = { x: e.clientX, left: track.scrollLeft }; dragged = false;
+    });
+    window.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (!dragged && Math.abs(dx) < 6) return;
+      if (!dragged) { dragged = true; track.classList.add('is-dragging'); }
+      track.scrollLeft = drag.left - dx;
+    });
+    window.addEventListener('pointerup', function () {
+      if (!drag) return;
+      drag = null;
+      if (dragged) { track.classList.remove('is-dragging'); go(current()); }
+    });
+    track.addEventListener('click', function (e) {
+      if (dragged) { e.preventDefault(); e.stopPropagation(); dragged = false; }
+    }, true);
+    track.addEventListener('dragstart', function (e) { e.preventDefault(); });
     function go(i) {
       i = Math.max(0, Math.min(items.length - 1, i));
       track.scrollTo({ left: items[i].offsetLeft - items[0].offsetLeft, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
@@ -1122,8 +1313,8 @@
     });
     var t = null;
     track.addEventListener('scroll', function () { clearTimeout(t); t = setTimeout(update, 60); }, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+    window.addEventListener('resize', function () { update(); paintBar(); });
+    update(); paintBar();
   });
 
   /* ---------- Photo lightbox ----------
@@ -1176,6 +1367,20 @@
     box.addEventListener('close', function () { opens[at].focus({ preventScroll: true }); });
   })();
 
+  /* ---------- Film posters, fetched as their film approaches ----------
+     A video's poster downloads with the page wherever the film sits, so films further
+     down hold theirs in data-poster until they come within reach of the screen. */
+  (function () {
+    var vids = Array.prototype.slice.call(document.querySelectorAll('video[data-poster]'));
+    if (!vids.length) return;
+    function give(v) { if (!v.getAttribute('poster')) v.setAttribute('poster', v.dataset.poster); }
+    if (!('IntersectionObserver' in window)) { vids.forEach(give); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { give(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '1000px 0px' });
+    vids.forEach(function (v) { io.observe(v); });
+  })();
+
   /* ---------- Screening room (homepage films) ----------
      One screen and an index of three films. On a desktop with motion allowed the films
      play silently in turn while the screen is in view, each for up to nine seconds, the
@@ -1184,9 +1389,7 @@
      plays the current film from the start with sound and its own controls; the silent run
      waits until it ends. Phones, reduced motion or data saving: nothing plays or
      downloads until asked, and the index simply changes the film. */
-  (function () {
-    var screen = document.querySelector('[data-screen]');
-    if (!screen) return;
+  document.querySelectorAll('[data-screen]').forEach(function (screen) {
     var films = Array.prototype.slice.call(screen.querySelectorAll('.screen__film'));
     var picks = Array.prototype.slice.call(screen.querySelectorAll('.screen__pick'));
     var glows = Array.prototype.slice.call(screen.querySelectorAll('.screen__glows img'));
@@ -1265,6 +1468,7 @@
       clearTimeout(resume);
       var v = vid(at);
       stop(at);
+      document.querySelectorAll('video').forEach(function (other) { if (!screen.contains(other)) other.pause(); });
       load(v);
       chosen = true;
       screen.classList.add('is-playing');
@@ -1285,7 +1489,7 @@
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) { if (!chosen) stop(-1); } else silent();
     });
-  })();
+  });
 
   /* ---------- Site clips ----------
      Every clip: loads only near the screen; pressing play starts it from the top

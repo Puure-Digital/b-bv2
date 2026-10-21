@@ -3,7 +3,8 @@
 <head>
 
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="images/shared/favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/shared/favicon-96.png">
+  <link rel="apple-touch-icon" href="images/shared/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#141210">
   <title>Trex Railing &amp; Ellumière Lighting | Beams &amp; Braces</title>
@@ -59,11 +60,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="images/opt/carmel-03395-1280.webp" imagesrcset="images/opt/carmel-03395-640.webp 640w, images/opt/carmel-03395-1280.webp 1280w, images/opt/carmel-03395-2048.webp 2048w" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=194" />
+  <link rel="stylesheet" href="site.css?v=207" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
-<body class="page--solid">
+<body>
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -110,96 +112,98 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" class="lay-photos">
 
     <section class="page-hero page-hero--dusk" aria-labelledby="page-heading">
-      <div class="dusk__stage">
-      <div class="dusk__sky" aria-hidden="true">
-        <span class="dusk__night"></span>
-        <span class="dusk__glow"></span>
+      <div class="hero__media">
+        <img class="dusk__day" src="images/opt/carmel-03395-1280.webp" srcset="images/opt/carmel-03395-640.webp 640w, images/opt/carmel-03395-1280.webp 1280w, images/opt/carmel-03395-2048.webp 2048w" sizes="100vw" alt="A curved, raised Trex Transcend Lineage deck in Carmel with outdoor sofas, set into a planted garden" width="2048" height="1368" fetchpriority="high">
+        <img class="dusk__dark" data-src="images/opt/carmel-03395-ai-night-off-1280.webp" data-srcset="images/opt/carmel-03395-ai-night-off-640.webp 640w, images/opt/carmel-03395-ai-night-off-1280.webp 1280w, images/opt/carmel-03395-ai-night-off-2048.webp 2048w" sizes="100vw" alt="" width="2048" height="1368" decoding="async">
+        <img class="dusk__lit" data-src="images/opt/carmel-03395-ai-night-on-1280.webp" data-srcset="images/opt/carmel-03395-ai-night-on-640.webp 640w, images/opt/carmel-03395-ai-night-on-1280.webp 1280w, images/opt/carmel-03395-ai-night-on-2048.webp 2048w" sizes="100vw" alt="" width="2048" height="1368" decoding="async">
       </div>
       <div class="hero__content wrap">
         <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><span aria-current="page">Railing &amp; Lighting</span></li></ol></nav>
         <h1 class="hero__title" id="page-heading">The details that make it feel <em>finished.</em></h1>
         <p class="hero__lead">A deck is only half the picture. Railing shapes how a space feels, and lighting decides whether you're still out there after the sun's gone down. Both are part of how I plan a deck from the start, not something bolted on at the end.</p>
         <div class="hero__actions"><a class="button button--brass" href="contact.html">Let's Chat</a><a class="link link--light" href="#railing">See railing and lighting</a></div>
-      </div>
+        <p class="dusk__note">Transcend Lineage in Carmel, built with @wirraldeckingcompany. <span class="dusk__ai">Night view AI-generated.</span></p>
       </div>
     </section>
-    <section class="section" id="railing" aria-labelledby="railing-heading">
-      <div class="wrap split split--matched">
-        <figure class="split__media"><img src="images/opt/darren-gooch-1-1152.webp" srcset="images/opt/darren-gooch-1-640.webp 640w, images/opt/darren-gooch-1-1152.webp 1152w" sizes="(min-width: 961px) 42vw, 100vw" alt="Darren Gooch on site, carrying boxes of Trex Signature railing over his shoulder" width="1152" height="2048" loading="lazy" style="object-position: 50% 32%"></figure>
-        <div>
+    <section class="rl-spread" id="railing" aria-labelledby="railing-heading">
+      <div class="rl-spread__grid wrap">
+        <figure class="rl-spread__media"><img src="images/opt/darren-gooch-1-1152.webp" srcset="images/opt/darren-gooch-1-640.webp 640w, images/opt/darren-gooch-1-1024.webp 1024w, images/opt/darren-gooch-1-1152.webp 1152w" sizes="(min-width: 961px) 45vw, 100vw" alt="Darren Gooch on site, carrying boxes of Trex Signature railing over his shoulder" width="1152" height="2048" loading="lazy"></figure>
+        <div class="rl-spread__body">
           <h2 class="heading" id="railing-heading">Trex Signature railing. Part of the deck, not an <em>add-on.</em></h2>
-          <p class="split__text">Railing comes up on almost every raised deck I build. It's the first thing you see, and it decides whether a deck looks finished or half-done. As a TrexPRO Platinum installer, I fit Trex Signature aluminium railing, the same brand as the decking, so the whole thing reads as one considered space rather than a deck with a rail bolted on.</p>
-          <ul class="features">
+          <p class="rl-lead">Railing comes up on almost every raised deck I build. It's the first thing you see, and it decides whether a deck looks finished or half-done. As a TrexPRO Platinum installer, I fit Trex Signature aluminium railing, the same brand as the decking, so the whole thing reads as one considered space rather than a deck with a rail bolted on.</p>
+          <ul class="features rl-points">
             <li><h3>Same brand as the boards</h3><p>Trex railing on a Trex deck, so the rail and the boards read as one piece.</p></li>
             <li><h3>Balusters or glass</h3><p>Square aluminium balusters or glass panels, with matching aluminium gates.</p></li>
             <li><h3>Two matte finishes</h3><p>Charcoal Black or Classic White. Glass railing comes in Charcoal Black.</p></li>
             <li><h3>Built to last</h3><p>Powder-coated aluminium that resists fading and corrosion, backed by Trex's 50-year Limited Warranty.</p></li>
           </ul>
+          <div class="detail rl-options">
+            <div class="detail__head">
+              <h3 class="detail__title">The <em>options.</em></h3>
+              <div>
+                <p class="detail__lead">Signature comes in more than one form. These are the ones to choose between.</p>
+                <p class="trexmark"><img src="images/shared/trex-logo-oval.webp" alt="Trex" width="309" height="161" loading="lazy"><span>TrexPRO Platinum installer since 2016</span></p>
+              </div>
+            </div>
+            <ul class="bp optrow optrow--pair" aria-label="Railing options">
+              <li class="optrow__item"><svg class="bp__svg optrow__icon" viewBox="0 0 120 100" aria-hidden="true"><g class="bp__layer" style="--d:0ms"><rect pathLength="1" x="8" y="12" width="7" height="76"/><rect pathLength="1" x="105" y="12" width="7" height="76"/><rect pathLength="1" x="15" y="18" width="90" height="5"/><rect pathLength="1" x="15" y="78" width="90" height="4"/><rect pathLength="1" x="24" y="23" width="5" height="55"/><rect pathLength="1" x="37" y="23" width="5" height="55"/><rect pathLength="1" x="50" y="23" width="5" height="55"/><rect pathLength="1" x="63" y="23" width="5" height="55"/><rect pathLength="1" x="76" y="23" width="5" height="55"/><rect pathLength="1" x="89" y="23" width="5" height="55"/><rect pathLength="1" x="102" y="23" width="5" height="55"/></g></svg><span class="optrow__label">Square balusters</span></li>
+              <li class="optrow__item"><svg class="bp__svg optrow__icon" viewBox="0 0 120 100" aria-hidden="true"><g class="bp__layer" style="--d:300ms"><rect pathLength="1" x="8" y="12" width="7" height="76"/><rect pathLength="1" x="105" y="12" width="7" height="76"/><rect pathLength="1" x="15" y="18" width="90" height="5"/><rect pathLength="1" x="15" y="78" width="90" height="4"/><rect pathLength="1" x="22" y="30" width="76" height="42"/><path pathLength="1" d="M34 64 L50 38 M44 66 L58 44"/></g></svg><span class="optrow__label">Glass panels</span></li>
+            </ul>
+            <dl class="detail__spec">
+              <div><dt>Material</dt><dd>Powder-coated aluminium that resists fading and corrosion</dd></div>
+              <div><dt>Finishes</dt><dd>Charcoal Black or Classic White, both matte. Glass railing in Charcoal Black</dd></div>
+              <div><dt>Gates</dt><dd>Matching aluminium gates</dd></div>
+              <div><dt>Warranty</dt><dd>Trex 50-year Limited Warranty</dd></div>
+            </dl>
+            <a class="link detail__ext" href="https://uk.trex.com/products/railing/signature/" target="_blank" rel="noopener noreferrer">See Trex Signature railing on Trex UK<span class="visually-hidden"> (opens in a new tab)</span></a>
+          </div>
         </div>
       </div>
-        <div class="detail wrap">
-          <div class="detail__head">
-            <h3 class="detail__title">The <em>options.</em></h3>
-            <div>
-              <p class="detail__lead">Signature comes in more than one form. These are the ones to choose between.</p>
-              <p class="trexmark"><img src="images/shared/trex-logo-oval.webp" alt="Trex" width="309" height="161" loading="lazy"><span>TrexPRO Platinum installer since 2016</span></p>
-            </div>
-          </div>
-          <ul class="bp optrow optrow--pair" aria-label="Railing options">
-            <li class="optrow__item"><svg class="bp__svg optrow__icon" viewBox="0 0 120 100" aria-hidden="true"><g class="bp__layer" style="--d:0ms"><rect pathLength="1" x="8" y="12" width="7" height="76"/><rect pathLength="1" x="105" y="12" width="7" height="76"/><rect pathLength="1" x="15" y="18" width="90" height="5"/><rect pathLength="1" x="15" y="78" width="90" height="4"/><rect pathLength="1" x="24" y="23" width="5" height="55"/><rect pathLength="1" x="37" y="23" width="5" height="55"/><rect pathLength="1" x="50" y="23" width="5" height="55"/><rect pathLength="1" x="63" y="23" width="5" height="55"/><rect pathLength="1" x="76" y="23" width="5" height="55"/><rect pathLength="1" x="89" y="23" width="5" height="55"/><rect pathLength="1" x="102" y="23" width="5" height="55"/></g></svg><span class="optrow__label">Square balusters</span></li>
-            <li class="optrow__item"><svg class="bp__svg optrow__icon" viewBox="0 0 120 100" aria-hidden="true"><g class="bp__layer" style="--d:300ms"><rect pathLength="1" x="8" y="12" width="7" height="76"/><rect pathLength="1" x="105" y="12" width="7" height="76"/><rect pathLength="1" x="15" y="18" width="90" height="5"/><rect pathLength="1" x="15" y="78" width="90" height="4"/><rect pathLength="1" x="22" y="30" width="76" height="42"/><path pathLength="1" d="M34 64 L50 38 M44 66 L58 44"/></g></svg><span class="optrow__label">Glass panels</span></li>
-          </ul>
-          <dl class="detail__spec">
-            <div><dt>Material</dt><dd>Powder-coated aluminium that resists fading and corrosion</dd></div>
-            <div><dt>Finishes</dt><dd>Charcoal Black or Classic White, both matte. Glass railing in Charcoal Black</dd></div>
-            <div><dt>Gates</dt><dd>Matching aluminium gates</dd></div>
-            <div><dt>Warranty</dt><dd>Trex 50-year Limited Warranty</dd></div>
-          </dl>
-          <a class="link detail__ext" href="https://uk.trex.com/products/railing/signature/" target="_blank" rel="noopener noreferrer">See Trex Signature railing on Trex UK<span class="visually-hidden"> (opens in a new tab)</span></a>
-        </div>
     </section>
-    <section class="section section--dark" aria-labelledby="fitted-heading">
+    <section class="section section--linen rl-fitted" aria-labelledby="fitted-heading">
       <div class="wrap">
-        <div class="section-head"><h2 class="heading heading--light" id="fitted-heading">Railing I've <em>fitted.</em></h2><p class="section-head__text">Balusters and glass on real decks, many of them by the water. Tap any photo to see it larger; on a phone, swipe through them.</p></div>
-        <div class="shots shots--carousel" id="fitted-shots" role="group" aria-label="Railing photos" tabindex="0">
-          <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-7-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/railing-7-1280.webp" srcset="images/opt/railing-7-640.webp 640w, images/opt/railing-7-1280.webp 1280w, images/opt/railing-7-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="A grey deck with black railing and a gate, looking out to the water" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/railing-3-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-3-1152.webp" srcset="images/opt/railing-3-640.webp 640w, images/opt/railing-3-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Close-up of a black railing post and balusters on a grey deck" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/railing-5-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-5-1152.webp" srcset="images/opt/railing-5-640.webp 640w, images/opt/railing-5-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Black railing along a brown deck beside the water, a pergola behind" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-9-2048.webp" data-w="2048" data-h="1536"><img src="images/opt/railing-9-1280.webp" srcset="images/opt/railing-9-640.webp 640w, images/opt/railing-9-1280.webp 1280w, images/opt/railing-9-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Black-framed glass railing on a deck, looking out over a lake" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-8-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/railing-8-1280.webp" srcset="images/opt/railing-8-640.webp 640w, images/opt/railing-8-1280.webp 1280w, images/opt/railing-8-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Looking down on a grey deck with black railing and steps to the lawn" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/railing-6-1152.webp" data-w="1179" data-h="1572"><img src="images/opt/railing-6-1152.webp" srcset="images/opt/railing-6-640.webp 640w, images/opt/railing-6-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="A glass balustrade with stainless steel posts on a brown deck, a boat moored beyond at sunset" width="1179" height="1572" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/curved-decking-1-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/curved-decking-1-1152.webp" srcset="images/opt/curved-decking-1-640.webp 640w, images/opt/curved-decking-1-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Black railing following the curved edge of a composite deck" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/railing-4-1179.webp" data-w="1179" data-h="1122"><img src="images/opt/railing-4-1179.webp" srcset="images/opt/railing-4-640.webp 640w, images/opt/railing-4-1179.webp 1179w" sizes="(max-width: 720px) 100vw, 66vw" alt="A holiday lodge with a raised grey deck and black railing" width="1179" height="1122" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/railing-1-2048.webp" data-w="2048" data-h="1536"><img src="images/opt/railing-1-1280.webp" srcset="images/opt/railing-1-640.webp 640w, images/opt/railing-1-1280.webp 1280w, images/opt/railing-1-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing along a grey composite deck, trees behind" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/railing-2-1440.webp" data-w="1440" data-h="1077"><img src="images/opt/railing-2-1280.webp" srcset="images/opt/railing-2-640.webp 640w, images/opt/railing-2-1280.webp 1280w, images/opt/railing-2-1440.webp 1440w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing around a grey deck, woodland beyond" width="1440" height="1077" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/enhance-lodge-1-2048.webp?v=2" data-w="2048" data-h="1536"><img src="images/opt/enhance-lodge-1-1280.webp?v=2" srcset="images/opt/enhance-lodge-1-640.webp?v=2 640w, images/opt/enhance-lodge-1-1280.webp?v=2 1280w" sizes="(max-width: 720px) 86vw, 50vw" alt="White Trex Signature railing and white fascia on a Trex Enhance deck in Toasted Sand at a holiday lodge" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-          <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/enhance-lodge-2-1170.webp" data-w="1170" data-h="617"><img src="images/opt/enhance-lodge-2-1170.webp" srcset="images/opt/enhance-lodge-2-640.webp 640w, images/opt/enhance-lodge-2-1170.webp 1170w" sizes="(max-width: 720px) 86vw, 50vw" alt="White Trex Signature railing around a Trex Enhance deck in Toasted Sand, steps down to the lawn" width="1170" height="617" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+        <div class="section-head"><h2 class="heading" id="fitted-heading">Railing I've <em>fitted.</em></h2><p class="section-head__text">Balusters and glass on real decks, many of them by the water. Tap any photo to see it larger; on a phone, swipe through them.</p></div>
+        <div class="shots shots--carousel filmstrip" id="fitted-shots" role="group" aria-label="Railing photos" tabindex="0">
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-7-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/railing-7-1280.webp" srcset="images/opt/railing-7-640.webp 640w, images/opt/railing-7-1024.webp 1024w, images/opt/railing-7-1280.webp 1280w, images/opt/railing-7-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="A grey deck with black railing and a gate, looking out to the water" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-3-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-3-1152.webp" srcset="images/opt/railing-3-640.webp 640w, images/opt/railing-3-1024.webp 1024w, images/opt/railing-3-1152.webp 1152w" sizes="(max-width: 720px) 55vw, 47vh" alt="Close-up of a black railing post and balusters on a grey deck" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-5-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/railing-5-1152.webp" srcset="images/opt/railing-5-640.webp 640w, images/opt/railing-5-1024.webp 1024w, images/opt/railing-5-1152.webp 1152w" sizes="(max-width: 720px) 55vw, 47vh" alt="Black railing along a brown deck beside the water, a pergola behind" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-9-2048.webp" data-w="2048" data-h="1536"><img src="images/opt/railing-9-1280.webp" srcset="images/opt/railing-9-640.webp 640w, images/opt/railing-9-1024.webp 1024w, images/opt/railing-9-1280.webp 1280w, images/opt/railing-9-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Black-framed glass railing on a deck, looking out over a lake" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-8-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/railing-8-1280.webp" srcset="images/opt/railing-8-640.webp 640w, images/opt/railing-8-1024.webp 1024w, images/opt/railing-8-1280.webp 1280w, images/opt/railing-8-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Looking down on a grey deck with black railing and steps to the lawn" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-6-1152.webp" data-w="1179" data-h="1572"><img src="images/opt/railing-6-1152.webp" srcset="images/opt/railing-6-640.webp 640w, images/opt/railing-6-1024.webp 1024w, images/opt/railing-6-1152.webp 1152w" sizes="(max-width: 720px) 55vw, 47vh" alt="A glass balustrade with stainless steel posts on a brown deck, a boat moored beyond at sunset" width="1179" height="1572" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/curved-decking-1-1152.webp" data-w="1536" data-h="2048"><img src="images/opt/curved-decking-1-1152.webp" srcset="images/opt/curved-decking-1-640.webp 640w, images/opt/curved-decking-1-1024.webp 1024w, images/opt/curved-decking-1-1152.webp 1152w" sizes="(max-width: 720px) 55vw, 47vh" alt="Black railing following the curved edge of a composite deck" width="1536" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-4-1179.webp" data-w="1179" data-h="1122"><img src="images/opt/railing-4-1179.webp" srcset="images/opt/railing-4-640.webp 640w, images/opt/railing-4-1024.webp 1024w, images/opt/railing-4-1179.webp 1179w" sizes="(max-width: 720px) 76vw, 65vh" alt="A holiday lodge with a raised grey deck and black railing" width="1179" height="1122" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-1-2048.webp" data-w="2048" data-h="1536"><img src="images/opt/railing-1-1280.webp" srcset="images/opt/railing-1-640.webp 640w, images/opt/railing-1-1024.webp 1024w, images/opt/railing-1-1280.webp 1280w, images/opt/railing-1-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing along a grey composite deck, trees behind" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/railing-2-1440.webp" data-w="1440" data-h="1077"><img src="images/opt/railing-2-1280.webp" srcset="images/opt/railing-2-640.webp 640w, images/opt/railing-2-1024.webp 1024w, images/opt/railing-2-1280.webp 1280w, images/opt/railing-2-1440.webp 1440w" sizes="(max-width: 720px) 100vw, 50vw" alt="Black railing around a grey deck, woodland beyond" width="1440" height="1077" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/enhance-lodge-1-2048.webp?v=2" data-w="2048" data-h="1536"><img src="images/opt/enhance-lodge-1-1280.webp?v=2" srcset="images/opt/enhance-lodge-1-640.webp?v=2 640w, images/opt/enhance-lodge-1-1024.webp?v=2 1024w, images/opt/enhance-lodge-1-1280.webp?v=2 1280w" sizes="(max-width: 720px) 86vw, 50vw" alt="White Trex Signature railing and white fascia on a Trex Enhance deck in Toasted Sand at a holiday lodge" width="2048" height="1536" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+          <figure class="shot"><button class="shot__open" type="button" data-full="images/opt/enhance-lodge-2-1170.webp" data-w="1170" data-h="617"><img src="images/opt/enhance-lodge-2-1170.webp" srcset="images/opt/enhance-lodge-2-640.webp 640w, images/opt/enhance-lodge-2-1024.webp 1024w, images/opt/enhance-lodge-2-1170.webp 1170w" sizes="(max-width: 720px) 86vw, 50vw" alt="White Trex Signature railing around a Trex Enhance deck in Toasted Sand, steps down to the lawn" width="1170" height="617" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
         </div>
         <div class="carousel__controls">
           <button class="reviews__btn carousel__prev" type="button" aria-controls="fitted-shots" aria-label="Previous photo"><svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M23 6H1M6 1L1 6l5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
-          <p class="carousel__count" aria-live="polite"><span class="carousel__index">1</span> / <span class="carousel__total">10</span></p>
+          <p class="carousel__count" aria-live="polite"><span class="carousel__index">1</span> / <span class="carousel__total">12</span></p>
           <button class="reviews__btn carousel__next" type="button" aria-controls="fitted-shots" aria-label="Next photo"><svg viewBox="0 0 24 12" width="24" height="12" aria-hidden="true"><path d="M1 6h22M18 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+          <span class="carousel__bar" aria-hidden="true"><span></span></span>
         </div>
       </div>
     </section>
-    <section class="section section--linen" id="lighting" aria-labelledby="lighting-heading">
-      <div class="wrap split split--reverse split--matched">
-        <figure class="split__media"><img src="images/opt/ellumiere-banner-1370.webp" srcset="images/opt/ellumiere-banner-640.webp 640w, images/opt/ellumiere-banner-1370.webp 1370w" sizes="(min-width: 961px) 42vw, 100vw" alt="Ellumière spotlights uplighting three shrubs against a timber fence at night" width="1370" height="914" loading="lazy" decoding="async"><figcaption class="split__credit">Ellumière product photo</figcaption></figure>
-        <div>
-          <h2 class="heading" id="lighting-heading">Ellumière deck lighting. What happens after <em>dark.</em></h2>
-          <p class="split__text">I fit Ellumière lighting, supplied through Birkdale, mostly spotlights set into step edges, posts and balustrades, planned in with the deck so it looks like part of the build.</p>
-          <ul class="features">
-            <li><h3>Spotlights, deck lights and bollards</h3><p>Small and large spotlights, deck lights set into the boards and bollard lights, in black or stainless steel.</p></li>
-            <li><h3>Low voltage</h3><p>One outdoor transformer takes 240V mains down to 12V for the whole run of lights.</p></li>
-            <li><h3>Warm white</h3><p>Warm white bulbs: soft light for evenings outside, not a security-light glare.</p></li>
-            <li><h3>Part of the plan</h3><p>Steps, posts and the deck edge worked out with the design, not added once it's built.</p></li>
-          </ul>
+    <section class="rl-night" id="lighting" aria-labelledby="lighting-heading">
+      <div class="rl-night__stage">
+        <figure class="rl-night__plate"><img src="images/opt/ellumiere-banner-1370.webp" srcset="images/opt/ellumiere-banner-640.webp 640w, images/opt/ellumiere-banner-1370.webp 1370w" sizes="100vw" alt="Ellumière spotlights uplighting three shrubs against a timber fence at night" width="1370" height="914" loading="lazy" decoding="async"><figcaption class="rl-night__credit">Ellumière product photo</figcaption></figure>
+        <div class="rl-night__intro wrap">
+          <h2 class="heading heading--light" id="lighting-heading">Ellumière deck lighting. What happens after <em>dark.</em></h2>
+          <p class="rl-lead">I fit Ellumière lighting, supplied through Birkdale, mostly spotlights set into step edges, posts and balustrades, planned in with the deck so it looks like part of the build.</p>
         </div>
       </div>
-        <div class="detail wrap">
+      <div class="wrap">
+        <ul class="features rl-points">
+          <li><h3>Spotlights, deck lights and bollards</h3><p>Small and large spotlights, deck lights set into the boards and bollard lights, in black or stainless steel.</p></li>
+          <li><h3>Low voltage</h3><p>One outdoor transformer takes 240V mains down to 12V for the whole run of lights.</p></li>
+          <li><h3>Warm white</h3><p>Warm white bulbs: soft light for evenings outside, not a security-light glare.</p></li>
+          <li><h3>Part of the plan</h3><p>Steps, posts and the deck edge worked out with the design, not added once it's built.</p></li>
+        </ul>
+        <div class="detail rl-parts">
           <div class="detail__head">
             <h3 class="detail__title">The <em>parts.</em></h3>
             <p class="detail__lead">The lights run off a 12V cable from an outdoor transformer, joined with T-piece connectors, so the layout is planned as one circuit.</p>
@@ -219,6 +223,7 @@
           </dl>
           <a class="link detail__ext" href="https://www.birkdalesales.com/collections/all-ellumiere" target="_blank" rel="noopener noreferrer">See the full Ellumière range at Birkdale<span class="visually-hidden"> (opens in a new tab)</span></a>
         </div>
+      </div>
     </section>
     <section class="section section--dark standard" aria-labelledby="standard-heading">
       <div class="wrap">
@@ -234,7 +239,7 @@
         <a class="link link--light standard__link" href="trex.html#process">How I work, from first chat to handover</a>
       </div>
     </section>
-    <section class="section" aria-labelledby="faq-heading">
+    <section class="section rl-faq" aria-labelledby="faq-heading">
       <div class="wrap">
         <div class="section-head"><h2 class="heading" id="faq-heading">Questions about railing and lighting.</h2></div>
         <div class="faq">
@@ -267,7 +272,10 @@
         </ul>
       </div>
     </section>
-    <section class="close" aria-labelledby="close-heading">
+    <section class="close rl-close" aria-labelledby="close-heading">
+      <div class="close__media">
+        <img src="images/opt/railing-6-1152.webp" srcset="images/opt/railing-6-640.webp 640w, images/opt/railing-6-1024.webp 1024w, images/opt/railing-6-1152.webp 1152w" sizes="(min-width: 961px) 70vw, 100vw" alt="" width="1179" height="1572" loading="lazy" decoding="async">
+      </div>
       <div class="close__body wrap">
         <h2 class="close__title" id="close-heading">Want railing or lighting worked into the <em>plan?</em></h2>
         <p class="close__text">Tell me what you're picturing and I'll plan it in with the deck from the start.</p>
@@ -325,9 +333,8 @@
         <a href="terms.html">Terms</a>
       </p>
     </div>
-    <p class="footer__mark" aria-hidden="true">Beams <em>&amp;</em> Braces</p>
   </footer>
 
-  <script src="site.js?v=95" defer></script>
+  <script src="site.js?v=103" defer></script>
 </body>
 </html>

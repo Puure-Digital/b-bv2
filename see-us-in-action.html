@@ -3,7 +3,8 @@
 <head>
 
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="images/shared/favicon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="images/shared/favicon-96.png">
+  <link rel="apple-touch-icon" href="images/shared/apple-touch-icon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#141210">
   <title>See Us in Action | Beams &amp; Braces</title>
@@ -40,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet" />
   <link rel="preload" href="fonts/CormorantGaramond-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="site.css?v=194" />
+  <link rel="stylesheet" href="site.css?v=207" />
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="page--solid">
@@ -90,71 +91,69 @@
     </div>
   </header>
 
-  <main id="main-content">
+  <main id="main-content" class="lay-photos">
 
     <section class="reel reel--page" aria-labelledby="page-heading">
       <div class="wrap">
         <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Home</a></li><li><a href="work.html">Our Work</a></li><li><span aria-current="page">See us in action</span></li></ol></nav>
         <h1 class="page-title page-title--light" id="page-heading">See us in <em>action.</em></h1>
         <p class="reel__sub">Drone flights over finished decks, and footage from the build itself. Tap any film to watch it with sound.</p>
-        <ul class="reel__grid">
-          <li class="clip clip--feature">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="clip-1" data-src="videos/web/landscape1-1280.mp4?v=3" poster="videos/web/landscape1-poster.webp?v=2" width="1280" height="720" preload="none" playsinline muted loop aria-label="A deck wrapped round the pool, 0:18 video"></video>
-                <button class="clip__play" type="button" aria-controls="clip-1"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: A deck wrapped round the pool</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:18</p><h2 class="clip__title">A deck wrapped round the pool.</h2></figcaption>
+        <div class="screen screen--page" data-screen>
+          <div class="screen__room">
+            <div class="screen__glows" aria-hidden="true">
+              <img class="is-active" src="videos/web/landscape1-poster.webp?v=2" alt="" width="1280" height="720" decoding="async">
+              <img src="videos/web/portrait1-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+              <img src="videos/web/posts-to-boards-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+            </div>
+            <div class="screen__stage">
+              <div class="screen__film is-active" data-shape="wide">
+                <img class="screen__fill" src="videos/web/landscape1-poster.webp?v=2" alt="" width="1280" height="720" decoding="async">
+                <video class="screen__video" id="clip-1" data-src="videos/web/landscape1-1280.mp4?v=3" poster="videos/web/landscape1-poster.webp?v=2" width="1280" height="720" preload="none" playsinline muted aria-label="A deck wrapped round the pool, 0:18 video"></video>
               </div>
-            </figure>
-          </li>
-          <li class="clip">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="clip-2" data-src="videos/web/portrait1-720.mp4?v=3" poster="videos/web/portrait1-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="From straight above, 0:15 video"></video>
-                <button class="clip__play" type="button" aria-controls="clip-2"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: From straight above</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Drone · 0:15</p><h2 class="clip__title">From straight above.</h2></figcaption>
+              <div class="screen__film" data-shape="tall">
+                <img class="screen__fill" src="videos/web/portrait1-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                <video class="screen__video" id="clip-2" data-src="videos/web/portrait1-720.mp4?v=3" data-poster="videos/web/portrait1-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted aria-label="From straight above, 0:15 video"></video>
               </div>
-            </figure>
-          </li>
-          <li class="clip">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="clip-3" data-src="videos/web/posts-to-boards-720.mp4?v=3" poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="The build, as it happens, 0:29 video"></video>
-                <button class="clip__play" type="button" aria-controls="clip-3"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: The build, as it happens</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Build · 0:29</p><h2 class="clip__title">The build, as it happens.</h2></figcaption>
+              <div class="screen__film" data-shape="tall">
+                <img class="screen__fill" src="videos/web/posts-to-boards-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                <video class="screen__video" id="clip-3" data-src="videos/web/posts-to-boards-720.mp4?v=3" data-poster="videos/web/posts-to-boards-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted aria-label="The build, as it happens, 0:29 video"></video>
               </div>
-            </figure>
-          </li>
-        </ul>
+              <button class="screen__sound" type="button" aria-controls="clip-1"><span class="screen__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: <span class="screen__now">A deck wrapped round the pool.</span></span></button>
+            </div>
+          </div>
+          <ol class="screen__index" data-count="3">
+            <li><button class="screen__pick is-active" type="button" aria-controls="clip-1" aria-pressed="true"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Drone · 0:18</span><span class="screen__title">A deck wrapped round the pool.</span></button></li>
+            <li><button class="screen__pick" type="button" aria-controls="clip-2" aria-pressed="false"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Drone · 0:15</span><span class="screen__title">From straight above.</span></button></li>
+            <li><button class="screen__pick" type="button" aria-controls="clip-3" aria-pressed="false"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Build · 0:29</span><span class="screen__title">The build, as it happens.</span></button></li>
+          </ol>
+        </div>
         <div class="reel__more">
           <h2 class="reel__heading" id="durapost-heading">Fitting <em>DuraPost.</em></h2>
           <p class="reel__sub">Darren on camera for DuraPost: aluminium fence posts and panels, and screening on a raised deck.</p>
         </div>
-        <ul class="reel__grid reel__grid--pair" aria-labelledby="durapost-heading">
-          <li class="clip clip--feature">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="clip-4" data-src="videos/web/durapost-fitting-1280.mp4?v=3" poster="videos/web/durapost-fitting-poster.webp?v=2" width="1280" height="576" preload="none" playsinline muted loop aria-label="Fitting DuraPost fencing, 0:57 video"></video>
-                <button class="clip__play" type="button" aria-controls="clip-4"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: Fitting DuraPost fencing</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Fencing · 0:57</p><h3 class="clip__title">Fitting DuraPost fencing.</h3></figcaption>
+        <div class="screen screen--page" data-screen role="group" aria-labelledby="durapost-heading">
+          <div class="screen__room">
+            <div class="screen__glows" aria-hidden="true">
+              <img class="is-active" src="videos/web/durapost-fitting-poster.webp?v=2" alt="" width="1280" height="576" loading="lazy" decoding="async">
+              <img src="videos/web/durapost-terrace-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+            </div>
+            <div class="screen__stage">
+              <div class="screen__film is-active" data-shape="wide">
+                <img class="screen__fill" src="videos/web/durapost-fitting-poster.webp?v=2" alt="" width="1280" height="576" loading="lazy" decoding="async">
+                <video class="screen__video" id="clip-4" data-src="videos/web/durapost-fitting-1280.mp4?v=3" data-poster="videos/web/durapost-fitting-poster.webp?v=2" width="1280" height="576" preload="none" playsinline muted aria-label="Fitting DuraPost fencing, 0:57 video"></video>
               </div>
-            </figure>
-          </li>
-          <li class="clip">
-            <figure>
-              <div class="clip__frame">
-                <video class="clip__video" id="clip-5" data-src="videos/web/durapost-terrace-720.mp4?v=3" poster="videos/web/durapost-terrace-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted loop aria-label="Screening a raised deck, 0:31 video"></video>
-                <button class="clip__play" type="button" aria-controls="clip-5"><span class="clip__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: Screening a raised deck</span></button>
-                <span class="clip__progress" aria-hidden="true"></span>
-              <figcaption class="clip__cap"><p class="clip__label">Screening · 0:31</p><h3 class="clip__title">Screening a raised deck.</h3></figcaption>
+              <div class="screen__film" data-shape="tall">
+                <img class="screen__fill" src="videos/web/durapost-terrace-poster.webp?v=2" alt="" width="720" height="1280" loading="lazy" decoding="async">
+                <video class="screen__video" id="clip-5" data-src="videos/web/durapost-terrace-720.mp4?v=3" data-poster="videos/web/durapost-terrace-poster.webp?v=2" width="720" height="1280" preload="none" playsinline muted aria-label="Screening a raised deck, 0:31 video"></video>
               </div>
-            </figure>
-          </li>
-        </ul>
+              <button class="screen__sound" type="button" aria-controls="clip-4"><span class="screen__ring" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="visually-hidden">Play with sound: <span class="screen__now">Fitting DuraPost fencing.</span></span></button>
+            </div>
+          </div>
+          <ol class="screen__index" data-count="2">
+            <li><button class="screen__pick is-active" type="button" aria-controls="clip-4" aria-pressed="true"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Fencing · 0:57</span><span class="screen__title">Fitting DuraPost fencing.</span></button></li>
+            <li><button class="screen__pick" type="button" aria-controls="clip-5" aria-pressed="false"><span class="screen__line" aria-hidden="true"></span><span class="clip__label">Screening · 0:31</span><span class="screen__title">Screening a raised deck.</span></button></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -162,10 +161,10 @@
       <div class="wrap">
         <div class="section-head"><h2 class="heading" id="tools-heading">On the <em>tools.</em></h2><p class="section-head__text">Darren on site: setting out, marking up and cutting.</p></div>
         <div class="shots">
-            <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/dsc01830-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01830-1280.webp" srcset="images/opt/dsc01830-640.webp 640w, images/opt/dsc01830-1280.webp 1280w, images/opt/dsc01830-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Darren walking across a building site with tools in hand" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-            <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/dsc01897-1152.webp" data-w="1153" data-h="2048"><img src="images/opt/dsc01897-1152.webp" srcset="images/opt/dsc01897-640.webp 640w, images/opt/dsc01897-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Darren in a Trex cap cutting a board on a mitre saw" width="1153" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-            <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/dsc01861-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01861-1280.webp" srcset="images/opt/dsc01861-640.webp 640w, images/opt/dsc01861-1280.webp 1280w, images/opt/dsc01861-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Darren marking a cut with a pencil" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
-            <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/dsc01869-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01869-1280.webp" srcset="images/opt/dsc01869-640.webp 640w, images/opt/dsc01869-1280.webp 1280w, images/opt/dsc01869-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Darren lining up a board on a mitre saw" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+            <figure class="shot shot--w"><button class="shot__open" type="button" data-full="images/opt/dsc01830-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01830-1280.webp" srcset="images/opt/dsc01830-640.webp 640w, images/opt/dsc01830-1024.webp 1024w, images/opt/dsc01830-1280.webp 1280w, images/opt/dsc01830-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 66vw" alt="Darren walking across a building site with tools in hand" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+            <figure class="shot shot--n"><button class="shot__open" type="button" data-full="images/opt/dsc01897-1152.webp" data-w="1153" data-h="2048"><img src="images/opt/dsc01897-1152.webp" srcset="images/opt/dsc01897-640.webp 640w, images/opt/dsc01897-1024.webp 1024w, images/opt/dsc01897-1152.webp 1152w" sizes="(max-width: 720px) 100vw, 33vw" alt="Darren in a Trex cap cutting a board on a mitre saw" width="1153" height="2048" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+            <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/dsc01861-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01861-1280.webp" srcset="images/opt/dsc01861-640.webp 640w, images/opt/dsc01861-1024.webp 1024w, images/opt/dsc01861-1280.webp 1280w, images/opt/dsc01861-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Darren marking a cut with a pencil" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
+            <figure class="shot shot--h"><button class="shot__open" type="button" data-full="images/opt/dsc01869-2048.webp" data-w="2048" data-h="1152"><img src="images/opt/dsc01869-1280.webp" srcset="images/opt/dsc01869-640.webp 640w, images/opt/dsc01869-1024.webp 1024w, images/opt/dsc01869-1280.webp 1280w, images/opt/dsc01869-2048.webp 2048w" sizes="(max-width: 720px) 100vw, 50vw" alt="Darren lining up a board on a mitre saw" width="2048" height="1152" loading="lazy" decoding="async"><span class="visually-hidden"> (enlarge)</span></button></figure>
         </div>
       </div>
     </section>
@@ -231,9 +230,8 @@
         <a href="terms.html">Terms</a>
       </p>
     </div>
-    <p class="footer__mark" aria-hidden="true">Beams <em>&amp;</em> Braces</p>
   </footer>
 
-  <script src="site.js?v=95" defer></script>
+  <script src="site.js?v=103" defer></script>
 </body>
 </html>
