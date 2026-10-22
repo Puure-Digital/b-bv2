@@ -1506,7 +1506,8 @@
         screen.classList.remove('is-playing');
         stop(-1);
         show(n);
-        silent();
+        /* with no silent run (phones), choosing a title plays that film, with sound */
+        if (auto) silent(); else sound.click();
       });
     });
     sound.addEventListener('click', function () {
@@ -1529,6 +1530,7 @@
         inView = e[0].isIntersecting;
         if (inView) { if (reel) reel.classList.add('is-lit'); silent(); }
         else if (!chosen) stop(-1);
+        else vid(at).pause(); /* a film playing with sound stops once its screen has left the page */
       }, { threshold: 0.35 }).observe(screen.querySelector('.screen__stage'));
     }
     document.addEventListener('visibilitychange', function () {
@@ -1645,6 +1647,8 @@
         }
       });
       /* a chosen film paused by its own controls simply stays paused; the sequence waits */
+      /* a film playing with sound stops once it has left the screen */
+      if (hasIO) new IntersectionObserver(function (e) { if (!e[0].isIntersecting && chosen === clip) video.pause(); }).observe(clip);
     });
   })();
 

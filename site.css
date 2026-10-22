@@ -2079,14 +2079,16 @@ html:not(.js) .dusk__ai { display: none; }
 .enquiry__frame { display: block; width: 100%; height: 760px; border: 0; border-radius: var(--radius-sm); background: transparent; }
 /* GHL hides the form while its script sets it up, which would collapse the panel and
    pull everything below it up: the panel holds the height the form settles at */
-.enquiry--ghl { min-height: 856px; }
+/* the form (with Postcode, 22 Oct 2026) settles at 856px wide, 909px in the narrower desktop
+   column and on phones, 947px at 360 wide and 981px at 320; each panel adds ~120px for padding and note */
+.enquiry--ghl { min-height: 952px; }
+@media (min-width: 961px) and (max-width: 1199px) { .enquiry--ghl { min-height: 1032px; } }
 @media (max-width: 600px) {
   .enquiry__frame { height: 808px; }
-  .enquiry--ghl { min-height: 928px; }
+  .enquiry--ghl { min-height: 1032px; }
 }
-/* the form settles taller on the narrowest phones (845px at 360 wide, 879px at 320) */
-@media (max-width: 370px) { .enquiry--ghl { min-height: 968px; } }
-@media (max-width: 340px) { .enquiry--ghl { min-height: 1000px; } }
+@media (max-width: 370px) { .enquiry--ghl { min-height: 1072px; } }
+@media (max-width: 340px) { .enquiry--ghl { min-height: 1104px; } }
 /* GHL measures the form again once its own fonts arrive and resizes the frame, so the note is
    pinned to the foot of the reserved panel: the frame can change height above it without
    moving the note or anything below the panel */
@@ -2488,6 +2490,17 @@ html:not(.js) .dusk__ai { display: none; }
   text-wrap: balance;
 }
 .screen__pick:focus-visible { outline: 1px solid var(--color-accent); outline-offset: 4px; }
+/* each title wears a small play ring so it reads as a film to choose; the one on the screen fills brass */
+.screen__pick { padding-right: calc(36px + var(--sp-4)); }
+.screen__pick::before, .screen__pick::after { content: ''; position: absolute; top: 50%; pointer-events: none; }
+.screen__pick::after {
+  right: 0; width: 36px; height: 36px; margin-top: -18px; border-radius: 50%;
+  border: 1px solid color-mix(in srgb, currentColor 45%, transparent);
+  transition: border-color 400ms var(--ease-std), background-color 400ms var(--ease-std);
+}
+.screen__pick::before { right: 12px; z-index: 1; width: 10px; height: 12px; margin-top: -6px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.screen__pick.is-active::after { border-color: var(--color-accent); background: var(--color-accent); }
+.screen__pick.is-active::before { background: var(--color-ink); }
 
 /* the screen opens as it arrives, like curtains drawing back */
 @supports (animation-timeline: view()) {

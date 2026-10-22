@@ -114,7 +114,7 @@ Confirmed by Cassian. Only name a range or colour on a photo listed here.
 
 `contact.html` has two live paths:
 
-1. **WhatsApp**: a direct link to `https://wa.me/447983531860`, styled as the primary CTA ("Message Me on WhatsApp").
+1. **WhatsApp**: a direct link to `https://wa.me/447983531860`, styled as the primary CTA ("Message Me on WhatsApp"). Every link (25 across the pages) opens with a message already written: "Hi Darren, I'm interested in a new deck and would love to have a chat about my garden." (added 22 Oct 2026 at Cassian's request; URL-encoded in `?text=`).
 2. **A GoHighLevel-hosted form** (since 19 Oct 2026), embedded as an iframe: `https://api.leadconnectorhq.com/widget/form/ivjDr4goHqgVvI8ivPz0`, resized by `https://link.msgsndr.com/js/form_embed.js`. Fields: first name, last name, phone, email, range considered. Its look, button text and on-submit redirect are set inside GHL, not in this repo. It replaced the old custom two-step form that POSTed to a GHL webhook.
 
 Still to do in GHL (outside this repo): the new-enquiry automation, Darren's notification, and the on-submit redirect to `/thank-you`. The submit button should read "Let's Chat" (never quote framing). Testing a real submission is done by hand, never by automated tests.
@@ -150,6 +150,7 @@ Keep these when editing, or phones pay for it:
 - **Homepage film.** Frames 0-3 (the opening) load first; the long pull-back (about 2 MB on a phone) waits for a scroll, touch, key or wheel on phones, and for the page load on desktops. Data saving: the real photo as a still hero, no film.
 - **Icons.** `favicon-96.png` (5 KB) and `apple-touch-icon.png` (180px) are made from `favicon.png` (512px, 90 KB), which stays as the master and is no longer served.
 - **Brass text on the linen** (`--color-surface-2`) is `--color-accent-deep`; `--color-accent-dark` falls short of AA there (4.16:1).
+- **Films on phones**: each title in a screening room wears a small play ring (brass for the film on screen), and tapping a title plays that film with sound straight away. Any film playing with sound pauses once it has left the screen (screening rooms and the About film).
 - **Contact form panel**: the GHL frame resizes itself once its own fonts load, so the privacy note is pinned to the foot of a reserved panel (928px on phones, 968px at 370px wide and below, 1000px at 340px and below, 856px wider) and the frame changes height above it without moving anything.
 - Lighthouse mobile after this pass (simulated slow 4G): home 81, about 81, Trex 85, Signature 81, Transcend 74, Enhance 84, Our Work 77, Railing & Lighting 81, See us in action 74; accessibility 100 and no blocking time on every page. What holds the rest back is the render-blocking font stylesheet (fonts are not changed without asking). Never run Lighthouse on the contact page: it cannot stop the live GHL form posting from inside its iframe.
 
